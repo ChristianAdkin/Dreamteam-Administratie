@@ -2,6 +2,7 @@ package com.dreamteam.payd.administration.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -33,5 +34,13 @@ public class Invoice implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public BigDecimal getTotalPrice() {
+        BigDecimal totalPrice = new BigDecimal(0);
+        for (InvoiceLine invoiceLine : invoiceLines) {
+            totalPrice = totalPrice.add(invoiceLine.getPrice());
+        }
+        return totalPrice;
     }
 }

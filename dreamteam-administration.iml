@@ -64,6 +64,26 @@
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.6" level="project" />
     <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.2" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.9" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.arquillian.junit:arquillian-junit-container:1.1.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.arquillian.junit:arquillian-junit-core:1.1.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.arquillian.test:arquillian-test-api:1.1.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.arquillian.core:arquillian-core-api:1.1.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.arquillian.test:arquillian-test-spi:1.1.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.arquillian.core:arquillian-core-spi:1.1.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.arquillian.container:arquillian-container-test-api:1.1.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.shrinkwrap:shrinkwrap-api:1.2.6" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.arquillian.container:arquillian-container-test-spi:1.1.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.arquillian.container:arquillian-container-spi:1.1.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.shrinkwrap.descriptors:shrinkwrap-descriptors-api-base:2.0.0-alpha-10" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.arquillian.core:arquillian-core-impl-base:1.1.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.arquillian.test:arquillian-test-impl-base:1.1.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.arquillian.container:arquillian-container-impl-base:1.1.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.arquillian.config:arquillian-config-api:1.1.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.arquillian.config:arquillian-config-impl-base:1.1.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.shrinkwrap.descriptors:shrinkwrap-descriptors-spi:2.0.0-alpha-10" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.arquillian.container:arquillian-container-test-impl-base:1.1.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.shrinkwrap:shrinkwrap-impl-base:1.2.6" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.shrinkwrap:shrinkwrap-spi:1.2.6" level="project" />
   </component>
   <component name="sonarModuleSettings">
     <option name="alternativeWorkingDirPath" value="" />

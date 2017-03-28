@@ -5,5 +5,7 @@ import com.dreamteam.payd.administration.dao.CarDao;
 /**
  * Created by Christian Adkin on 21/03/2017.
  */
-public class CarDaoJPA implements CarDao {
+public class CarDaoJPA extends BaseDaoJPA implements CarDao {
+
+
 }

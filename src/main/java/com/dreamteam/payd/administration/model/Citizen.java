@@ -1,10 +1,10 @@
 package com.dreamteam.payd.administration.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by Christian Adkin on 21/03/2017.
@@ -17,9 +17,15 @@ public class Citizen implements Serializable {
     private Long id;
 
     private String initials;
+    @NotNull
     private String firstName;
     private String preposition;
+    @NotNull
     private String lastName;
+    @OneToMany
+    private List<Ownership> ownerships;
+    @OneToMany
+    private List<Invoice> invoices;
 
     protected Citizen() {
     }
@@ -66,5 +72,21 @@ public class Citizen implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public List<Ownership> getOwnerships() {
+        return Collections.unmodifiableList(ownerships);
+    }
+
+    public void setOwnerships(List<Ownership> ownerships) {
+        this.ownerships = ownerships;
+    }
+
+    public List<Invoice> getInvoices() {
+        return Collections.unmodifiableList(invoices);
+    }
+
+    public void setInvoices(List<Invoice> invoices) {
+        this.invoices = invoices;
     }
 }

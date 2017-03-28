@@ -1,10 +1,10 @@
 package com.dreamteam.payd.administration.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by Christian Adkin on 21/03/2017.
@@ -17,8 +17,11 @@ public class Car implements Serializable {
     private Long id;
 
     private String ICAN;
+    @NotNull
     private String VIN;
     private String licenceplate;
+    @OneToMany
+    private List<Ownership> ownerships;
 
     protected Car() {
     }
@@ -59,5 +62,13 @@ public class Car implements Serializable {
 
     public void setLicenceplate(String licenceplate) {
         this.licenceplate = licenceplate;
+    }
+
+    public List<Ownership> getOwnerships() {
+        return Collections.unmodifiableList(ownerships);
+    }
+
+    public void setOwnerships(List<Ownership> ownerships) {
+        this.ownerships = ownerships;
     }
 }
