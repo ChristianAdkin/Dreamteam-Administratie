@@ -3,6 +3,7 @@ package com.dreamteam.payd.administration.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * Created by Christian Adkin on 28/03/2017.
@@ -20,10 +21,10 @@ public class Ownership {
     private Car owned;
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
-    private LocalDateTime startOwnership;
+    private Date startOwnership;
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
-    private LocalDateTime endOwnership;
+    private Date endOwnership;
 
     public Long getId() {
         return id;
@@ -49,19 +50,19 @@ public class Ownership {
         this.owned = owned;
     }
 
-    public LocalDateTime getStartOwnership() {
+    public Date getStartOwnership() {
         return startOwnership;
     }
 
-    public void setStartOwnership(LocalDateTime startOwnership) {
+    public void setStartOwnership(Date startOwnership) {
         this.startOwnership = startOwnership;
     }
 
-    public LocalDateTime getEndOwnership() {
+    public Date getEndOwnership() {
         return endOwnership;
     }
 
-    public void setEndOwnership(LocalDateTime endOwnership) {
+    public void setEndOwnership(Date endOwnership) {
         this.endOwnership = endOwnership;
     }
 }
