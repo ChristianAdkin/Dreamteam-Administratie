@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="templates/default.xhtml">
+
+    <ui:param name="menuRendered" value="false"/>
+
+    <ui:define name="title">Administration login</ui:define>
+
+    <ui:define name="head">
+
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-4"></div>
+                <div class="ui-g-4 login-box ui-g-nopad">
+                    <div class="header">
+                        <h1>Administratie login</h1>
+                    </div>
+                    <h:panelGrid columns="1" cellpadding="5" width="100%">
+                        <p:inputText id="username"/>
+                        <p:watermark for="username" value="Username..." id="usernameWatermark"/>
+                        <p:password id="password"/>
+                        <p:watermark for="password" value="Password..." id="passwordWatermark"/>
+                        <p:commandButton value="Login" id="btnLogin" styleClass="ui-priority-primary" />
+                    </h:panelGrid>
+                </div>
+                <div class="ui-g-4"></div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
