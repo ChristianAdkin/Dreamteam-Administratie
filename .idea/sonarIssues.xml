@@ -38,6 +38,46 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/CarResource.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/JAXRSConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/internal/DriverRegistrationResource.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/internal/PaymentReviewResource.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/internal/RegionResource.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/police/CarResource.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/portal/PaymentResource.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/portal/TranslocationResource.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/dao/BaseDao.java">
           <value>
             <set />
@@ -188,7 +228,42 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/service/internal/PaymentReviewServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/service/internal/RegionService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/service/internal/RegionServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/service/police/CarService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/service/police/CarServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/service/portal/PaymentServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/service/portal/TranslocationServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/META-INF/beans.xml">
           <value>
             <set />
           </value>
@@ -243,7 +318,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/test/resources/META-INF/persistence.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/test/resources/persistence.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/web/WEB-INF/beans.xml">
           <value>
             <set />
           </value>
