@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 /**
  * Created by Christian Adkin on 04/04/2017.
  */
-@Path("test")
+@Path("car")
 public class CarResource {
 
     @Inject
