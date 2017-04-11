@@ -3,25 +3,45 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                template="../templates/default.xhtml">
+                template="../../../templates/default.xhtml">
 
     <ui:param name="menuRendered" value="true"/>
 
-    <ui:define name="title">Administratie - Regiotarieven</ui:define>
+    <ui:define name="title">Administration - Regional rates</ui:define>
 
     <ui:define name="head">
 
     </ui:define>
 
     <ui:define name="content">
-        <div class="ui-g">
-            <div class="ui-g-6">
+        <f:event type="preRenderView" listener="#{regionBean.init}"/>
+        <h:form>
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-6">
+                    <h:panelGrid columns="2" cellpadding="5" style="width: 100%">
+                        <p:outputLabel value="Select a region:" for="acRegion"/>
+                        <p:autoComplete id="acRegion" value="#{regionBean.selectedRegion}" var="region"
+                                        itemValue="#{region.id}" itemLabel="#{region.name}"
+                                        completeMethod="#{regionBean.completeRegion}">
+                            <f:converter binding="#{regionConverter}"/>
+                            <p:ajax event="itemSelect" process="@this" update="@form"/>
+                        </p:autoComplete>
 
-            </div>
-            <div class="ui-g-6">
+                        <p:outputLabel value="Region:" for="labelRegionName"/>
+                        <p:outputLabel id="labelRegionName" value="#{regionBean.selectedRegion.name}"/>
 
+                        <p:outputLabel value="Region number:" for="labelRegionNumber"/>
+                        <p:outputLabel id="labelRegionNumber" value="#{regionBean.selectedRegion.number}"/>
+
+                    </h:panelGrid>
+
+
+                </div>
+                <div class="ui-g-6">
+
+                </div>
             </div>
-        </div>
+        </h:form>
     </ui:define>
 
 </ui:composition>

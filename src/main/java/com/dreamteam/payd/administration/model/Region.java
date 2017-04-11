@@ -1,9 +1,8 @@
 package com.dreamteam.payd.administration.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Christian Adkin on 21/03/2017.
@@ -18,11 +17,28 @@ public class Region {
     private int number;
     private String name;
 
+    @OneToMany
+    private List<RegionPrice> regionPrices;
+
+    protected Region() {
+        regionPrices = new ArrayList<>();
+    }
+
+    public Region(int number, String name) {
+        this.number = number;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
     public Long getId() {
         return id;
     }
 
-    protected void setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

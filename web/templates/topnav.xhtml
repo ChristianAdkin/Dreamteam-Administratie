@@ -7,19 +7,19 @@
         xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <p:megaMenu rendered="#{menuRendered}" orientation="horizontal">
-        <p:submenu label="Instellingen" icon="ui-icon-check">
+        <p:submenu label="Settings" icon="ui-icon-check">
             <p:column>
-                <p:submenu label="Regio">
-                    <p:menuitem value="Regiotarieven" url="#"/>
-                    <p:menuitem value="Regiotarieven" url="#"/>
+                <p:submenu label="#{lang.menu_header_region}">
+                    <p:menuitem value="Regional rates" url="#"/>
+                    <p:menuitem value="Regional rates" url="#"/>
                 </p:submenu>
             </p:column>
         </p:submenu>
-        <p:submenu label="Facturatie" icon="ui-icon-check">
+        <p:submenu label="Billing" icon="ui-icon-check">
             <p:column>
-                <p:submenu label="Facturen">
-                    <p:menuitem value="Overzicht" url="#"/>
-                    <p:menuitem value="Meldingen" url="#"/>
+                <p:submenu label="Invoices">
+                    <p:menuitem value="Overview" url="#"/>
+                    <p:menuitem value="Reports" url="#"/>
                 </p:submenu>
             </p:column>
         </p:submenu>

@@ -5,4 +5,15 @@
     
     <name>dreamteam_administration</name>
 
+    <application>
+        <locale-config>
+            <default-locale>en</default-locale>
+        </locale-config>
+
+        <resource-bundle>
+            <base-name>i18n.language</base-name>
+            <var>lang</var>
+        </resource-bundle>
+    </application>
+
 </faces-config>
