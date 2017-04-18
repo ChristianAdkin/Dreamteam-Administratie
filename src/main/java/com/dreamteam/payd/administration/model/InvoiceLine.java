@@ -13,17 +13,22 @@ public class InvoiceLine implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(precision = 20, scale = 10)
     private BigDecimal price;
+
     @ManyToOne
     private Invoice invoice;
 
-    public InvoiceLine() {
+    @OneToOne
+    private Day day;
+
+    protected InvoiceLine() {
     }
 
-    public InvoiceLine(Long id) {
-        this.id = id;
-    }
+//    public InvoiceLine() {
+//        this.id = id;
+//    }
 
     public Long getId() {
         return id;

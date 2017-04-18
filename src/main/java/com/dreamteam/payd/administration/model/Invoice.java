@@ -3,6 +3,7 @@ package com.dreamteam.payd.administration.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,10 +19,22 @@ public class Invoice implements Serializable {
     @Enumerated(EnumType.STRING)
     private InvoiceStatus invoiceStatus;
 
+    @ManyToOne
+    private Citizen citizen;
+    @ManyToOne
+    private Car car;
+
     @OneToMany
     private List<InvoiceLine> invoiceLines;
 
-    public Invoice() {
+    protected Invoice() {
+        this.invoiceLines = new ArrayList<>();
+    }
+
+    public Invoice(Citizen citizen, Car car) {
+        this();
+        this.citizen = citizen;
+        this.car = car;
     }
 
     public Invoice(Long id) {
