@@ -26,6 +26,7 @@ public class Region {
     }
 
     public Region(int number, String name) {
+        this();
         this.number = number;
         this.name = name;
     }

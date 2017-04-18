@@ -18,24 +18,58 @@
         <h:form>
             <div class="ui-g ui-fluid">
                 <div class="ui-g-6">
-                    <h:panelGrid columns="2" cellpadding="5" style="width: 100%">
-                        <p:outputLabel value="Select a region:" for="acRegion"/>
-                        <p:autoComplete id="acRegion" value="#{regionBean.selectedRegion}" var="region"
-                                        itemValue="#{region.id}" itemLabel="#{region.name}"
-                                        completeMethod="#{regionBean.completeRegion}">
-                            <f:converter binding="#{regionConverter}"/>
-                            <p:ajax event="itemSelect" process="@this" update="@form"/>
-                        </p:autoComplete>
-
-                        <p:outputLabel value="Region:" for="labelRegionName"/>
-                        <p:outputLabel id="labelRegionName" value="#{regionBean.selectedRegion.name}"/>
-
-                        <p:outputLabel value="Region number:" for="labelRegionNumber"/>
-                        <p:outputLabel id="labelRegionNumber" value="#{regionBean.selectedRegion.number}"/>
-
-                    </h:panelGrid>
-
-
+                    <div class="ui-g">
+                        <div class="ui-g-6">
+                            <p:outputLabel value="Select a region:" for="acRegion"/>
+                        </div>
+                        <div class="ui-g-6">
+                            <p:autoComplete id="acRegion" value="#{regionBean.selectedRegion}" var="region"
+                                            itemValue="#{region.id}" itemLabel="#{region.name}"
+                                            completeMethod="#{regionBean.completeRegion}">
+                                <f:converter binding="#{regionConverter}"/>
+                                <p:ajax event="itemSelect" process="@this" update="@form"/>
+                            </p:autoComplete>
+                        </div>
+                        <div class="ui-g-6">
+                            <p:outputLabel value="Region:" for="labelRegionName"/>
+                        </div>
+                        <div class="ui-g-6">
+                            <p:outputLabel id="labelRegionName" value="#{regionBean.selectedRegion.name}"/>
+                        </div>
+                        <div class="ui-g-6">
+                            <p:outputLabel value="Region number:" for="labelRegionNumber"/>
+                        </div>
+                        <div class="ui-g-6">
+                            <p:outputLabel id="labelRegionNumber" value="#{regionBean.selectedRegion.number}"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:outputLabel value="Price history:"/>
+                        </div>
+                        <ui:repeat value="#{regionBean.selectedRegion.regionPrices}" var="regionPrice">
+                            <div class="ui-g-1">
+                            </div>
+                            <div class="ui-g-5">
+                                <p:outputLabel value="Region period:"/>
+                            </div>
+                            <div class="ui-g-6">
+                                <p:outputLabel value="#{regionPrice.startDate}">
+                                    <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                </p:outputLabel>
+                                -
+                                <p:outputLabel value="#{regionPrice.endDate}">
+                                    <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                </p:outputLabel>
+                            </div>
+                            <div class="ui-g-1">
+                            </div>
+                            <div class="ui-g-5">
+                                <p:outputLabel value="Region price:" for="labelRegionPrice"/>
+                            </div>
+                            <div class="ui-g-6">
+                                <p:outputLabel id="labelRegionPrice" value="#{regionPrice.price}"/>
+                            </div>
+                        </ui:repeat>
+                    </div>
                 </div>
                 <div class="ui-g-6">
 

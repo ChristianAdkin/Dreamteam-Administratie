@@ -21,6 +21,16 @@ public class RegionPrice {
 
     private BigDecimal price;
 
+    protected RegionPrice() {
+
+    }
+
+    public RegionPrice(BigDecimal price, Date startDate) {
+        this();
+        this.price = price;
+        this.startDate = startDate;
+    }
+
     public Long getId() {
         return id;
     }
