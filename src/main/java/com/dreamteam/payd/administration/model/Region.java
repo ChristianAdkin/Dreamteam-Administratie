@@ -2,6 +2,7 @@ package com.dreamteam.payd.administration.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -56,5 +57,20 @@ public class Region {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<RegionPrice> getRegionPrices() {
+        return Collections.unmodifiableList(this.regionPrices);
+    }
+
+    public boolean addRegionPrice(RegionPrice regionPrice) {
+        if (this.regionPrices.contains(regionPrice)) {
+            return false;
+        }
+        return this.regionPrices.add(regionPrice);
+    }
+
+    public boolean removeRegionPrice(RegionPrice regionPrice) {
+        return this.regionPrices.remove(regionPrice);
     }
 }

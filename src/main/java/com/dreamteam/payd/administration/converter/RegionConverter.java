@@ -2,6 +2,7 @@ package com.dreamteam.payd.administration.converter;
 
 import com.dreamteam.payd.administration.dao.RegionDao;
 import com.dreamteam.payd.administration.dao.qualifier.CollectionMock;
+import com.dreamteam.payd.administration.dao.qualifier.JPA;
 import com.dreamteam.payd.administration.util.GeneralUtil;
 
 import javax.faces.component.UIComponent;
@@ -18,7 +19,7 @@ import java.io.Serializable;
 @Named
 public class RegionConverter implements Converter, Serializable {
 
-    @CollectionMock
+    @JPA
     @Inject
     private RegionDao regionDao;
 

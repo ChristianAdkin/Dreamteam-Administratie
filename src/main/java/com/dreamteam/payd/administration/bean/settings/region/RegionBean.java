@@ -2,6 +2,7 @@ package com.dreamteam.payd.administration.bean.settings.region;
 
 import com.dreamteam.payd.administration.dao.RegionDao;
 import com.dreamteam.payd.administration.dao.qualifier.CollectionMock;
+import com.dreamteam.payd.administration.dao.qualifier.JPA;
 import com.dreamteam.payd.administration.model.Region;
 import com.dreamteam.payd.administration.util.ContextUtil;
 
@@ -21,7 +22,7 @@ import java.util.List;
 public class RegionBean implements Serializable {
 
     @Inject
-    @CollectionMock
+    @JPA
     private RegionDao regionDao;
 
     private List<Region> regions;
@@ -35,11 +36,6 @@ public class RegionBean implements Serializable {
     }
 
     private void construct() {
-        regionDao.create(new Region(1, "Venray"));
-        regionDao.create(new Region(2, "Eindhoven"));
-        regionDao.create(new Region(3, "Amsterdam"));
-        regionDao.create(new Region(4, "Elst"));
-        regionDao.create(new Region(5, "Arnhem"));
         this.regions = regionDao.getAll();
     }
 
