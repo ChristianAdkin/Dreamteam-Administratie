@@ -4,6 +4,7 @@ import com.dreamteam.payd.administration.dao.RegionDao;
 import com.dreamteam.payd.administration.dao.qualifier.CollectionMock;
 import com.dreamteam.payd.administration.dao.qualifier.JPA;
 import com.dreamteam.payd.administration.model.Region;
+import com.dreamteam.payd.administration.service.internal.RegionService;
 import com.dreamteam.payd.administration.util.ContextUtil;
 
 import javax.faces.context.FacesContext;
@@ -22,8 +23,7 @@ import java.util.List;
 public class RegionBean implements Serializable {
 
     @Inject
-    @JPA
-    private RegionDao regionDao;
+    private RegionService regionService;
 
     private List<Region> regions;
     private Region selectedRegion;
@@ -36,7 +36,7 @@ public class RegionBean implements Serializable {
     }
 
     private void construct() {
-        this.regions = regionDao.getAll();
+        this.regions = regionService.getAll();
     }
 
     public List<Region> completeRegion(String query) {
