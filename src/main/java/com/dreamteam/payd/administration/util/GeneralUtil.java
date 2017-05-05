@@ -1,5 +1,8 @@
 package com.dreamteam.payd.administration.util;
 
+import java.util.List;
+import java.util.Random;
+
 /**
  * Created by Christian Adkin on 11/04/2017.
  */
@@ -10,6 +13,10 @@ public class GeneralUtil {
             return true;
         }
         return false;
+    }
+
+    public static <T> T getRandomElement(List<T> list) {
+        return list.get(new Random().nextInt(list.size()));
     }
 
 }
