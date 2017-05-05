@@ -25,13 +25,12 @@ public class RegionDaoMock implements RegionDao {
     }
 
     @Override
-    public Region create(Region entity) {
+    public void create(Region entity) {
         if (nextId == null) {
             nextId = 0L;
         }
         entity.setId(nextId++);
         regions.add(entity);
-        return entity;
     }
 
     @Override

@@ -39,7 +39,7 @@ public class RegionBean implements Serializable {
         this.regions = regionService.getAll();
     }
 
-    public List<Region> completeRegion(String query) {
+    public List<Region> findMatchingRegions(String query) {
         List<Region> foundRegions = new ArrayList<>();
         for (Region region : this.regions) {
             if (region.getName().contains(query)) {

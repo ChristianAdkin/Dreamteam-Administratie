@@ -50,7 +50,10 @@ public class Initializer implements Serializable {
         RegionPrice regionPrice = new RegionPrice(new BigDecimal(200L), new Date());
         regionPrice.setEndDate(new Date());
         regionPriceDao.create(regionPrice);
-        region.addRegionPrice(regionPriceDao.create(new RegionPrice(new BigDecimal(100L), new Date())));
+        region.addRegionPrice(regionPrice);
+
+        regionPrice = new RegionPrice(new BigDecimal(100L), new Date());
+        regionPriceDao.create(regionPrice);
         region.addRegionPrice(regionPrice);
         regionDao.create(region);
         regionDao.create(new Region(2, "Eindhoven"));

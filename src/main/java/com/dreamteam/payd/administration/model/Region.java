@@ -74,4 +74,24 @@ public class Region {
     public boolean removeRegionPrice(RegionPrice regionPrice) {
         return this.regionPrices.remove(regionPrice);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Region region = (Region) o;
+
+        if (number != region.number) return false;
+        if (id != null ? !id.equals(region.id) : region.id != null) return false;
+        return name != null ? name.equals(region.name) : region.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + number;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
+    }
 }
