@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Christian Adkin on 21/03/2017.
  */
 @Entity
-public class Citizen {
+public class Citizen implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,13 +23,11 @@ public class Citizen {
     private String preposition;
     @NotNull
     private String lastName;
-    @OneToMany
-    private List<Ownership> ownerships;
+
     @OneToMany
     private List<Invoice> invoices;
 
     protected Citizen() {
-        this.ownerships = new ArrayList<>();
         this.invoices = new ArrayList<>();
     }
 
@@ -76,14 +74,6 @@ public class Citizen {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public List<Ownership> getOwnerships() {
-        return Collections.unmodifiableList(ownerships);
-    }
-
-    public void setOwnerships(List<Ownership> ownerships) {
-        this.ownerships = ownerships;
     }
 
     public List<Invoice> getInvoices() {

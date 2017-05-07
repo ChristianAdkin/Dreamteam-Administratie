@@ -55,7 +55,7 @@ public interface CarService {
      * @param id The Id to find the Citizen object by.
      * @return The found Citizen object.
      */
-    Citizen getById(Long id);
+    Citizen getCitizenById(Long id);
 
     /**
      * Retrieve all Ownership objects from the database.
@@ -70,6 +70,5 @@ public interface CarService {
      * @return The found Ownership object.
      */
     Ownership getOwnershipById(Long id);
-
 
 }

@@ -54,7 +54,7 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public Citizen getById(Long id) {
+    public Citizen getCitizenById(Long id) {
         return citizenDao.findById(id);
     }
 
