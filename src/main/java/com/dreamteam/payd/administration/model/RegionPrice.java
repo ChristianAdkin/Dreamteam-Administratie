@@ -1,9 +1,6 @@
 package com.dreamteam.payd.administration.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -16,10 +13,23 @@ public class RegionPrice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    private Region region;
+
     private Date startDate;
     private Date endDate;
 
     private BigDecimal price;
+
+    protected RegionPrice() {
+
+    }
+
+    public RegionPrice(BigDecimal price, Date startDate) {
+        this();
+        this.price = price;
+        this.startDate = startDate;
+    }
 
     public Long getId() {
         return id;
@@ -27,6 +37,14 @@ public class RegionPrice {
 
     protected void setId(Long id) {
         this.id = id;
+    }
+
+    public Region getRegion() {
+        return region;
+    }
+
+    public void setRegion(Region region) {
+        this.region = region;
     }
 
     public Date getStartDate() {

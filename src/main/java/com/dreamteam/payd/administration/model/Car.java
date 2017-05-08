@@ -20,8 +20,6 @@ public class Car implements Serializable {
     @NotNull
     private String VIN;
     private String licenceplate;
-    @OneToMany
-    private List<Ownership> ownerships;
 
     protected Car() {
     }
@@ -62,13 +60,5 @@ public class Car implements Serializable {
 
     public void setLicenceplate(String licenceplate) {
         this.licenceplate = licenceplate;
-    }
-
-    public List<Ownership> getOwnerships() {
-        return Collections.unmodifiableList(ownerships);
-    }
-
-    public void setOwnerships(List<Ownership> ownerships) {
-        this.ownerships = ownerships;
     }
 }

@@ -18,7 +18,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../SOP6/Kwetter/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../SOP6/Kwetter/src/main/java/api/rest/ProfileResource.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../SOP6/Kwetter/src/main/java/bean/LifeCycleBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../SOP6/Kwetter/src/test/java/frontend/FrontEndIT.java">
           <value>
             <set />
           </value>
@@ -48,6 +63,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/domain/CarByCitizenResource.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/domain/CarResource.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/internal/DriverRegistrationResource.java">
           <value>
             <set />
@@ -59,6 +84,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/internal/RegionResource.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/police/CarEndpoint.java">
           <value>
             <set />
           </value>
@@ -78,7 +108,42 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/bean/Initializer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/bean/settings/region/RegionBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/bean/user/cartracker/CartrackerOverviewBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/converter/RegionConverter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/dao/BaseDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/dao/CarDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/dao/CartrackerDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/dao/CitizenDao.java">
           <value>
             <set />
           </value>
@@ -89,6 +154,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/dao/JPA/CarDaoJPA.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/dao/JPA/CartrackerDaoJPA.java">
           <value>
             <set />
           </value>
@@ -109,6 +179,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/dao/JPA/InvoiceLineDaoJPA.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/dao/JPA/OwnershipDaoJPA.java">
           <value>
             <set />
           </value>
@@ -143,6 +218,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/dao/OwnershipDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/dao/RegionDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/dao/RegionPriceDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/dao/auth/Role.java">
           <value>
             <set />
@@ -158,12 +248,42 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/dao/mock/RegionDaoMock.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/dao/qualifier/CollectionMock.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/dao/qualifier/JPA.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/dao/qualifier/Mock.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/Car.java">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/Cartracker.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/Citizen.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/Day.java">
           <value>
             <set />
           </value>
@@ -193,12 +313,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/Pathway.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/Region.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/RegionPrice.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/Route.java">
           <value>
             <set />
           </value>
@@ -263,12 +393,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/util/APIUtil.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/util/ContextUtil.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/util/GeneralUtil.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/resources/META-INF/beans.xml">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/i18n/language.properties">
           <value>
             <set />
           </value>
@@ -329,6 +479,56 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/web/WEB-INF/beans.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/web/WEB-INF/faces-config.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/web/WEB-INF/web.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/web/index.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/web/pages/index.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/web/pages/settings/region/regional_rates.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/web/pages/users/cartracker/add_cartracker.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/web/pages/users/cartracker/overview.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/web/resources/css/main.css">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/web/templates/default.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/web/templates/topnav.xhtml">
           <value>
             <set />
           </value>

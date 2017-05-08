@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+    
+    <name>dreamteam_administration</name>
+
+    <application>
+        <locale-config>
+            <default-locale>en</default-locale>
+        </locale-config>
+
+        <resource-bundle>
+            <base-name>i18n.language</base-name>
+            <var>lang</var>
+        </resource-bundle>
+    </application>
+
+</faces-config>

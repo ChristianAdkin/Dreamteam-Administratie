@@ -26,6 +26,21 @@ public class Ownership {
     @Temporal(TemporalType.TIMESTAMP)
     private Date endOwnership;
 
+    protected Ownership() {
+
+    }
+
+    public Ownership(Citizen owner, Car owned, Date startOwnership) {
+        this.owner = owner;
+        this.owned = owned;
+        this.startOwnership = startOwnership;
+    }
+
+    public Ownership(Citizen owner, Car owned, Date startOwnership, Date endOwnership) {
+        this(owner, owned, startOwnership);
+        this.endOwnership = endOwnership;
+    }
+
     public Long getId() {
         return id;
     }

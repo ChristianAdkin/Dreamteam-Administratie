@@ -1,11 +1,71 @@
 package com.dreamteam.payd.administration.service.police;
 
+import com.dreamteam.payd.administration.dao.CarDao;
+import com.dreamteam.payd.administration.dao.CartrackerDao;
+import com.dreamteam.payd.administration.dao.CitizenDao;
+import com.dreamteam.payd.administration.dao.OwnershipDao;
+import com.dreamteam.payd.administration.model.Car;
+import com.dreamteam.payd.administration.model.Cartracker;
+import com.dreamteam.payd.administration.model.Citizen;
+import com.dreamteam.payd.administration.model.Ownership;
+
 import javax.ejb.Stateless;
+import javax.inject.Inject;
+import java.util.List;
 
 /**
  * Created by Christian Adkin on 04/04/2017.
  */
 @Stateless
 public class CarServiceImpl implements CarService {
+
+    @Inject
+    private CarDao carDao;
+    @Inject
+    private CartrackerDao cartrackerDao;
+    @Inject
+    private CitizenDao citizenDao;
+    @Inject
+    private OwnershipDao ownershipDao;
+
+    @Override
+    public List<Car> getAllCars() {
+        return carDao.getAll();
+    }
+
+    @Override
+    public Car getCarById(Long id) {
+        return carDao.findById(id);
+    }
+
+    @Override
+    public List<Cartracker> getAllCartrackers() {
+        return cartrackerDao.getAll();
+    }
+
+    @Override
+    public Cartracker getCartrackerById(Long id) {
+        return cartrackerDao.findById(id);
+    }
+
+    @Override
+    public List<Citizen> getAllCitizens() {
+        return citizenDao.getAll();
+    }
+
+    @Override
+    public Citizen getCitizenById(Long id) {
+        return citizenDao.findById(id);
+    }
+
+    @Override
+    public List<Ownership> getAllOwnerships() {
+        return ownershipDao.getAll();
+    }
+
+    @Override
+    public Ownership getOwnershipById(Long id) {
+        return ownershipDao.findById(id);
+    }
 
 }

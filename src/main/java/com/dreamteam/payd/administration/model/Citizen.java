@@ -3,6 +3,7 @@ package com.dreamteam.payd.administration.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  * Created by Christian Adkin on 21/03/2017.
  */
 @Entity
-public class Citizen implements Serializable {
+public class Citizen implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,15 +23,16 @@ public class Citizen implements Serializable {
     private String preposition;
     @NotNull
     private String lastName;
-    @OneToMany
-    private List<Ownership> ownerships;
+
     @OneToMany
     private List<Invoice> invoices;
 
     protected Citizen() {
+        this.invoices = new ArrayList<>();
     }
 
-    public Citizen(String lastName) {
+    public Citizen(String firstName, String lastName) {
+        this.firstName = firstName;
         this.lastName = lastName;
     }
 
@@ -72,14 +74,6 @@ public class Citizen implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public List<Ownership> getOwnerships() {
-        return Collections.unmodifiableList(ownerships);
-    }
-
-    public void setOwnerships(List<Ownership> ownerships) {
-        this.ownerships = ownerships;
     }
 
     public List<Invoice> getInvoices() {
