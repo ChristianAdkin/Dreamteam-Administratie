@@ -53,4 +53,10 @@ public class CarResource {
         return buildResponse(carService.getAllCitizens());
     }
 
+    @GET
+    @Path("test")
+    public String test() {
+        return "test";
+    }
+
 }
