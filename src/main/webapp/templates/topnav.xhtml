@@ -7,7 +7,12 @@
 
     <p:megaMenu rendered="#{menuRendered}" orientation="horizontal">
         <p:submenu label="Home" icon="fa fa-home">
-            <p:menuitem value="Dashboard" url="/pages/index.xhtml"/>
+            <p:column>
+                <p:submenu label="Home">
+                    <p:menuitem value="Dashboard" url="/pages/index.xhtml"/>
+                </p:submenu>
+            </p:column>
+
         </p:submenu>
 
         <p:submenu label="Settings" icon="fa fa-gears">
@@ -26,6 +31,12 @@
             </p:column>
         </p:submenu>
         <p:submenu label="Users" icon="fa fa-users">
+            <p:column>
+                <p:submenu label="Cars">
+                    <p:menuitem value="Overview" url="/pages/users/car/overview.xhtml"/>
+                    <p:menuitem value="Add car" url="/pages/users/car/add_car.xhtml"/>
+                </p:submenu>
+            </p:column>
             <p:column>
                 <p:submenu label="Cartrackers">
                     <p:menuitem value="Overview" url="/pages/users/cartracker/overview.xhtml"/>

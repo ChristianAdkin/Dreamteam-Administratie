@@ -7,32 +7,32 @@
 
     <ui:param name="menuRendered" value="true"/>
 
-    <ui:define name="title">Administration - Cartracker overview</ui:define>
+    <ui:define name="title">Administration - Car overview</ui:define>
 
     <ui:define name="head">
 
     </ui:define>
 
     <ui:define name="content">
-        <f:event type="preRenderView" listener="#{cartrackerOverviewBean.init}"/>
+        <f:event type="preRenderView" listener="#{carOverviewBean.init}"/>
         <h:form>
             <div class="ui-g ui-fluid">
                 <div class="ui-g-6">
-                    <p:dataTable var="cartracker" value="#{cartrackerOverviewBean.cartrackers}">
-                        <p:column headerText="Cartracker Id">
-                            <h:outputText value="#{cartracker.id}"/>
+                    <p:dataTable var="car" value="#{carOverviewBean.cars}">
+                        <p:column headerText="Car's Id">
+                            <h:outputText value="#{car.id}"/>
                         </p:column>
 
                         <p:column headerText="Car's ICAN">
-                            <h:outputText value="#{cartracker.car.ICAN}"/>
+                            <h:outputText value="#{car.ICAN}"/>
                         </p:column>
 
                         <p:column headerText="Car's licenceplate">
-                            <h:outputText value="#{cartracker.car.licenceplate}"/>
+                            <h:outputText value="#{car.licenceplate}"/>
                         </p:column>
 
                         <p:column headerText="Car's VIN">
-                            <h:outputText value="#{cartracker.car.VIN}"/>
+                            <h:outputText value="#{car.VIN}"/>
                         </p:column>
                     </p:dataTable>
                 </div>

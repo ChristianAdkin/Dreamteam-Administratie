@@ -68,4 +68,9 @@ public class CarServiceImpl implements CarService {
         return ownershipDao.findById(id);
     }
 
+    @Override
+    public void create(Car car) {
+        this.carDao.create(car);
+    }
+
 }
