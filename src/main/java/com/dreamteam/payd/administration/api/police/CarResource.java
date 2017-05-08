@@ -34,11 +34,10 @@ public class CarResource {
 
     @GET
     @Path("cars")
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
     public Response getAllCars() {
 //        return carService.getAllCars();
-        return Response.ok(carService.getAllCars(), MediaType.APPLICATION_JSON).build();
-//        return buildResponse(carService.getAllCars());
+//        return Response.ok(carService.getAllCars(), MediaType.APPLICATION_JSON).build();
+        return buildResponse(carService.getAllCars());
     }
 
     @GET
@@ -50,7 +49,6 @@ public class CarResource {
 
     @GET
     @Path("citizens")
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
     public Response getAllCitizens() {
         return buildResponse(carService.getAllCitizens());
     }

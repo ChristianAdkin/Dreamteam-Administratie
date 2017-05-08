@@ -1,5 +1,9 @@
 package com.dreamteam.payd.administration.util;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
@@ -22,8 +26,10 @@ public class APIUtil {
 
     public static <T> Response buildResponse(List<T> objects) {
         if (objects != null) {
-            if (objects.size() > 0) {
-                return Response.ok().entity(objects).build();
+            if (!objects.isEmpty()) {
+                Gson gson = new GsonBuilder().create();
+                JsonArray objectArray = gson.toJsonTree(objects).getAsJsonArray();
+                return Response.ok().entity(objectArray.toString()).build();
             }
         }
         return Response.status(NO_ENTITY_FOUND).build();
