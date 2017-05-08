@@ -54,6 +54,19 @@ public class CarResource {
     }
 
     @GET
+    @Path("ownerships")
+    public Response getAllOwnerships() {
+        return buildResponse(carService.getAllOwnerships());
+    }
+
+    @GET
+    @Path("ownerships/{id}")
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
+    public Response getOwnership(@PathParam("id") Long id) {
+        return buildResponse(carService.getOwnershipById(id));
+    }
+
+    @GET
     @Path("test")
     public String test() {
         return "test";
