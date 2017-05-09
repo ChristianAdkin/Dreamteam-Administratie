@@ -73,4 +73,9 @@ public class CarServiceImpl implements CarService {
         this.carDao.create(car);
     }
 
+    @Override
+    public void create(Citizen citizen) {
+        this.citizenDao.create(citizen);
+    }
+
 }
