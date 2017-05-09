@@ -36,6 +36,27 @@ public class Citizen implements Serializable{
         this.lastName = lastName;
     }
 
+    public String getName() {
+        StringBuilder stringBuilder = new StringBuilder();
+        if (initials != null) {
+            stringBuilder.append(this.initials);
+            stringBuilder.append(" ");
+        }
+        stringBuilder.append(this.firstName);
+        stringBuilder.append(" ");
+        if (preposition != null) {
+            stringBuilder.append(this.preposition);
+            stringBuilder.append(" ");
+        }
+        stringBuilder.append(this.lastName);
+        return stringBuilder.toString();
+    }
+
+    @Override
+    public String toString() {
+       return this.getName();
+    }
+
     public Long getId() {
         return id;
     }
@@ -82,5 +103,20 @@ public class Citizen implements Serializable{
 
     public void setInvoices(List<Invoice> invoices) {
         this.invoices = invoices;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Citizen citizen = (Citizen) o;
+
+        return id != null ? id.equals(citizen.id) : citizen.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
     }
 }

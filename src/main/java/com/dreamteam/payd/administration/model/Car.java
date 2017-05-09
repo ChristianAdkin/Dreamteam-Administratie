@@ -30,8 +30,13 @@ public class Car implements Serializable {
         this.licenceplate = licenceplate;
     }
 
+    @Override
+    public String toString() {
+        return this.id + " - ICAN: " + this.ICAN + " - Licenceplate: " + this.licenceplate + " - VIN: " +  this.VIN;
+    }
+
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -60,5 +65,20 @@ public class Car implements Serializable {
 
     public void setLicenceplate(String licenceplate) {
         this.licenceplate = licenceplate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Car car = (Car) o;
+
+        return id != null ? id.equals(car.id) : car.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
     }
 }
