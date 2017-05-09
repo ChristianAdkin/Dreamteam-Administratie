@@ -71,4 +71,5 @@ public interface CarService {
      */
     Ownership getOwnershipById(Long id);
 
+    void create(Car car);
 }
