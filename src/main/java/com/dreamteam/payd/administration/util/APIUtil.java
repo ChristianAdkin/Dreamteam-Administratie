@@ -27,7 +27,7 @@ public class APIUtil {
     public static <T> Response buildResponse(List<T> objects) {
         if (objects != null) {
             if (!objects.isEmpty()) {
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").create();
                 JsonArray objectArray = gson.toJsonTree(objects).getAsJsonArray();
                 return Response.ok().entity(objectArray.toString()).build();
             }
