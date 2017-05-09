@@ -133,6 +133,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/bean/user/citizen/AddCitizenBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/bean/user/citizen/CitizenOverviewBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/converter/RegionConverter.java">
           <value>
             <set />
@@ -444,6 +454,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/webapp/pages/users/cartracker/overview.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/pages/users/citizen/add_citizen.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/pages/users/citizen/overview.xhtml">
           <value>
             <set />
           </value>
