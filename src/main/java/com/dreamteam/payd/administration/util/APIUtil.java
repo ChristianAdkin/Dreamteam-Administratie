@@ -14,7 +14,6 @@ import java.util.List;
  */
 public class APIUtil {
 
-    private static int SUCCES_CODE = 200;
     private static int NO_ENTITY_FOUND = 404;
 
     public static Response buildResponse(Object o) {
