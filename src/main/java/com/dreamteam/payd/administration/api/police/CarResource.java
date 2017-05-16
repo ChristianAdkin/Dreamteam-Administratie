@@ -39,7 +39,7 @@ public class CarResource {
 
     @GET
     @Path("citizens/{id}")
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
+    @Produces(MediaType.APPLICATION_JSON)
     public Response getCitizen(@PathParam("id") Long id) {
         return buildResponse(carService.getCitizenById(id));
     }
