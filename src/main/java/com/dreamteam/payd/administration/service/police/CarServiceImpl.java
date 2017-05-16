@@ -78,4 +78,9 @@ public class CarServiceImpl implements CarService {
         this.citizenDao.create(citizen);
     }
 
+    @Override
+    public void create(Ownership ownership) {
+        this.ownershipDao.create(ownership);
+    }
+
 }

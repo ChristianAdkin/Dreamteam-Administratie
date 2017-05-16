@@ -74,4 +74,6 @@ public interface CarService {
     void create(Car car);
 
     void create(Citizen citizen);
+
+    void create(Ownership ownership);
 }

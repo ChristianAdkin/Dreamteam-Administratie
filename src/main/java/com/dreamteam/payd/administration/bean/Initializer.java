@@ -49,7 +49,7 @@ public class Initializer implements Serializable {
         List<Car> cars = this.createCars();
 
         //For each car create a Cartracker
-        cars.forEach(this::createCartracker);
+        cars.forEach(e -> this.createCartracker(e, "ICAN"));
 
         //Create some citizens and link them to random cars
         this.createCitizens().forEach(e -> createOwnership(e, GeneralUtil.getRandomElement(cars), new Date(), new Date()));
@@ -75,22 +75,22 @@ public class Initializer implements Serializable {
     private List<Car> createCars() {
         List<Car> createdCars = new ArrayList<>();
 
-        createdCars.add(createCar("ICAN1", "VIN1", "LicencePlate1"));
-        createdCars.add(createCar("ICAN2", "VIN2", "LicencePlate2"));
-        createdCars.add(createCar("ICAN3", "VIN3", "LicencePlate3"));
-        createdCars.add(createCar("ICAN4", "VIN4", "LicencePlate4"));
+        createdCars.add(createCar("VIN1", "LicencePlate1"));
+        createdCars.add(createCar("VIN2", "LicencePlate2"));
+        createdCars.add(createCar("VIN3", "LicencePlate3"));
+        createdCars.add(createCar("VIN4", "LicencePlate4"));
 
         return createdCars;
     }
 
-    private Car createCar(String ICAN, String VIN, String licencePlate) {
-        Car car = new Car(ICAN, VIN, licencePlate);
+    private Car createCar(String VIN, String licencePlate) {
+        Car car = new Car(VIN, licencePlate);
         carDao.create(car);
         return car;
     }
 
-    private Cartracker createCartracker(Car car) {
-        Cartracker cartracker = new Cartracker(car);
+    private Cartracker createCartracker(Car car, String ICAN) {
+        Cartracker cartracker = new Cartracker(car, ICAN);
         cartrackerDao.create(cartracker);
         return cartracker;
     }
@@ -99,7 +99,7 @@ public class Initializer implements Serializable {
         List<Citizen> createdCitizens = new ArrayList<>();
 
         createdCitizens.add(createCitizen("Christian", "Adkin"));
-        createdCitizens.add(createCitizen("R", "Rick", "van", "Duijnhoven"));
+        createdCitizens.add(createCitizen("1234", "R", "Rick", "van", "Duijnhoven"));
         createdCitizens.add(createCitizen("Hein", "Dauven"));
         createdCitizens.add(createCitizen("Stef", "Philipsen"));
         createdCitizens.add(createCitizen("Jasper", "Rouwhorst"));
@@ -109,11 +109,11 @@ public class Initializer implements Serializable {
     }
 
     private Citizen createCitizen(String firstName, String lastName) {
-        return createCitizen(null, firstName, null, lastName);
+        return createCitizen(null, null, firstName, null, lastName);
     }
 
-    private Citizen createCitizen(String initials, String firstName, String preposition, String lastName) {
-        Citizen citizen = new Citizen(firstName, lastName);
+    private Citizen createCitizen(String idNumber, String initials, String firstName, String preposition, String lastName) {
+        Citizen citizen = new Citizen(idNumber, firstName, lastName);
         citizen.setInitials(initials);
         citizen.setPreposition(preposition);
         citizenDao.create(citizen);

@@ -34,7 +34,7 @@ public class AddCitizenBean implements Serializable {
     }
 
     public void save() {
-        Citizen citizen = new Citizen(this.firstName, this.lastName);
+        Citizen citizen = new Citizen("", this.firstName, this.lastName);
         citizen.setInitials(this.initials);
         citizen.setPreposition(this.preposition);
 
