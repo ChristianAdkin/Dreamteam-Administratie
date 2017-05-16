@@ -2,19 +2,17 @@ package com.dreamteam.payd.administration.model.mapper;
 
 import com.dreamteam.payd.administration.api.shared.CarDTO;
 import com.dreamteam.payd.administration.model.Car;
-import com.dreamteam.payd.administration.api.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.dreamteam.payd.administration.util.BaseMapperUtil;
 
 /**
  * Created by Christian Adkin on 16/05/2017.
  */
-public class CarMapper {
+public class CarMapper extends BaseMapperUtil<Car, CarDTO> {
 
-    public static CarDTO toPoliceDTO(Car car) {
+    @Override
+    public CarDTO to(Car car) {
         CarDTO carDTO = new CarDTO();
-        carDTO.setId(1L);
+        carDTO.setId(car.getId());
         carDTO.setLicensePlate(car.getLicenceplate());
         carDTO.setVin(car.getVIN());
         carDTO.setIcan(car.getCartracker().getICAN());
@@ -22,23 +20,4 @@ public class CarMapper {
         carDTO.setVehicleColor(car.getColour());
         return carDTO;
     }
-
-    public static List<CarDTO> toPoliceDTO(List<Car> cars) {
-        List<CarDTO> carDTOS = new ArrayList<>();
-        for (Car car : cars) {
-            carDTOS.add(toPoliceDTO(car));
-        }
-        return carDTOS;
-    }
-
-    public static CarDTO toUserDTO(Car car) {
-        return toPoliceDTO(car);
-    }
-
-    public static List<CarDTO> toUserDTO(List<Car> cars) {
-        return toPoliceDTO(cars);
-    }
-
-
-
 }
