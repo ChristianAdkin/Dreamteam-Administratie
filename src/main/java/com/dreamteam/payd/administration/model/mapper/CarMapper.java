@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class CarMapper {
 
-    public static CarDTO toPoliceDTO(Car car) {
+    public static CarDTO toDTO(Car car) {
         CarDTO carDTO = new CarDTO();
         carDTO.setId(1L);
         carDTO.setLicensePlate(car.getLicenceplate());
@@ -23,22 +23,11 @@ public class CarMapper {
         return carDTO;
     }
 
-    public static List<CarDTO> toPoliceDTO(List<Car> cars) {
+    public static List<CarDTO> toDTO(List<Car> cars) {
         List<CarDTO> carDTOS = new ArrayList<>();
         for (Car car : cars) {
-            carDTOS.add(toPoliceDTO(car));
+            carDTOS.add(toDTO(car));
         }
         return carDTOS;
     }
-
-    public static CarDTO toUserDTO(Car car) {
-        return toPoliceDTO(car);
-    }
-
-    public static List<CarDTO> toUserDTO(List<Car> cars) {
-        return toPoliceDTO(cars);
-    }
-
-
-
 }
