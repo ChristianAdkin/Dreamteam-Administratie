@@ -32,7 +32,7 @@ public class AddCarBean implements Serializable {
     }
 
     public void save() {
-        Car car = new Car(this.ICAN, this.licenceplate, this.VIN);
+        Car car = new Car(this.licenceplate, this.VIN);
         this.carService.create(car);
 
         this.ICAN = null;

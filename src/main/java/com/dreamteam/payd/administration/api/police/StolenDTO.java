@@ -1,5 +1,6 @@
 package com.dreamteam.payd.administration.api.police;
 
+import com.dreamteam.payd.administration.api.shared.CarDTO;
 import com.dreamteam.payd.administration.model.CarStatus;
 
 /**
