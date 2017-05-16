@@ -16,7 +16,7 @@ public class User implements Serializable {
 
     @Column(unique = true)
     @Size(min = 6, max = 50)
-    private String username;
+    private String emailAddress;
 
     @Size(min = 6, max = 128)
     private String password;
@@ -24,8 +24,8 @@ public class User implements Serializable {
     protected User() {
     }
 
-    public User(String username, String password) {
-        this.username = username;
+    public User(String emailAddress, String password) {
+        this.emailAddress = emailAddress;
         this.password = password;
     }
 
@@ -37,12 +37,12 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public String getPassword() {

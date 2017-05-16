@@ -13,19 +13,23 @@ public class Cartracker implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String ICAN;
+
     @ManyToOne
     private Day day;
 
-    @ManyToOne
+    @OneToOne
     private Car car;
 
     protected Cartracker() {
 
     }
 
-    public Cartracker(Car car) {
+    public Cartracker(Car car, String ICAN) {
         this();
         this.car = car;
+        this.car.setCartracker(this);
+        this.ICAN = ICAN;
     }
 
     public Long getId() {
@@ -42,5 +46,13 @@ public class Cartracker implements Serializable {
 
     public void setDay(Day day) {
         this.day = day;
+    }
+
+    public String getICAN() {
+        return ICAN;
+    }
+
+    public void setICAN(String ICAN) {
+        this.ICAN = ICAN;
     }
 }

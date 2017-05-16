@@ -2,6 +2,7 @@ package com.dreamteam.payd.administration.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,11 +19,21 @@ public class Route implements Serializable {
     @ManyToOne
     private Day day;
 
-    @OneToMany
-    private List<Pathway> pathways;
+    @Column(precision = 20, scale = 10)
+    private BigDecimal price;
 
-    public Route() {
-        this.pathways = new ArrayList<>();
+    private Long distance;
+
+    @OneToMany
+    private List<Region> regions;
+
+    protected Route() {
+        this.regions = new ArrayList<>();
+    }
+
+    public Route(Day day) {
+        this();
+        this.day = day;
     }
 
     public Long getId() {

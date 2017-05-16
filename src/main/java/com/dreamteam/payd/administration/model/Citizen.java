@@ -1,10 +1,13 @@
 package com.dreamteam.payd.administration.model;
 
+import com.dreamteam.payd.administration.model.auth.User;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,12 +20,30 @@ public class Citizen implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String idNumber;
+
     private String initials;
     @NotNull
     private String firstName;
     private String preposition;
     @NotNull
     private String lastName;
+
+    private Date dateOfBirth;
+
+    private String nationality;
+    private String driversLicenceType;
+
+    private String policyNumber;
+
+    private String streetName;
+    private String houseNr;
+    private String postCode;
+    private String city;
+    private String country;
+
+    @OneToOne
+    private User user;
 
     @OneToMany
     private List<Invoice> invoices;
@@ -31,7 +52,9 @@ public class Citizen implements Serializable{
         this.invoices = new ArrayList<>();
     }
 
-    public Citizen(String firstName, String lastName) {
+    public Citizen(String idNumber ,String firstName, String lastName) {
+        this();
+        this.idNumber = idNumber;
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -65,6 +88,14 @@ public class Citizen implements Serializable{
         this.id = id;
     }
 
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
+    }
+
     public String getInitials() {
         return initials;
     }
@@ -95,6 +126,86 @@ public class Citizen implements Serializable{
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
+    public String getDriversLicenceType() {
+        return driversLicenceType;
+    }
+
+    public void setDriversLicenceType(String driversLicenceType) {
+        this.driversLicenceType = driversLicenceType;
+    }
+
+    public String getPolicyNumber() {
+        return policyNumber;
+    }
+
+    public void setPolicyNumber(String policyNumber) {
+        this.policyNumber = policyNumber;
+    }
+
+    public String getStreetName() {
+        return streetName;
+    }
+
+    public void setStreetName(String streetName) {
+        this.streetName = streetName;
+    }
+
+    public String getHouseNr() {
+        return houseNr;
+    }
+
+    public void setHouseNr(String houseNr) {
+        this.houseNr = houseNr;
+    }
+
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public List<Invoice> getInvoices() {

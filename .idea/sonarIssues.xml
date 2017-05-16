@@ -18,6 +18,36 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../DPI6/datumprikker/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../DPI6/datumprikker/server/back-end/src/main/webapp/WEB-INF/web.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../DPI6/datumprikker/src/main/resources/META-INF/beans.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../DPI6/datumprikker/src/main/resources/META-INF/persistence.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../DPI6/datumprikker/src/main/webapp/WEB-INF/web.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../DPI6/datumprikker/src/main/webapp/pages/create_new_date_picker.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../SOP6/Kwetter/pom.xml">
           <value>
             <set />
@@ -88,6 +118,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/police/CarDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/police/CarEndpoint.java">
           <value>
             <set />
@@ -98,12 +133,67 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/police/DTO/CarDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/police/StolenDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/portal/CarDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/portal/DTO/CoordinateDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/portal/DTO/DailyStatsDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/portal/DTO/DrivenKMDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/portal/DTO/InvoiceDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/portal/DTO/InvoiceDayDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/portal/DTO/InvoiceRouteDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/portal/PaymentResource.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/portal/TranslocationResource.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/portal/UserDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/api/shared/CarDTO.java">
           <value>
             <set />
           </value>
@@ -308,7 +398,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/Address.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/Car.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/CarStatus.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/CarType.java">
           <value>
             <set />
           </value>
@@ -379,6 +484,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/auth/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/mapper/CarMapper.java">
           <value>
             <set />
           </value>
@@ -609,6 +719,41 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/web/templates/topnav.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/Application.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/config/Path.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/dao/BaseDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/dao/impl/BaseDaoMock.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/model/Entity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/model/Tweet.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/model/User.java">
           <value>
             <set />
           </value>

@@ -16,23 +16,28 @@ public class Car implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String ICAN;
     @NotNull
     private String VIN;
     private String licenceplate;
 
+    private CarType carType;
+
+    private String colour;
+
+    @OneToOne
+    private Cartracker cartracker;
+
     protected Car() {
     }
 
-    public Car(String ICAN, String VIN, String licenceplate) {
-        this.ICAN = ICAN;
+    public Car(String VIN, String licenceplate) {
         this.VIN = VIN;
         this.licenceplate = licenceplate;
     }
 
     @Override
     public String toString() {
-        return this.id + " - ICAN: " + this.ICAN + " - Licenceplate: " + this.licenceplate + " - VIN: " +  this.VIN;
+        return this.id + " - Licenceplate: " + this.licenceplate + " - VIN: " +  this.VIN;
     }
 
     public Long getId() {
@@ -41,14 +46,6 @@ public class Car implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getICAN() {
-        return ICAN;
-    }
-
-    public void setICAN(String ICAN) {
-        this.ICAN = ICAN;
     }
 
     public String getVIN() {
@@ -65,6 +62,30 @@ public class Car implements Serializable {
 
     public void setLicenceplate(String licenceplate) {
         this.licenceplate = licenceplate;
+    }
+
+    public CarType getCarType() {
+        return carType;
+    }
+
+    public void setCarType(CarType carType) {
+        this.carType = carType;
+    }
+
+    public String getColour() {
+        return colour;
+    }
+
+    public void setColour(String colour) {
+        this.colour = colour;
+    }
+
+    public Cartracker getCartracker() {
+        return cartracker;
+    }
+
+    public void setCartracker(Cartracker cartracker) {
+        this.cartracker = cartracker;
     }
 
     @Override

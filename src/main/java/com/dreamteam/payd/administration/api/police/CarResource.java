@@ -1,9 +1,7 @@
 package com.dreamteam.payd.administration.api.police;
-import com.dreamteam.payd.administration.model.Car;
-import com.dreamteam.payd.administration.model.Citizen;
+import com.dreamteam.payd.administration.model.mapper.CarMapper;
 import com.dreamteam.payd.administration.service.police.CarService;
 
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -11,8 +9,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.List;
-import java.util.Objects;
+
 
 import static com.dreamteam.payd.administration.util.APIUtil.*;
 
@@ -29,7 +26,7 @@ public class CarResource {
     @Path("cars/{id}")
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
     public Response getCar(@PathParam("id") Long id) {
-        return buildResponse(carService.getCarById(id));
+        return buildResponse(CarMapper.toPoliceDTO(carService.getCarById(id)));
     }
 
     @GET
@@ -37,7 +34,7 @@ public class CarResource {
     public Response getAllCars() {
 //        return carService.getAllCars();
 //        return Response.ok(carService.getAllCars(), MediaType.APPLICATION_JSON).build();
-        return buildResponse(carService.getAllCars());
+        return buildResponse(CarMapper.toPoliceDTO(carService.getAllCars()));
     }
 
     @GET
