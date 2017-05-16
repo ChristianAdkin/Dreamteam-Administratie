@@ -2,6 +2,7 @@ package com.dreamteam.payd.administration.model.mapper;
 
 import com.dreamteam.payd.administration.api.shared.UserDTO;
 import com.dreamteam.payd.administration.model.Citizen;
+import com.dreamteam.payd.administration.util.BaseMapperUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +10,10 @@ import java.util.List;
 /**
  * Created by Christian Adkin on 16/05/2017.
  */
-public class CitizenMapper {
+public class CitizenMapper extends BaseMapperUtil<Citizen, UserDTO> {
 
-    public static UserDTO toDTO(Citizen citizen) {
+    @Override
+    public UserDTO to(Citizen citizen) {
         UserDTO userDTO = new UserDTO();
         userDTO.setId(citizen.getId());
         userDTO.setIdNumber(citizen.getIdNumber());
@@ -23,13 +25,4 @@ public class CitizenMapper {
         userDTO.setDateofbirth(citizen.getDateOfBirth());
         return userDTO;
     }
-
-    public static List<UserDTO> toDTO(List<Citizen> citizens) {
-        List<UserDTO> userDTOS = new ArrayList<>();
-        for (Citizen citizen:citizens) {
-            userDTOS.add(toDTO(citizen));
-        }
-        return userDTOS;
-    }
-
 }
