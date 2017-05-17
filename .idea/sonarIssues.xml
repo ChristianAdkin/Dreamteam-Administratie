@@ -68,6 +68,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../SOP6/Kwetter/web/pages/user/index.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../SOP6/Kwetter/web/pages/user/profile.xhtml">
           <value>
             <set />
@@ -453,6 +458,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/FuelType.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/Invoice.java">
           <value>
             <set />
@@ -559,6 +569,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/service/portal/PaymentServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/service/portal/TranslocationService.java">
           <value>
             <set />
           </value>

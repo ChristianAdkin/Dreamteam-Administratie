@@ -16,7 +16,7 @@ public class CarMapper extends BaseMapperUtil<Car, CarDTO> {
         carDTO.setLicensePlate(car.getLicenceplate());
         carDTO.setVin(car.getVIN());
         carDTO.setIcan(car.getCartracker().getICAN());
-        carDTO.setFuelType(car.getCarType());
+        carDTO.setFuelType(car.getFuelType());
         carDTO.setVehicleColor(car.getColour());
         return carDTO;
     }

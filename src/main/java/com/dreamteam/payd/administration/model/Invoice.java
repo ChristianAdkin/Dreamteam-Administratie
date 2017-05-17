@@ -49,11 +49,39 @@ public class Invoice implements Serializable {
         this.id = id;
     }
 
+    public BigDecimal getFuelTax() {
+        BigDecimal totalInvoicePrice = BigDecimal.ZERO;
+        totalInvoicePrice = totalInvoicePrice.add(getTotalInvoiceLinePrice());
+        BigDecimal fuelTax = calculateFuelTypeTax(totalInvoicePrice);
+        return fuelTax;
+    }
+
+    public BigDecimal getPriceBeforeTax() {
+        return getTotalInvoiceLinePrice();
+    }
+
     public BigDecimal getTotalPrice() {
+        BigDecimal totalInvoicePrice = BigDecimal.ZERO;
+        totalInvoicePrice = totalInvoicePrice.add(getTotalInvoiceLinePrice());
+        BigDecimal priceAfterFuelTax = totalInvoicePrice.add(calculateFuelTypeTax(totalInvoicePrice));
+        return priceAfterFuelTax;
+    }
+
+    private BigDecimal getTotalInvoiceLinePrice() {
         BigDecimal totalPrice = new BigDecimal(0);
         for (InvoiceLine invoiceLine : invoiceLines) {
             totalPrice = totalPrice.add(invoiceLine.getPrice());
         }
         return totalPrice;
+    }
+
+    private BigDecimal calculateFuelTypeTax(BigDecimal basePrice) {
+        // Calculate the tax percentage that should be levied on a car, based on its car type
+        // Ex: 1.0 becomes 0.01
+        // Ex: 0.8 becomes 0.008
+        BigDecimal multiplicand = new BigDecimal(this.car.getFuelType().getMultiplier() / 100);
+        // Ex: If price equals 100, the calculation should perform 100 * 0.008
+        //      This should result in the number 0.80.
+        return basePrice.multiply(multiplicand);
     }
 }

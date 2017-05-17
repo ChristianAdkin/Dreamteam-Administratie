@@ -21,7 +21,7 @@ import static com.dreamteam.payd.administration.util.APIUtil.*;
 /**
  * Created by Christian Adkin on 04/04/2017.
  */
-@Path("police")
+@Path("police/api/")
 public class CarResource {
 
     @Inject
