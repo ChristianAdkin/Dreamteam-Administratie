@@ -69,9 +69,8 @@ public class CarResource {
     }
 
     @GET
-    @Path("test")
-    public String test() {
-       return "test";
+    @Path("cars/ican/{ican}")
+    public Response getCarsByIcan(@PathParam("ican") String ICAN) {
+        return buildResponse(new CarMapper().to(this.carService.findByICAN(ICAN)));
     }
-
 }
