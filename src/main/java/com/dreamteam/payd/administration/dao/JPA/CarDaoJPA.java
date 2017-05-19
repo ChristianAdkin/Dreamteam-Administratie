@@ -21,4 +21,9 @@ public class CarDaoJPA extends BaseDaoJPA<Car> implements CarDao {
     public List<Car> findByICAN(String ICAN) {
         return entityManager.createQuery("SELECT c FROM Car c WHERE c.cartracker.ICAN = :ICAN ", Car.class).setParameter("ICAN", ICAN).getResultList();
     }
+
+    @Override
+    public List<Car> getCarsByUser(Long userId) {
+        return entityManager.createQuery("SELECT c FROM Car c WHERE c.id IN (SELECT o.owned.id FROM Ownership o WHERE o.owner.user.id = :userId AND o.endOwnership IS NULL)", Car.class).getResultList();
+    }
 }

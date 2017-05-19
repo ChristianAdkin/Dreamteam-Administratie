@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,6 +20,9 @@ public class Invoice implements Serializable {
     @Enumerated(EnumType.STRING)
     private InvoiceStatus invoiceStatus;
 
+    @Temporal(TemporalType.DATE)
+    private Date dateOfInvoice;
+
     @ManyToOne
     private Citizen citizen;
     @ManyToOne
@@ -29,24 +33,13 @@ public class Invoice implements Serializable {
 
     protected Invoice() {
         this.invoiceLines = new ArrayList<>();
+        this.dateOfInvoice = new Date();
     }
 
     public Invoice(Citizen citizen, Car car) {
         this();
         this.citizen = citizen;
         this.car = car;
-    }
-
-    public Invoice(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public BigDecimal getFuelTax() {
@@ -83,5 +76,29 @@ public class Invoice implements Serializable {
         // Ex: If price equals 100, the calculation should perform 100 * 0.008
         //      This should result in the number 0.80.
         return basePrice.multiply(multiplicand);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public InvoiceStatus getInvoiceStatus() {
+        return invoiceStatus;
+    }
+
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus) {
+        this.invoiceStatus = invoiceStatus;
+    }
+
+    public Date getDateOfInvoice() {
+        return dateOfInvoice;
+    }
+
+    public void setDateOfInvoice(Date dateOfInvoice) {
+        this.dateOfInvoice = dateOfInvoice;
     }
 }

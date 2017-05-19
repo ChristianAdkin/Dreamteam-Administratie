@@ -25,4 +25,9 @@ public class TranslocationServiceImpl implements TranslocationService {
     public List<Car> getAllCars() {
         return carDao.getAll();
     }
+
+    @Override
+    public List<Car> getCarsByUser(Long userId) {
+        return this.carDao.getCarsByUser(userId);
+    }
 }

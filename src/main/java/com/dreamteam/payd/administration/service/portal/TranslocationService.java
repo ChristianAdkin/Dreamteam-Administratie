@@ -10,4 +10,5 @@ import java.util.List;
 public interface TranslocationService {
     Car getCarById(Long id);
     List<Car> getAllCars();
+    List<Car> getCarsByUser(Long userId);
 }

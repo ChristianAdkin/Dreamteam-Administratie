@@ -3,8 +3,11 @@ package com.dreamteam.payd.administration.api.portal;
 import com.dreamteam.payd.administration.api.shared.CarDTO;
 import com.dreamteam.payd.administration.model.Car;
 import com.dreamteam.payd.administration.model.mapper.CarMapper;
+import com.dreamteam.payd.administration.model.mapper.CitizenMapper;
+import com.dreamteam.payd.administration.model.mapper.InvoiceMapper;
 import com.dreamteam.payd.administration.service.portal.PaymentService;
 import com.dreamteam.payd.administration.service.portal.TranslocationService;
+import com.dreamteam.payd.administration.service.portal.UserService;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -24,18 +27,28 @@ public class UserPortalResource {
     private PaymentService paymentService;
     @Inject
     private TranslocationService translocationService;
+    @Inject
+    private UserService userService;
 
     //Gebruiker
     @GET
     @Path("/users/{userId}/cars")
     public Response getAllCarsByUser(@PathParam("userId") Long userId) {
-        return buildResponse("test");
+        return buildResponse(
+                new CarMapper().to(
+                        translocationService.getCarsByUser(userId)
+                )
+        );
     }
 
     @GET
     @Path("/users/email/{email}")
     public Response getUserByEmail(@PathParam("email") String email) {
-        return buildResponse("test");
+        return buildResponse(
+                new CitizenMapper().to(
+                        this.userService.getByEmail(email)
+                )
+        );
     }
 
     @GET
@@ -55,7 +68,11 @@ public class UserPortalResource {
     @GET
     @Path("/users/{userId}/invoices")
     public Response getInvoicesByUser(@PathParam("userId") Long userId) {
-        return buildResponse("test");
+        return buildResponse(
+                new InvoiceMapper().to(
+                        this.paymentService.getInvoicesByUser(userId)
+                )
+        );
     }
 
     @GET

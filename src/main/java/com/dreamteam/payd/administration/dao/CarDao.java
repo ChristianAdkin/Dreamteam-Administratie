@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface CarDao extends BaseDao<Car> {
     List<Car> findByICAN(String ICAN);
+
+    List<Car> getCarsByUser(Long userId);
 }

@@ -10,4 +10,8 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class CitizenDaoJPA extends BaseDaoJPA<Citizen> implements CitizenDao {
+    @Override
+    public Citizen findByEmail(String email) {
+        return getSingleResult(entityManager.createQuery("SELECT c FROM Citizen c WHERE c.user.emailAddress = :email", Citizen.class).setParameter("email", email).getResultList());
+    }
 }

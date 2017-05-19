@@ -13,6 +13,10 @@ public class InvoiceDTO {
     private Long totalPrice;
     private InvoiceStatus status;
 
+    public InvoiceDTO() {
+
+    }
+
     public InvoiceDTO(Long id, Date date, Long totalPrice, InvoiceStatus status) {
         this.id = id;
         this.date = date;
