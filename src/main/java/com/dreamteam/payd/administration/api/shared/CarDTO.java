@@ -1,6 +1,6 @@
 package com.dreamteam.payd.administration.api.shared;
 
-import com.dreamteam.payd.administration.model.CarType;
+import com.dreamteam.payd.administration.model.FuelType;
 
 /**
  * Created by Christian Adkin on 16/05/2017.
@@ -11,14 +11,14 @@ public class CarDTO {
     private String licensePlate;
     private String vin;
     private String ican;
-    private CarType fuelType;
+    private FuelType fuelType;
     private String vehicleColor;
 
     public CarDTO() {
 
     }
 
-    public CarDTO(Long id, String licensePlate, String vin, String ican, CarType fuelType, String vehicleColor) {
+    public CarDTO(Long id, String licensePlate, String vin, String ican, FuelType fuelType, String vehicleColor) {
         this.id = id;
         this.licensePlate = licensePlate;
         this.vin = vin;
@@ -59,11 +59,11 @@ public class CarDTO {
         this.ican = ican;
     }
 
-    public CarType getFuelType() {
+    public FuelType getFuelType() {
         return fuelType;
     }
 
-    public void setFuelType(CarType fuelType) {
+    public void setFuelType(FuelType fuelType) {
         this.fuelType = fuelType;
     }
 

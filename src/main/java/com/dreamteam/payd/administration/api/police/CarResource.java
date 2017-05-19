@@ -21,7 +21,7 @@ import static com.dreamteam.payd.administration.util.APIUtil.*;
 /**
  * Created by Christian Adkin on 04/04/2017.
  */
-@Path("police")
+@Path("police/api/")
 public class CarResource {
 
     @Inject
@@ -69,9 +69,8 @@ public class CarResource {
     }
 
     @GET
-    @Path("test")
-    public String test() {
-       return "test";
+    @Path("cars/ican/{ican}")
+    public Response getCarsByIcan(@PathParam("ican") String ICAN) {
+        return buildResponse(new CarMapper().to(this.carService.findByICAN(ICAN)));
     }
-
 }

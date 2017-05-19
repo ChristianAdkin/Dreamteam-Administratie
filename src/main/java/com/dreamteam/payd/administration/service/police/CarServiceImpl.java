@@ -83,4 +83,9 @@ public class CarServiceImpl implements CarService {
         this.ownershipDao.create(ownership);
     }
 
+    @Override
+    public List<Car> findByICAN(String ICAN) {
+        return this.carDao.findByICAN(ICAN);
+    }
+
 }

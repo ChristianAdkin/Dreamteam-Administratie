@@ -3,8 +3,6 @@ package com.dreamteam.payd.administration.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Created by Christian Adkin on 21/03/2017.
@@ -20,7 +18,7 @@ public class Car implements Serializable {
     private String VIN;
     private String licenceplate;
 
-    private CarType carType;
+    private FuelType fuelType;
 
     private String colour;
 
@@ -64,12 +62,12 @@ public class Car implements Serializable {
         this.licenceplate = licenceplate;
     }
 
-    public CarType getCarType() {
-        return carType;
+    public FuelType getFuelType() {
+        return fuelType;
     }
 
-    public void setCarType(CarType carType) {
-        this.carType = carType;
+    public void setFuelType(FuelType fuelType) {
+        this.fuelType = fuelType;
     }
 
     public String getColour() {

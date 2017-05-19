@@ -78,4 +78,13 @@ public abstract class BaseDaoJPA<T> implements BaseDao<T> {
         TypedQuery<T> query = entityManager.createQuery(c);
         return query.getResultList();
     }
+
+    protected T getSingleResult(List<T> list) {
+        if (list != null) {
+            if (!list.isEmpty()) {
+                return list.get(0);
+            }
+        }
+        return null;
+    }
 }

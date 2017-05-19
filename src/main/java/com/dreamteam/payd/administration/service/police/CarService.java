@@ -1,5 +1,6 @@
 package com.dreamteam.payd.administration.service.police;
 
+import com.dreamteam.payd.administration.api.shared.CarDTO;
 import com.dreamteam.payd.administration.model.Car;
 import com.dreamteam.payd.administration.model.Cartracker;
 import com.dreamteam.payd.administration.model.Citizen;
@@ -76,4 +77,6 @@ public interface CarService {
     void create(Citizen citizen);
 
     void create(Ownership ownership);
+
+    List<Car> findByICAN(String ICAN);
 }
