@@ -25,6 +25,7 @@ public class UserPortalResource {
     @Inject
     private TranslocationService translocationService;
 
+    //Gebruiker
     @GET
     @Path("/users/{userId}/cars")
     public Response getAllCarsByUser(@PathParam("userId") Long userId) {
@@ -48,7 +49,9 @@ public class UserPortalResource {
     public Response getDrivenKMByUser(@PathParam("userId") Long userId) {
         return buildResponse("test");
     }
+    //End of gebruiker
 
+    //Rekeningen
     @GET
     @Path("/users/{userId}/invoices")
     public Response getInvoicesByUser(@PathParam("userId") Long userId) {
@@ -56,20 +59,27 @@ public class UserPortalResource {
     }
 
     @GET
-    @Path("/users/{userId}/invoices/{invoiceId}/days")
-    public Response getDaysByInvoice(@PathParam("userId") Long userId, @PathParam("invoiceId") Long invoiceId) {
+    @Path("invoices/{invoiceId}/days")
+    public Response getDaysByInvoice(@PathParam("invoiceId") Long invoiceId) {
         return buildResponse("test");
     }
 
     @PUT
-    @Path("/api/users/{userId}/invoices/{invoiceId}")
-    public Response updateInvoice(@PathParam("userId") Long userId, @PathParam("invoiceId") Long invoiceId) {
+    @Path("/invoices/{invoiceId}")
+    public Response updateInvoice(@PathParam("invoiceId") Long invoiceId) {
         return buildResponse("test");
     }
 
+    @GET
+    @Path("days/{dayId}/routes")
+    public Response getRoutesByDay(@PathParam("dayId") Long dayId) {
+        return buildResponse("test");
+    }
 
-
-
-
-
+    @GET
+    @Path("routes/{routeId}/coords")
+    public Response getCoordsByRoute(@PathParam("routeId") Long id) {
+        return buildResponse("test");
+    }
+    //End of rekeningen
 }
