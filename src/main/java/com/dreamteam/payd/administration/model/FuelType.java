@@ -8,7 +8,8 @@ public enum FuelType {
     DIESEL(1.5),
     BIOFUEL(0.8),
     HYBRID(0.5),
-    ELECTRIC(0.2);
+    ELECTRIC(0.2),
+    LPG(0.9);
 
     private double multiplier;
 

@@ -33,6 +33,12 @@ public class Car implements Serializable {
         this.licenceplate = licenceplate;
     }
 
+    public Car(String VIN, String licenceplate, FuelType fuelType, String colour) {
+        this(VIN, licenceplate);
+        this.fuelType = fuelType;
+        this.colour = colour;
+    }
+
     @Override
     public String toString() {
         return this.id + " - Licenceplate: " + this.licenceplate + " - VIN: " +  this.VIN;
