@@ -21,6 +21,7 @@ import static com.dreamteam.payd.administration.util.APIUtil.*;
  * Created by Christian Adkin on 04/04/2017.
  */
 @Path("userportal/api/")
+@Produces({ MediaType.APPLICATION_JSON })
 public class UserPortalResource {
 
     @Inject
@@ -33,6 +34,7 @@ public class UserPortalResource {
     //Gebruiker
     @GET
     @Path("/users/{userId}/cars")
+    @Produces({MediaType.APPLICATION_JSON})
     public Response getAllCarsByUser(@PathParam("userId") Long userId) {
         return buildResponse(
                 new CarMapper().to(
