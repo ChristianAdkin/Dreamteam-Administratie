@@ -17,7 +17,11 @@ public class InvoiceMapper extends BaseMapperUtil<Invoice, InvoiceDTO> {
         invoiceDTO.setId(invoice.getId());
         invoiceDTO.setDate(invoice.getDateOfInvoice());
         invoiceDTO.setStatus(invoice.getInvoiceStatus());
-        invoiceDTO.setTotalPrice(invoice.getTotalPrice().longValue());
+        if (invoice.getTotalPrice() == null) {
+            invoiceDTO.setTotalPrice(0L);
+        } else {
+            invoiceDTO.setTotalPrice(invoice.getTotalPrice().longValue());
+        }
         return invoiceDTO;
     }
 }
