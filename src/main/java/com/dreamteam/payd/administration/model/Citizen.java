@@ -29,6 +29,7 @@ public class Citizen implements Serializable{
     @NotNull
     private String lastName;
 
+    @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
 
     private String nationality;
