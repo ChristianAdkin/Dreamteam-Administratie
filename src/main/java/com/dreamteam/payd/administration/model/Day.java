@@ -2,6 +2,7 @@ package com.dreamteam.payd.administration.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -31,5 +32,13 @@ public class Day implements Serializable {
 
     public Date getDayDate() {
         return dayDate;
+    }
+
+    public List<Route> getRoutes() {
+        return Collections.unmodifiableList(this.routes);
+    }
+
+    public void setRoutes(List<Route> routes) {
+        this.routes = routes;
     }
 }

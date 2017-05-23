@@ -19,4 +19,11 @@ public class GeneralUtil {
         return list.get(new Random().nextInt(list.size()));
     }
 
+    public static <T> T removeRandomElement(List<T> list) {
+        if (list.isEmpty()) {
+            return null;
+        }
+        return list.remove(new Random().nextInt(list.size()));
+    }
+
 }

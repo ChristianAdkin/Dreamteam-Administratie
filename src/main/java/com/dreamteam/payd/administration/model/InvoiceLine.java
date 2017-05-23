@@ -53,4 +53,12 @@ public class InvoiceLine implements Serializable {
     public void setInvoice(Invoice invoice) {
         this.invoice = invoice;
     }
+
+    public Day getDay() {
+        return day;
+    }
+
+    public void setDay(Day day) {
+        this.day = day;
+    }
 }
