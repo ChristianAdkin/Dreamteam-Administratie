@@ -4,6 +4,37 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>kwetter_realm</realm-name>
+        <!--<form-login-config>-->
+            <!--<form-login-page>/pages/login.xhtml</form-login-page>-->
+            <!--<form-error-page>/pages/401.xhtml</form-error-page>-->
+        <!--</form-login-config>-->
+    </login-config>
+
+    <!--<security-constraint>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>Secure Pages</web-resource-name>-->
+            <!--<url-pattern>/pages/user/*</url-pattern>-->
+            <!--&lt;!&ndash;<url-pattern>/api/*</url-pattern>&ndash;&gt;-->
+        <!--</web-resource-collection>-->
+        <!--<auth-constraint>-->
+            <!--<role-name>regular_role</role-name>-->
+            <!--<role-name>admin_role</role-name>-->
+        <!--</auth-constraint>-->
+    <!--</security-constraint>-->
+
+    <!--<security-constraint>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>Admin only</web-resource-name>-->
+            <!--<url-pattern>/pages/admin/*</url-pattern>-->
+        <!--</web-resource-collection>-->
+        <!--<auth-constraint>-->
+            <!--<role-name>admin_role</role-name>-->
+        <!--</auth-constraint>-->
+    <!--</security-constraint>-->
+
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>

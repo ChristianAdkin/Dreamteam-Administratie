@@ -3,6 +3,8 @@ package com.dreamteam.payd.administration.model.auth;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Christian Adkin on 21/03/2017.
@@ -21,7 +23,11 @@ public class User implements Serializable {
     @Size(min = 6, max = 128)
     private String password;
 
+    @ManyToMany(mappedBy = "users")
+    private List<Role> roles;
+
     protected User() {
+        roles = new ArrayList<>();
     }
 
     public User(String emailAddress, String password) {
@@ -51,6 +57,14 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     @Override
