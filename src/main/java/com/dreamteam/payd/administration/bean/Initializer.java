@@ -5,16 +5,21 @@ import com.dreamteam.payd.administration.dao.auth.UserDao;
 import com.dreamteam.payd.administration.dao.qualifier.JPA;
 import com.dreamteam.payd.administration.model.*;
 import com.dreamteam.payd.administration.model.auth.User;
+import com.dreamteam.payd.administration.util.DateUtil;
 import com.dreamteam.payd.administration.util.GeneralUtil;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.ejb.Local;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.inject.Inject;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.security.acl.Owner;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -47,6 +52,52 @@ public class Initializer implements Serializable {
 
     @PostConstruct
     public void init() {
+        User demoUser = new User("angela.merkel@mail.de", "dreamteam");
+        userDao.create(demoUser);
+        userDao.flush();
+
+        Citizen citizen = new Citizen("1337", "Angela", "Merkel");
+        citizen.setInitials("MD");
+        citizen.setPreposition("Dorothea");
+        citizen.setCity("Berlin");
+        citizen.setCountry("Germany");
+        LocalDateTime localDateTime = LocalDateTime.of(1954, Month.JULY, 17, 0, 0);
+        citizen.setDateOfBirth(DateUtil.from(localDateTime));
+        citizen.setUser(demoUser);
+        citizenDao.create(citizen);
+        citizenDao.flush();
+
+        Car car1 = new Car("1J4FJ27P1TL156003", "WOP-ZK-295");
+        car1.setColour("Black");
+        car1.setFuelType(FuelType.LPG);
+        carDao.create(car1);
+
+
+        Cartracker cartracker = new Cartracker(car1, "ICANHAZJOBNOW?");
+        cartrackerDao.create(cartracker);
+
+        Ownership ownership = new Ownership(citizen, car1, DateUtil.from(LocalDateTime.of(2015, Month.NOVEMBER, 12, 0, 0)));
+        ownershipDao.create(ownership);
+
+        Car car2 = new Car("3VWPL7AJ8CM316881", "ZIK-AQ-123");
+        car2.setColour("Gray");
+        car2.setFuelType(FuelType.DIESEL);
+        carDao.create(car2);
+
+        Cartracker cartracker2 = new Cartracker(car2, "ICANHAZCIJFERNOW?");
+        cartrackerDao.create(cartracker2);
+
+        Ownership ownership2 = new Ownership(citizen, car2, DateUtil.from(LocalDateTime.of(2015, Month.NOVEMBER, 12, 0, 0)));
+        ownershipDao.create(ownership2);
+
+        carDao.flush();
+        cartrackerDao.flush();
+        ownershipDao.flush();
+
+        construct();
+    }
+
+    public void construct() {
         //Create some default Regions
         this.createRegions();
 
@@ -56,8 +107,11 @@ public class Initializer implements Serializable {
         //For each car create a Cartracker
         cars.forEach(e -> this.createCartracker(e, "ICAN"));
 
+        List<Citizen> citizens =  this.createCitizens();
+        cars.forEach(e -> this.createOwnership(GeneralUtil.getRandomElement(citizens), e, new Date(), null));
+
         //Create some citizens and link them to random cars
-        this.createCitizens().forEach(e -> createOwnership(e, GeneralUtil.removeRandomElement(cars), new Date(), null));
+        //.forEach(e -> createOwnership(e, GeneralUtil.removeRandomElement(cars), new Date(), null));
     }
 
     private void createRegions() {
@@ -80,16 +134,20 @@ public class Initializer implements Serializable {
     private List<Car> createCars() {
         List<Car> createdCars = new ArrayList<>();
 
-        createdCars.add(createCar("VIN1", "LicencePlate1"));
-        createdCars.add(createCar("VIN2", "LicencePlate2"));
-        createdCars.add(createCar("VIN3", "LicencePlate3"));
-        createdCars.add(createCar("VIN4", "LicencePlate4"));
+        createdCars.add(createCar("VIN1", "LicencePlate1", FuelType.BIOFUEL, "Red"));
+        createdCars.add(createCar("VIN2", "LicencePlate2", FuelType.DIESEL, "Blue"));
+        createdCars.add(createCar("VIN3", "LicencePlate3", FuelType.ELECTRIC, "Green"));
+        createdCars.add(createCar("VIN4", "LicencePlate4", FuelType.HYBRID,"Gold"));
+        createdCars.add(createCar("VIN5", "LicencePlate5", FuelType.BIOFUEL,"Silver"));
+        createdCars.add(createCar("VIN6", "LicencePlate6", FuelType.GASOLINE, "Black"));
+        createdCars.add(createCar("VIN7", "LicencePlate7", FuelType.BIOFUEL, "Yellow"));
+        createdCars.add(createCar("VIN8", "LicencePlate8", FuelType.ELECTRIC, "Cyan"));
 
         return createdCars;
     }
 
-    private Car createCar(String VIN, String licencePlate) {
-        Car car = new Car(VIN, licencePlate);
+    private Car createCar(String VIN, String licencePlate, FuelType fuelType, String colour) {
+        Car car = new Car(VIN, licencePlate, fuelType, colour);
         carDao.create(car);
         return car;
     }
@@ -136,7 +194,7 @@ public class Initializer implements Serializable {
 
     private Ownership createOwnership(Citizen citizen, Car car, Date startDate, Date endDate) {
         if (citizen == null || car == null) {
-            return null;
+
         }
         Ownership ownership = new Ownership(citizen, car, startDate, endDate);
         ownershipDao.create(ownership);
