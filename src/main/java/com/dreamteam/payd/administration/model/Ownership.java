@@ -22,7 +22,6 @@ public class Ownership {
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     private Date startOwnership;
-    @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     private Date endOwnership;
 

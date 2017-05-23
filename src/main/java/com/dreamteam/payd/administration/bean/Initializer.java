@@ -1,8 +1,10 @@
 package com.dreamteam.payd.administration.bean;
 
 import com.dreamteam.payd.administration.dao.*;
+import com.dreamteam.payd.administration.dao.auth.UserDao;
 import com.dreamteam.payd.administration.dao.qualifier.JPA;
 import com.dreamteam.payd.administration.model.*;
+import com.dreamteam.payd.administration.model.auth.User;
 import com.dreamteam.payd.administration.util.GeneralUtil;
 
 import javax.annotation.PostConstruct;
@@ -40,6 +42,9 @@ public class Initializer implements Serializable {
     @Inject
     private OwnershipDao ownershipDao;
 
+    @Inject
+    private UserDao userDao;
+
     @PostConstruct
     public void init() {
         //Create some default Regions
@@ -52,7 +57,7 @@ public class Initializer implements Serializable {
         cars.forEach(e -> this.createCartracker(e, "ICAN"));
 
         //Create some citizens and link them to random cars
-        this.createCitizens().forEach(e -> createOwnership(e, GeneralUtil.getRandomElement(cars), new Date(), new Date()));
+        this.createCitizens().forEach(e -> createOwnership(e, GeneralUtil.removeRandomElement(cars), new Date(), null));
     }
 
     private void createRegions() {
@@ -98,29 +103,41 @@ public class Initializer implements Serializable {
     private List<Citizen> createCitizens() {
         List<Citizen> createdCitizens = new ArrayList<>();
 
-        createdCitizens.add(createCitizen("Christian", "Adkin"));
-        createdCitizens.add(createCitizen("1234", "R", "Rick", "van", "Duijnhoven"));
-        createdCitizens.add(createCitizen("Hein", "Dauven"));
-        createdCitizens.add(createCitizen("Stef", "Philipsen"));
-        createdCitizens.add(createCitizen("Jasper", "Rouwhorst"));
-        createdCitizens.add(createCitizen("Mick", "Wonnink"));
+        createdCitizens.add(createCitizen("Christian", "Adkin", "christianadkin@hotmail.com", "dreamteam"));
+        createdCitizens.add(createCitizen("1234", "R", "Rick", "van", "Duijnhoven", "RickvanDuijnhoven@hotmail.com", "dreamteam"));
+        createdCitizens.add(createCitizen("Hein", "Dauven", "HeinDauven@hotmail.com", "dreamteam"));
+        createdCitizens.add(createCitizen("Stef", "Philipsen", "StefSven@hotmail.com", "dreamteam"));
+        createdCitizens.add(createCitizen("Jasper", "Rouwhorst", "JasperRouwhorst@hotmail.com", "dreamteam"));
+        createdCitizens.add(createCitizen("Mick", "Wonnink", "MickWonnink@hotmail.com", "dreamteam"));
 
         return createdCitizens;
     }
 
-    private Citizen createCitizen(String firstName, String lastName) {
-        return createCitizen(null, null, firstName, null, lastName);
+    private Citizen createCitizen(String firstName, String lastName, String email, String password) {
+        return createCitizen(null, null, firstName, null, lastName, email, password);
     }
 
-    private Citizen createCitizen(String idNumber, String initials, String firstName, String preposition, String lastName) {
+    private Citizen createCitizen(String idNumber, String initials, String firstName, String preposition, String lastName, String email, String password) {
         Citizen citizen = new Citizen(idNumber, firstName, lastName);
         citizen.setInitials(initials);
         citizen.setPreposition(preposition);
+
+        citizen.setUser(createUser(email, password));
+
         citizenDao.create(citizen);
         return citizen;
     }
 
+    private User createUser(String email, String password) {
+        User user = new User(email, password);
+        userDao.create(user);
+        return user;
+    }
+
     private Ownership createOwnership(Citizen citizen, Car car, Date startDate, Date endDate) {
+        if (citizen == null || car == null) {
+            return null;
+        }
         Ownership ownership = new Ownership(citizen, car, startDate, endDate);
         ownershipDao.create(ownership);
         return ownership;
