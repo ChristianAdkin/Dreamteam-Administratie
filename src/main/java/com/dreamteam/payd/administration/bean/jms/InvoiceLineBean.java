@@ -1,5 +1,8 @@
 package com.dreamteam.payd.administration.bean.jms;
 
+import com.dreamteam.payd.administration.model.InvoiceLine;
+import com.google.gson.Gson;
+
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
 import javax.inject.Inject;
@@ -24,7 +27,8 @@ public class InvoiceLineBean implements MessageListener {
         if (message instanceof TextMessage) {
             try {
                 String invoiceLineJson = ((TextMessage) message).getText();
-                // Parse the invoice line
+                Gson gson = new Gson();
+                InvoiceLine invoiceLine = gson.fromJson(invoiceLineJson, InvoiceLine.class);
             } catch (JMSException e) {
                 e.printStackTrace();
             }
