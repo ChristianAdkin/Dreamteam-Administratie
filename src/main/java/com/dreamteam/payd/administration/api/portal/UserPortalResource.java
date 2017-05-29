@@ -2,9 +2,7 @@ package com.dreamteam.payd.administration.api.portal;
 
 import com.dreamteam.payd.administration.api.shared.CarDTO;
 import com.dreamteam.payd.administration.model.Car;
-import com.dreamteam.payd.administration.model.mapper.CarMapper;
-import com.dreamteam.payd.administration.model.mapper.CitizenMapper;
-import com.dreamteam.payd.administration.model.mapper.InvoiceMapper;
+import com.dreamteam.payd.administration.model.mapper.*;
 import com.dreamteam.payd.administration.service.portal.PaymentService;
 import com.dreamteam.payd.administration.service.portal.TranslocationService;
 import com.dreamteam.payd.administration.service.portal.UserService;
@@ -56,13 +54,24 @@ public class UserPortalResource {
     @GET
     @Path("/users/{userId}/dailystats")
     public Response getDailyStatsByUser(@PathParam("userId") Long userId) {
-        return buildResponse("test");
+        return buildResponse(
+                new DailyStatsMapper().create(
+                        this.translocationService.getAmountOfDrivenKmTodayOfUser(userId).intValue(),
+                        this.translocationService.getAmountOfDrivenKmMonthOfUser(userId).intValue(),
+                        this.translocationService.getAmountOfVehiclesOfUser(userId).intValue(),
+                        this.paymentService.getAmountOfOpenInvoicesOfUser(userId).intValue()
+                )
+        );
     }
 
     @GET
     @Path("/users/{userId}/drivenkm")
     public Response getDrivenKMByUser(@PathParam("userId") Long userId) {
-        return buildResponse("test");
+        return buildResponse(
+                new DrivenKmMapper().to(
+                        this.paymentService.getLastFiveInvoicesOfUser(userId)
+                )
+        );
     }
     //End of gebruiker
 
@@ -72,7 +81,7 @@ public class UserPortalResource {
     public Response getInvoicesByUser(@PathParam("userId") Long userId) {
         return buildResponse(
                 new InvoiceMapper().to(
-                        this.paymentService.getInvoicesByUser(userId)
+                        this.paymentService.getAllInvoicesOfUser(userId)
                 )
         );
     }
