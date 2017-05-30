@@ -19,6 +19,8 @@ public class Day implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dayDate;
 
+    private Long distance;
+
     @OneToMany
     private List<Route> routes;
 
@@ -40,5 +42,13 @@ public class Day implements Serializable {
 
     public void setRoutes(List<Route> routes) {
         this.routes = routes;
+    }
+
+    public Long getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Long distance) {
+        this.distance = distance;
     }
 }

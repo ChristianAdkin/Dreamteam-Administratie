@@ -1,8 +1,10 @@
 package com.dreamteam.payd.administration.dao.JPA;
 
+import com.dreamteam.payd.administration.api.portal.DTO.CoordinateDTO;
 import com.dreamteam.payd.administration.dao.CarDao;
 import com.dreamteam.payd.administration.dao.qualifier.JPA;
 import com.dreamteam.payd.administration.model.Car;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.ejb.Stateless;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -27,5 +29,15 @@ public class CarDaoJPA extends BaseDaoJPA<Car> implements CarDao {
         return entityManager.createQuery("SELECT c FROM Car c WHERE c.id IN (SELECT o.owned.id FROM Ownership o WHERE o.owner.user.id = :userId AND o.endOwnership IS NULL)", Car.class)
                 .setParameter("userId", userId)
                 .getResultList();
+    }
+
+    @Override
+    public List<CoordinateDTO> getCoordinatesOfRoute(Long routeId) {
+        throw new NotImplementedException();
+    }
+
+    @Override
+    public Long getAmountOfDrivenKmTodayOfUser(Long userId) {
+        throw new NotImplementedException();
     }
 }

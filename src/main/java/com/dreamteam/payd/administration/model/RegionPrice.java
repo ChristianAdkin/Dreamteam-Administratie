@@ -16,7 +16,10 @@ public class RegionPrice {
     @ManyToOne
     private Region region;
 
+    @Temporal(TemporalType.DATE)
     private Date startDate;
+
+    @Temporal(TemporalType.DATE)
     private Date endDate;
 
     private BigDecimal price;
