@@ -108,6 +108,19 @@ public class Initializer implements Serializable {
         cartrackerDao.flush();
         ownershipDao.flush();
 
+        User policeUser = new User("police@police.police", "police");
+        userDao.create(policeUser);
+        userDao.flush();
+
+        Role policeRole = new Role("police");
+        roleDao.create(policeRole);
+        roleDao.flush();
+
+        policeRole.addUser(policeUser);
+        policeUser.addRole(policeRole);
+
+        policeRole = roleDao.update(policeRole);
+
         construct();
     }
 

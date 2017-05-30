@@ -16,24 +16,24 @@
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Secure Pages</web-resource-name>
-            <url-pattern>/*</url-pattern>
+            <url-pattern>/userportal/*</url-pattern>
             <http-method-omission>OPTIONS</http-method-omission>
-            <!--<url-pattern>/api/*</url-pattern>-->
         </web-resource-collection>
         <auth-constraint>
             <role-name>citizen_role</role-name>
         </auth-constraint>
     </security-constraint>
 
-    <!--<security-constraint>-->
-        <!--<web-resource-collection>-->
-            <!--<web-resource-name>Admin only</web-resource-name>-->
-            <!--<url-pattern>/pages/admin/*</url-pattern>-->
-        <!--</web-resource-collection>-->
-        <!--<auth-constraint>-->
-            <!--<role-name>admin_role</role-name>-->
-        <!--</auth-constraint>-->
-    <!--</security-constraint>-->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Secure Pages</web-resource-name>
+            <url-pattern>/police/*</url-pattern>
+            <http-method-omission>OPTIONS</http-method-omission>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>police_role</role-name>
+        </auth-constraint>
+    </security-constraint>
 
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
