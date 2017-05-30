@@ -32,6 +32,10 @@ public class Role {
         this.name = name;
     }
 
+    public void addUser(User user) {
+        this.users.add(user);
+    }
+
     public Long getId() {
         return id;
     }
