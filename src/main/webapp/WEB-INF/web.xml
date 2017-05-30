@@ -13,6 +13,27 @@
         <!--</form-login-config>-->
     </login-config>
 
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+
+    <security-role>
+        <role-name>citizen_role</role-name>
+    </security-role>
+    <security-role>
+        <role-name>police_role</role-name>
+    </security-role>
+    <security-role>
+        <role-name>administrator_role</role-name>
+    </security-role>
+
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Secure Pages</web-resource-name>
@@ -32,6 +53,17 @@
         </web-resource-collection>
         <auth-constraint>
             <role-name>police_role</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Secure Pages</web-resource-name>
+            <url-pattern>/pages/*</url-pattern>
+            <http-method-omission>OPTIONS</http-method-omission>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>administrator_role</role-name>
         </auth-constraint>
     </security-constraint>
 
