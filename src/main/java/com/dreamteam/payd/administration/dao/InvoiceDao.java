@@ -17,4 +17,6 @@ public interface InvoiceDao extends BaseDao<Invoice> {
     List<Invoice> getLastFiveInvoicesByUser(Long userId);
 
     Long getAmountOpenInvoicesOfUser(Long userId);
+
+    void updateInvoiceStatusToOpen();
 }
