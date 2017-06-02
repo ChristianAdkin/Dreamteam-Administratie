@@ -1,4 +1,4 @@
-package com.dreamteam.payd.administration.api.police;
+package com.dreamteam.payd.administration.api.police.DTO;
 
 import com.dreamteam.payd.administration.api.shared.CarDTO;
 import com.dreamteam.payd.administration.model.CarStatus;
@@ -9,10 +9,10 @@ import com.dreamteam.payd.administration.model.CarStatus;
 public class StolenDTO {
 
     private CarDTO carDTO;
-    private CarStatus carStatus;
+    private String carStatus;
     private String comments;
 
-    public StolenDTO(CarDTO carDTO, CarStatus carStatus, String comments) {
+    public StolenDTO(CarDTO carDTO, String carStatus, String comments) {
         this.carDTO = carDTO;
         this.carStatus = carStatus;
         this.comments = comments;
@@ -26,11 +26,11 @@ public class StolenDTO {
         this.carDTO = carDTO;
     }
 
-    public CarStatus getCarStatus() {
+    public String getCarStatus() {
         return carStatus;
     }
 
-    public void setCarStatus(CarStatus carStatus) {
+    public void setCarStatus(String carStatus) {
         this.carStatus = carStatus;
     }
 
