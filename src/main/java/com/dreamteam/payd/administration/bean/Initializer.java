@@ -57,6 +57,19 @@ public class Initializer implements Serializable {
 
     @PostConstruct
     public void init() {
+        User adminUser = new User("administrator", "8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918");
+        userDao.create(adminUser);
+//        userDao.flush();
+
+        Role adminRole = new Role("admins");
+        roleDao.create(adminRole);
+        roleDao.flush();
+
+        adminUser.addRole(adminRole);
+        adminRole.addUser(adminUser);
+
+        roleDao.update(adminRole);
+
         User demoUser = new User("angela.merkel@mail.de", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918");
         userDao.create(demoUser);
         userDao.flush();
@@ -107,6 +120,19 @@ public class Initializer implements Serializable {
         carDao.flush();
         cartrackerDao.flush();
         ownershipDao.flush();
+
+        User policeUser = new User("police@police.police", "1366FAC71146793A85E98A88AD9BB15ADB9AAC31DA8AC6D73E67059BD5A467A9");
+        userDao.create(policeUser);
+        userDao.flush();
+
+        Role policeRole = new Role("police");
+        roleDao.create(policeRole);
+        roleDao.flush();
+
+        policeRole.addUser(policeUser);
+        policeUser.addRole(policeRole);
+
+        policeRole = roleDao.update(policeRole);
 
         construct();
     }

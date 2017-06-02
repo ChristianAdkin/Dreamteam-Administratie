@@ -22,6 +22,9 @@ public class Car implements Serializable {
 
     private String colour;
 
+    private CarStatus carStatus;
+    private String comments;
+
     @OneToOne
     private Cartracker cartracker;
 
@@ -31,12 +34,16 @@ public class Car implements Serializable {
     public Car(String VIN, String licenceplate) {
         this.VIN = VIN;
         this.licenceplate = licenceplate;
+        this.carStatus = CarStatus.DEFAULT;
+        this.comments = "";
     }
 
     public Car(String VIN, String licenceplate, FuelType fuelType, String colour) {
         this(VIN, licenceplate);
         this.fuelType = fuelType;
         this.colour = colour;
+        this.carStatus = CarStatus.DEFAULT;
+        this.comments = "";
     }
 
     @Override
@@ -105,5 +112,21 @@ public class Car implements Serializable {
     @Override
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
+    }
+
+    public CarStatus getCarStatus() {
+        return carStatus;
+    }
+
+    public void setCarStatus(CarStatus carStatus) {
+        this.carStatus = carStatus;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 }
