@@ -1,5 +1,6 @@
 package com.dreamteam.payd.administration.service.police;
 
+import com.dreamteam.payd.administration.api.police.DTO.StolenDTO;
 import com.dreamteam.payd.administration.api.shared.CarDTO;
 import com.dreamteam.payd.administration.model.Car;
 import com.dreamteam.payd.administration.model.Cartracker;
@@ -79,4 +80,6 @@ public interface CarService {
     void create(Ownership ownership);
 
     List<Car> findByICAN(String ICAN);
+
+    void updateCarWithStolenDto(Car car, StolenDTO stolenDTO);
 }

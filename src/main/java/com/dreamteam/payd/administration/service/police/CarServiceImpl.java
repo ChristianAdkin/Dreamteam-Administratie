@@ -1,13 +1,11 @@
 package com.dreamteam.payd.administration.service.police;
 
+import com.dreamteam.payd.administration.api.police.DTO.StolenDTO;
 import com.dreamteam.payd.administration.dao.CarDao;
 import com.dreamteam.payd.administration.dao.CartrackerDao;
 import com.dreamteam.payd.administration.dao.CitizenDao;
 import com.dreamteam.payd.administration.dao.OwnershipDao;
-import com.dreamteam.payd.administration.model.Car;
-import com.dreamteam.payd.administration.model.Cartracker;
-import com.dreamteam.payd.administration.model.Citizen;
-import com.dreamteam.payd.administration.model.Ownership;
+import com.dreamteam.payd.administration.model.*;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -86,6 +84,25 @@ public class CarServiceImpl implements CarService {
     @Override
     public List<Car> findByICAN(String ICAN) {
         return this.carDao.findByICAN(ICAN);
+    }
+
+    @Override
+    public void updateCarWithStolenDto(Car car, StolenDTO stolenDTO) {
+        switch(stolenDTO.getCarStatus()) {
+            case("stolen"):
+                car.setCarStatus(CarStatus.STOLEN);
+                break;
+            case("found"):
+                car.setCarStatus(CarStatus.FOUND);
+                break;
+            default:
+                car.setCarStatus(CarStatus.DEFAULT);
+                break;
+        }
+
+        car.setComments(stolenDTO.getComments());
+
+        this.carDao.update(car);
     }
 
 }
