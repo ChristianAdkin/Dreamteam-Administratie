@@ -34,12 +34,14 @@ public class Invoice implements Serializable {
     protected Invoice() {
         this.invoiceLines = new ArrayList<>();
         this.dateOfInvoice = new Date();
+        this.invoiceStatus = InvoiceStatus.INCOMPLETE;
     }
 
     public Invoice(Citizen citizen, Car car) {
         this();
         this.citizen = citizen;
         this.car = car;
+        this.invoiceStatus = InvoiceStatus.INCOMPLETE;
     }
 
     public BigDecimal getFuelTax() {
@@ -100,5 +102,9 @@ public class Invoice implements Serializable {
 
     public void setDateOfInvoice(Date dateOfInvoice) {
         this.dateOfInvoice = dateOfInvoice;
+    }
+
+    public void addInvoiceLine(InvoiceLine invoiceLine) {
+        this.invoiceLines.add(invoiceLine);
     }
 }

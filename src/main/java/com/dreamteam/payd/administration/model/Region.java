@@ -1,6 +1,7 @@
 package com.dreamteam.payd.administration.model;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,20 +16,29 @@ public class Region {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int number;
+    private String areaCode;
     private String name;
 
-    @OneToMany
-    private List<RegionPrice> regionPrices;
+    private BigDecimal regionPrice;
 
-    protected Region() {
-        regionPrices = new ArrayList<>();
+    private Double distance;
+
+    public Region() {
+        regionPrice = new BigDecimal("0.15");
     }
 
-    public Region(int number, String name) {
+    public Region(String areaCode, String name) {
         this();
-        this.number = number;
+        this.areaCode = areaCode;
         this.name = name;
+    }
+
+    public Double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Double distance) {
+        this.distance = distance;
     }
 
     @Override
@@ -44,12 +54,20 @@ public class Region {
         this.id = id;
     }
 
-    public int getNumber() {
-        return number;
+    public BigDecimal getRegionPrice() {
+        return regionPrice;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setRegionPrice(BigDecimal regionPrice) {
+        this.regionPrice = regionPrice;
+    }
+
+    public String getAreaCode() {
+        return areaCode;
+    }
+
+    public void setAreaCode(String number) {
+        this.areaCode = number;
     }
 
     public String getName() {
@@ -60,21 +78,6 @@ public class Region {
         this.name = name;
     }
 
-    public List<RegionPrice> getRegionPrices() {
-        return Collections.unmodifiableList(this.regionPrices);
-    }
-
-    public boolean addRegionPrice(RegionPrice regionPrice) {
-        if (this.regionPrices.contains(regionPrice)) {
-            return false;
-        }
-        return this.regionPrices.add(regionPrice);
-    }
-
-    public boolean removeRegionPrice(RegionPrice regionPrice) {
-        return this.regionPrices.remove(regionPrice);
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -82,7 +85,7 @@ public class Region {
 
         Region region = (Region) o;
 
-        if (number != region.number) return false;
+        if (areaCode != region.areaCode) return false;
         if (id != null ? !id.equals(region.id) : region.id != null) return false;
         return name != null ? name.equals(region.name) : region.name == null;
     }
@@ -90,7 +93,6 @@ public class Region {
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + number;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
     }

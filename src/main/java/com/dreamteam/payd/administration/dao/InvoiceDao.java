@@ -7,6 +7,10 @@ import java.util.List;
 /**
  * Created by Christian Adkin on 21/03/2017.
  */
-public interface InvoiceDao {
+public interface InvoiceDao extends BaseDao<Invoice> {
     List<Invoice> findByUser(Long userId);
+
+    Invoice findIncompleteInvoiceByIcan(String ICAN);
+
+    void saveInvoice(Invoice invoice);
 }
