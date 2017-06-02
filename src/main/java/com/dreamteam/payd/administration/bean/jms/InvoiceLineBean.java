@@ -1,7 +1,6 @@
 package com.dreamteam.payd.administration.bean.jms;
+
 import com.dreamteam.payd.administration.bean.jms.dto.InvoiceLineDto;
-=======
-import com.dreamteam.payd.administration.model.InvoiceLine;
 import com.google.gson.Gson;
 
 import javax.ejb.ActivationConfigProperty;
