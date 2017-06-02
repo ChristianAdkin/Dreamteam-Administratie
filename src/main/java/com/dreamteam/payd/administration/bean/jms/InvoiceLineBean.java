@@ -1,5 +1,6 @@
 package com.dreamteam.payd.administration.bean.jms;
-
+import com.dreamteam.payd.administration.bean.jms.dto.InvoiceLineDto;
+=======
 import com.dreamteam.payd.administration.model.InvoiceLine;
 import com.google.gson.Gson;
 
@@ -22,13 +23,18 @@ import javax.jms.TextMessage;
 })
 public class InvoiceLineBean implements MessageListener {
 
+    @Inject
+    private InvoiceDtoHandler invoiceDtoHandler;
+
     @Override
     public void onMessage(Message message) {
         if (message instanceof TextMessage) {
             try {
                 String invoiceLineJson = ((TextMessage) message).getText();
                 Gson gson = new Gson();
-                InvoiceLine invoiceLine = gson.fromJson(invoiceLineJson, InvoiceLine.class);
+
+                InvoiceLineDto invoiceLineDto = gson.fromJson(invoiceLineJson, InvoiceLineDto.class);
+                invoiceDtoHandler.convertAndSaveInvoiceLineDto(invoiceLineDto);
             } catch (JMSException e) {
                 e.printStackTrace();
             }
