@@ -1,9 +1,11 @@
 package com.dreamteam.payd.administration.bean;
 
 import com.dreamteam.payd.administration.dao.*;
+import com.dreamteam.payd.administration.dao.auth.RoleDao;
 import com.dreamteam.payd.administration.dao.auth.UserDao;
 import com.dreamteam.payd.administration.dao.qualifier.JPA;
 import com.dreamteam.payd.administration.model.*;
+import com.dreamteam.payd.administration.model.auth.Role;
 import com.dreamteam.payd.administration.model.auth.User;
 import com.dreamteam.payd.administration.util.DateUtil;
 import com.dreamteam.payd.administration.util.GeneralUtil;
@@ -48,13 +50,25 @@ public class Initializer implements Serializable {
     private OwnershipDao ownershipDao;
 
     @Inject
+    private RoleDao roleDao;
+
+    @Inject
     private UserDao userDao;
 
     @PostConstruct
     public void init() {
-        User demoUser = new User("angela.merkel@mail.de", "dreamteam");
+        User demoUser = new User("angela.merkel@mail.de", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918");
         userDao.create(demoUser);
         userDao.flush();
+
+        Role role = new Role("citizens");
+        roleDao.create(role);
+        roleDao.flush();
+
+        role.addUser(demoUser);
+        demoUser.addRole(role);
+
+        role = roleDao.update(role);
 
         Citizen citizen = new Citizen("1337", "Angela", "Merkel");
         citizen.setInitials("MD");

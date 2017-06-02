@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="../../../templates/default.xhtml">
+
+    <ui:param name="menuRendered" value="true"/>
+
+    <ui:define name="title">Administration - Ownership overview</ui:define>
+
+    <ui:define name="head">
+
+    </ui:define>
+
+    <ui:define name="content">
+        <f:event type="preRenderView" listener="#{ownershipOverviewBean.init}"/>
+        <h:form>
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-12">
+                    <p:dataTable var="ownership" value="#{ownershipOverviewBean.ownerships}">
+                        <p:column headerText="Id">
+                            <h:outputText value="#{ownership.id}"/>
+                        </p:column>
+
+                        <p:column headerText="Citizen">
+                            <h:outputText value="#{ownership.owner}"/>
+                        </p:column>
+
+                        <p:column headerText="Car">
+                            <h:outputText value="#{ownership.owned}"/>
+                        </p:column>
+
+                        <p:column headerText="Period">
+                            <h:outputText value="#{ownership.startOwnership}">
+                                <f:convertDateTime pattern="dd-MM-yyyy"/>
+                            </h:outputText>
+                            <h:outputText value=" "/>
+                            <h:outputText value="#{ownership.endOwnership}">
+                                <f:convertDateTime pattern="dd-MM-yyyy"/>
+                            </h:outputText>
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

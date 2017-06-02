@@ -13,4 +13,8 @@ public interface InvoiceDao extends BaseDao<Invoice> {
     Invoice findIncompleteInvoiceByIcan(String ICAN);
 
     void saveInvoice(Invoice invoice);
+
+    List<Invoice> getLastFiveInvoicesByUser(Long userId);
+
+    Long getAmountOpenInvoicesOfUser(Long userId);
 }

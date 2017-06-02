@@ -663,6 +663,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/WEB-INF/glassfish-web.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/webapp/pages/users/car/add_car.xhtml">
           <value>
             <set />
@@ -818,6 +828,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../spark/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/Application.java">
           <value>
             <set />
@@ -838,6 +853,31 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/dao/impl/UserDaoMock.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/dto/UserDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/mapper/DTOToUserMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/mapper/UserMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/mapper/UserToDTOMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/model/Entity.java">
           <value>
             <set />
@@ -849,6 +889,51 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/model/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/service/impl/UserService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/util/BaseMapperUtil.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/util/HATEOAS.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/util/HATEOAS/HATEOAS.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/util/HATEOAS/URI.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/util/Singleton.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/util/StringUtil.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/main/java/com/christian/spark/util/result/Result.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spark/src/test/java/com/christian/spark/util/StringUtilTest.java">
           <value>
             <set />
           </value>

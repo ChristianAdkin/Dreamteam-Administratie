@@ -103,8 +103,11 @@ public class Invoice implements Serializable {
     public void setDateOfInvoice(Date dateOfInvoice) {
         this.dateOfInvoice = dateOfInvoice;
     }
-
+    
     public void addInvoiceLine(InvoiceLine invoiceLine) {
         this.invoiceLines.add(invoiceLine);
+    }
+    public List<InvoiceLine> getInvoiceLines() {
+        return invoiceLines;
     }
 }
