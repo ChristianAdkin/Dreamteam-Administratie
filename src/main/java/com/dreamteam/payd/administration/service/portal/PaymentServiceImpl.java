@@ -36,22 +36,22 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-        public List<Day> getInvoiceDaysOfInvoice(Long invoiceId) {
-            Invoice invoice = invoiceDao.findById(invoiceId);
-            List<InvoiceLine> invoiceLines = invoice.getInvoiceLines();
-            List<Day> days = new ArrayList<>();
+    public List<Day> getInvoiceDaysOfInvoice(Long invoiceId) {
+        Invoice invoice = invoiceDao.findById(invoiceId);
+        List<InvoiceLine> invoiceLines = invoice.getInvoiceLines();
+        List<Day> days = new ArrayList<>();
 
-            for (InvoiceLine line : invoiceLines){
-                days.add(line.getDay());
-            }
-            return Collections.unmodifiableList(days);
+        for (InvoiceLine line : invoiceLines){
+            days.add(line.getDay());
         }
+        return Collections.unmodifiableList(days);
+    }
 
-        @Override
-        public List<Route> getInvoiceRoutesOfDay(Long invoiceDayId) {
-            Day day = dayDao.findById(invoiceDayId);
-            return Collections.unmodifiableList(day.getRoutes());
-        }
+    @Override
+    public List<Route> getInvoiceRoutesOfDay(Long invoiceDayId) {
+        Day day = dayDao.findById(invoiceDayId);
+        return Collections.unmodifiableList(day.getRoutes());
+    }
 
     @Override
     public Long getAmountOfOpenInvoicesOfUser(Long userId) {

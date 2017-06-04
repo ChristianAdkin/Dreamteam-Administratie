@@ -89,7 +89,12 @@ public class UserPortalResource {
     @GET
     @Path("invoices/{invoiceId}/days")
     public Response getDaysByInvoice(@PathParam("invoiceId") Long invoiceId) {
-        return buildResponse("test");
+        //should return InvoiceDayDto[]
+        return buildResponse(
+                new InvoiceDayMapper().to(
+                        this.paymentService.getInvoiceDaysOfInvoice(invoiceId)
+                )
+        );
     }
 
     @PUT
