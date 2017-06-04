@@ -40,4 +40,10 @@ public class CarDaoJPA extends BaseDaoJPA<Car> implements CarDao {
     public Long getAmountOfDrivenKmTodayOfUser(Long userId) {
         throw new NotImplementedException();
     }
+
+    @Override
+    public List<Car> queryByVIN(String query) {
+        List<Car> cars = entityManager.createQuery("SELECT c FROM Car c WHERE c.VIN LIKE :VIN ", Car.class).setParameter("VIN", "%" + query + "%").getResultList();
+        return cars;
+    }
 }

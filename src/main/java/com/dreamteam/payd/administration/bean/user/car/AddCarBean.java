@@ -1,6 +1,8 @@
 package com.dreamteam.payd.administration.bean.user.car;
 
 import com.dreamteam.payd.administration.model.Car;
+import com.dreamteam.payd.administration.model.Cartracker;
+import com.dreamteam.payd.administration.service.internal.VehicleService;
 import com.dreamteam.payd.administration.service.police.CarService;
 
 import javax.faces.view.ViewScoped;
@@ -16,14 +18,12 @@ import java.io.Serializable;
 public class AddCarBean implements Serializable {
 
     @Inject
-    private CarService carService;
+    private VehicleService vehicleService;
 
-    private String ICAN;
     private String licenceplate;
     private String VIN;
 
     public void init() {
-
         this.construct();
     }
 
@@ -32,20 +32,15 @@ public class AddCarBean implements Serializable {
     }
 
     public void save() {
-        Car car = new Car(this.licenceplate, this.VIN);
-        this.carService.create(car);
 
-        this.ICAN = null;
+        //TODO: Validate input and add new options such as GASTYPE, Colour etc...
+
+        Car car = new Car(this.licenceplate, this.VIN);
+        this.vehicleService.createCar(car);
+
         this.licenceplate = null;
         this.VIN = null;
-    }
 
-    public String getICAN() {
-        return ICAN;
-    }
-
-    public void setICAN(String ICAN) {
-        this.ICAN = ICAN;
     }
 
     public String getLicenceplate() {

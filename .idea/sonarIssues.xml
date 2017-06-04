@@ -83,6 +83,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/dreamteam-administration.iml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/pom.xml">
           <value>
             <set />
@@ -233,6 +238,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/bean/jms/InvoiceLineBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/bean/settings/region/RegionBean.java">
           <value>
             <set />
@@ -244,6 +254,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/bean/user/car/CarOverviewBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/bean/user/car/SelectedCarBean.java">
           <value>
             <set />
           </value>
@@ -578,6 +593,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/service/internal/VehicleService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/service/internal/VehicleServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/service/police/CarService.java">
           <value>
             <set />
@@ -684,6 +709,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/webapp/pages/users/car/overview.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/pages/users/car/selected_car.xhtml">
           <value>
             <set />
           </value>
