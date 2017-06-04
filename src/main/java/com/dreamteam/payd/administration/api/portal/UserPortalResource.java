@@ -109,7 +109,11 @@ public class UserPortalResource {
     @GET
     @Path("days/{dayId}/routes")
     public Response getRoutesByDay(@PathParam("dayId") Long dayId) {
-        return buildResponse("test");
+        return buildResponse(
+                new InvoiceRouteMapper().to(
+                        this.paymentService.getInvoiceRoutesOfDay(dayId)
+                )
+        );
     }
 
     @GET

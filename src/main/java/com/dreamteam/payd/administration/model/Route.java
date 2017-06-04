@@ -10,7 +10,7 @@ import java.util.List;
  * Created by Christian Adkin on 18/04/2017.
  */
 @Entity
-public class Route implements Serializable {
+public class Route implements Serializable, Comparable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,5 +42,20 @@ public class Route implements Serializable {
 
     public BigDecimal getPrice() {
         return price;
+    }
+
+    public Day getDay() { return day; }
+
+    public Long getDistance() { return this.distance; }
+
+    @Override
+    public int compareTo(Object o) {
+        Route routeToCompare = (Route) o;
+        if (routeToCompare.getDay().getDayDate().after(this.day.getDayDate())) {
+            return 1;
+        } else if (routeToCompare.getDay().getDayDate().before(this.day.getDayDate())){
+            return -1;
+        }
+        return 0;
     }
 }
