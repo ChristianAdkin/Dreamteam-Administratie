@@ -59,10 +59,9 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-        public void updateInvoice(Long invoiceId, InvoiceStatus status) {
-            Invoice currentInvoice = invoiceDao.findById(invoiceId);
-            currentInvoice.setInvoiceStatus(status);
-            invoiceDao.update(currentInvoice);
-
-        }
+    public void updateInvoice(Long invoiceId, InvoiceStatus status) {
+        Invoice currentInvoice = invoiceDao.findById(invoiceId);
+        currentInvoice.setInvoiceStatus(status);
+        invoiceDao.update(currentInvoice);
+    }
 }

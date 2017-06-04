@@ -1,5 +1,6 @@
 package com.dreamteam.payd.administration.api.portal;
 
+import com.dreamteam.payd.administration.api.portal.DTO.InvoiceDTO;
 import com.dreamteam.payd.administration.api.shared.CarDTO;
 import com.dreamteam.payd.administration.model.Car;
 import com.dreamteam.payd.administration.model.mapper.*;
@@ -99,8 +100,10 @@ public class UserPortalResource {
 
     @PUT
     @Path("/invoices/{invoiceId}")
-    public Response updateInvoice(@PathParam("invoiceId") Long invoiceId) {
-        return buildResponse("test");
+    public Response updateInvoice(@PathParam("invoiceId") Long invoiceId, InvoiceDTO invoiceDTO) {
+        this.paymentService.updateInvoice(invoiceId, invoiceDTO.getStatus());
+
+        return Response.ok().build();
     }
 
     @GET
