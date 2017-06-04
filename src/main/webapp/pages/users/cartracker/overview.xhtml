@@ -35,7 +35,6 @@
 
                         <div class="ui-g-12">
                             <p:dataTable var="cartracker"
-                                         rendered="#{!cartrackerOverviewBean.queriedCartrackers.isEmpty()}"
                                          value="#{cartrackerOverviewBean.queriedCartrackers}">
                                 <p:column headerText="Cartracker Id">
                                     <h:outputText value="#{cartracker.id}"/>

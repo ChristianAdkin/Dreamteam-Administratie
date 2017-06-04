@@ -33,8 +33,7 @@
                     </div>
                     <div class="ui-g">
                         <div class="ui-g-12">
-                            <p:dataTable var="car" rendered="#{!carOverviewBean.queriedCars.isEmpty()}"
-                                         value="#{carOverviewBean.queriedCars}">
+                            <p:dataTable var="car" value="#{carOverviewBean.queriedCars}">
                                 <p:column headerText="Car's Id">
                                     <h:outputLink  value="#{request.contextPath}/#{lang.nav_prefix}/pages/users/car/selected_car.xhtml">
                                         #{car.id}

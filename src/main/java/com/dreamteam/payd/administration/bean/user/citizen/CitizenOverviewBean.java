@@ -2,6 +2,8 @@ package com.dreamteam.payd.administration.bean.user.citizen;
 
 import com.dreamteam.payd.administration.model.Cartracker;
 import com.dreamteam.payd.administration.model.Citizen;
+import com.dreamteam.payd.administration.service.internal.DriverRegistrationService;
+import com.dreamteam.payd.administration.service.internal.VehicleService;
 import com.dreamteam.payd.administration.service.police.CarService;
 
 import javax.faces.view.ViewScoped;
@@ -18,13 +20,12 @@ import java.util.List;
 public class CitizenOverviewBean implements Serializable{
 
     @Inject
-    private CarService carService;
+    private DriverRegistrationService driverRegistrationService;
 
-    private List<Citizen> citizens;
+    private List<Citizen> queriedCitizens;
+    private String query;
 
     public void init() {
-        this.citizens = carService.getAllCitizens();
-
         this.construct();
     }
 
@@ -32,11 +33,27 @@ public class CitizenOverviewBean implements Serializable{
 
     }
 
-    public List<Citizen> getCitizens() {
-        return citizens;
+    public List<Citizen> findMatchingCitizens() {
+        if (query.length() < 4) {
+            return this.queriedCitizens;
+        }
+        this.queriedCitizens = driverRegistrationService.queryCitizensByDetails(query);
+        return this.queriedCitizens;
     }
 
-    public void setCitizens(List<Citizen> citizens) {
-        this.citizens = citizens;
+    public List<Citizen> getQueriedCitizens() {
+        return queriedCitizens;
+    }
+
+    public void setQueriedCitizens(List<Citizen> queriedCitizens) {
+        this.queriedCitizens = queriedCitizens;
+    }
+
+    public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
     }
 }

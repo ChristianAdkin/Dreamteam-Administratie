@@ -278,6 +278,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/bean/user/citizen/SelectedCitizenBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/bean/user/ownership/AddOwnershipBean.java">
           <value>
             <set />
@@ -729,6 +734,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/webapp/pages/users/citizen/overview.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/pages/users/citizen/selected_citizen.xhtml">
           <value>
             <set />
           </value>

@@ -2,6 +2,7 @@ package com.dreamteam.payd.administration.bean.user.car;
 
 import com.dreamteam.payd.administration.model.Car;
 import com.dreamteam.payd.administration.model.Cartracker;
+import com.dreamteam.payd.administration.model.FuelType;
 import com.dreamteam.payd.administration.service.internal.VehicleService;
 import com.dreamteam.payd.administration.service.police.CarService;
 
@@ -23,6 +24,9 @@ public class AddCarBean implements Serializable {
     private String licenceplate;
     private String VIN;
 
+    private FuelType fuelType;
+    private String colour;
+
     public void init() {
         this.construct();
     }
@@ -32,15 +36,22 @@ public class AddCarBean implements Serializable {
     }
 
     public void save() {
-
-        //TODO: Validate input and add new options such as GASTYPE, Colour etc...
+        //TODO: Validate input
 
         Car car = new Car(this.licenceplate, this.VIN);
         this.vehicleService.createCar(car);
+        car.setFuelType(this.fuelType);
+        car.setColour(this.colour);
 
         this.licenceplate = null;
         this.VIN = null;
 
+        this.fuelType = null;
+        this.colour = null;
+    }
+
+    public FuelType[] getFuelTypeValues() {
+        return FuelType.values();
     }
 
     public String getLicenceplate() {
@@ -57,5 +68,21 @@ public class AddCarBean implements Serializable {
 
     public void setVIN(String VIN) {
         this.VIN = VIN;
+    }
+
+    public FuelType getFuelType() {
+        return fuelType;
+    }
+
+    public void setFuelType(FuelType fuelType) {
+        this.fuelType = fuelType;
+    }
+
+    public String getColour() {
+        return colour;
+    }
+
+    public void setColour(String colour) {
+        this.colour = colour;
     }
 }

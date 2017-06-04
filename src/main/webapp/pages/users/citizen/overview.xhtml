@@ -17,24 +17,46 @@
         <f:event type="preRenderView" listener="#{citizenOverviewBean.init}"/>
         <h:form>
             <div class="ui-g ui-fluid">
+                <div class="ui-g-3">
+                </div>
                 <div class="ui-g-6">
-                    <p:dataTable var="citizen" value="#{citizenOverviewBean.citizens}">
-                        <p:column headerText="Id">
-                            <h:outputText value="#{citizen.id}"/>
-                        </p:column>
+                    <div class="ui-g ui-fluid">
 
-                        <p:column headerText="Initials">
-                            <h:outputText value="#{citizen.initials}"/>
-                        </p:column>
+                        <div class="ui-g-6">
+                            <p:outputLabel value="Search citizen"/>
+                        </div>
+                        <div class="ui-g-6">
+                            <p:inputText id="searchString" title="searchString" value="#{citizenOverviewBean.query}">
+                                <p:ajax event="keyup" listener="#{citizenOverviewBean.findMatchingCitizens}"
+                                        process="@this"
+                                        update="@form"/>
+                            </p:inputText>
+                        </div>
 
-                        <p:column headerText="First name">
-                            <h:outputText value="#{citizen.firstName}"/>
-                        </p:column>
+                        <div class="ui-g-12">
+                            <p:dataTable var="citizen" value="#{citizenOverviewBean.queriedCitizens}">
+                                <p:column headerText="Id">
+                                    <h:outputLink  value="#{request.contextPath}/#{lang.nav_prefix}/pages/users/citizen/selected_citizen.xhtml">
+                                        #{citizen.id}
+                                        <f:param name="citizenId" value="#{citizen.id}"/>
+                                    </h:outputLink>
+                                </p:column>
 
-                        <p:column headerText="Last name">
-                            <h:outputText value="#{citizen.preposition} "/><h:outputText value="#{citizen.lastName}"/>
-                        </p:column>
-                    </p:dataTable>
+                                <p:column headerText="Initials">
+                                    <h:outputText value="#{citizen.initials}"/>
+                                </p:column>
+
+                                <p:column headerText="First name">
+                                    <h:outputText value="#{citizen.firstName}"/>
+                                </p:column>
+
+                                <p:column headerText="Last name">
+                                    <h:outputText value="#{citizen.preposition} "/><h:outputText
+                                        value="#{citizen.lastName}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </div>
+                    </div>
                 </div>
             </div>
         </h:form>
