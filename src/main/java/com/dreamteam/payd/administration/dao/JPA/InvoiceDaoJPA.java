@@ -1,6 +1,7 @@
 package com.dreamteam.payd.administration.dao.JPA;
 
 import com.dreamteam.payd.administration.dao.InvoiceDao;
+import com.dreamteam.payd.administration.model.CarStatus;
 import com.dreamteam.payd.administration.model.Invoice;
 import com.dreamteam.payd.administration.model.InvoiceStatus;
 
@@ -27,8 +28,9 @@ public class InvoiceDaoJPA extends BaseDaoJPA<Invoice> implements InvoiceDao {
     public Invoice findIncompleteInvoiceByIcan(String ICAN) {
         Invoice foundInvoice = null;
         try {
-            foundInvoice = entityManager.createQuery("SELECT i FROM Invoice i WHERE i.car.cartracker.ICAN = :ican AND i.invoiceStatus = com.dreamteam.payd.administration.model.InvoiceStatus.INCOMPLETE", Invoice.class)
+            foundInvoice = entityManager.createQuery("SELECT i FROM Invoice i WHERE i.car.cartracker.ICAN = :ican AND i.invoiceStatus = :status", Invoice.class)
                     .setParameter("ican", ICAN)
+                    .setParameter("status", InvoiceStatus.INCOMPLETE)
                     .getSingleResult();
         } catch (NoResultException ex) {
             System.out.println("No result found for " + ICAN + ", returning null");
