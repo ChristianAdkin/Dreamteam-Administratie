@@ -15,7 +15,7 @@ public class CitizenMapper extends BaseMapperUtil<Citizen, UserDTO> {
     @Override
     public UserDTO to(Citizen citizen) {
         UserDTO userDTO = new UserDTO();
-        userDTO.setId(citizen.getId());
+        userDTO.setId(citizen.getUser().getId());
         userDTO.setIdNumber(citizen.getIdNumber());
         userDTO.setInitials(citizen.getInitials());
         userDTO.setFirstname(citizen.getFirstName());
