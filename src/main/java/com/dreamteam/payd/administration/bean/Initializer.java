@@ -134,7 +134,7 @@ public class Initializer implements Serializable {
 
             LocalDateTime localDateTimeInvoice = LocalDateTime.now();
             localDateTimeInvoice = localDateTimeInvoice.withYear(2017);
-            localDateTimeInvoice = localDateTimeInvoice.withMonth(i);
+            localDateTimeInvoice = localDateTimeInvoice.withMonth(i+1);
             localDateTimeInvoice = localDateTimeInvoice.withDayOfMonth(1);
             invoice.setDateOfInvoice(DateUtil.from(localDateTimeInvoice));
             this.invoiceDao.create(invoice);
