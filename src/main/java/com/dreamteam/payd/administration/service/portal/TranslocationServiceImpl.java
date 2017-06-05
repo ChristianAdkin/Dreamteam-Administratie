@@ -11,6 +11,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -75,7 +76,15 @@ public class TranslocationServiceImpl implements TranslocationService {
 
     @Override
     public List<Day> getRecentDrivenDaysOfUser(Long userId) {
-        throw new NotImplementedException();
+        List<Invoice> invoices = invoiceDao.findByUser(userId);
+        invoices = sortInvoices(invoices);
+        Invoice correctInvoice = invoices.get(0);
+
+        List<Day> days = new ArrayList<>();
+
+        correctInvoice.getInvoiceLines().forEach(i -> days.add(i.getDay()));
+
+        return days;
     }
 
     @Override
