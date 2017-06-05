@@ -89,7 +89,7 @@ public class TranslocationServiceImpl implements TranslocationService {
 
     @Override
     public Long getAmountOfVehiclesOfUser(Long userId) {
-        throw new NotImplementedException();
+        return (long) carDao.getCarsByUser(userId).size();
     }
 
     private List<Invoice> sortInvoices(List<Invoice> invoices) {
