@@ -65,6 +65,11 @@
           <element id="library" level="project" name="Maven: org.fusesource.hawtbuf:hawtbuf:1.11" />
           <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-j2ee-management_1.1_spec:1.0.1" />
           <element id="library" level="project" name="Maven: org.apache.activemq:activemq-openwire-legacy:5.14.5" />
+          <element id="library" level="project" name="Maven: com.mashape.unirest:unirest-java:1.4.9" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpasyncclient:4.1.1" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore-nio:4.4.4" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpmime:4.5.2" />
+          <element id="library" level="project" name="Maven: org.json:json:20160212" />
         </element>
       </element>
       <element id="directory" name="META-INF">
