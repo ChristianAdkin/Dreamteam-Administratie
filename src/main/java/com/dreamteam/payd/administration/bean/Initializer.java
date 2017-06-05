@@ -18,6 +18,7 @@ import javax.ejb.Startup;
 import javax.inject.Inject;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.security.acl.Owner;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -25,6 +26,7 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Christian Adkin on 18/04/2017.
@@ -110,18 +112,28 @@ public class Initializer implements Serializable {
         day.setDistance(5000L);
         dayDao.create(day);
 
-        Invoice invoice = new Invoice(citizen, car1);
-        InvoiceLine invoiceLine = new InvoiceLine(new BigDecimal(1200), invoice);
-        invoiceLine.setDay(day);
-        invoiceLine.setDistance(273.25);
-        invoice.addInvoiceLine(invoiceLine);
+        for (int i=0; i < 10; i++){
+            Invoice invoice = new Invoice(citizen, car1);
+            InvoiceLine invoiceLine = new InvoiceLine(new BigDecimal(new Random().nextDouble() * 1200, MathContext.DECIMAL64), invoice);
+            invoiceLine.setDay(day);
+            invoiceLine.setDistance(new Random().nextDouble()* 400);
+            invoice.addInvoiceLine(invoiceLine);
 
-        InvoiceLine invoiceLine2 = new InvoiceLine(new BigDecimal(800), invoice);
-        invoiceLine2.setDay(day);
-        invoiceLine2.setDistance(200.17);
-        invoice.addInvoiceLine(invoiceLine2);
+            InvoiceLine invoiceLine2 = new InvoiceLine(new BigDecimal(new Random().nextDouble() * 800, MathContext.DECIMAL64), invoice);
+            invoiceLine2.setDay(day);
+            invoiceLine2.setDistance(new Random().nextDouble()* 400);
+            invoice.addInvoiceLine(invoiceLine2);
 
-        this.invoiceDao.create(invoice);
+            int rndLine = new Random().nextInt(3);
+            for (int j=0; j < rndLine; j++){
+                InvoiceLine invoiceLine3 = new InvoiceLine(new BigDecimal(new Random().nextDouble() * 800, MathContext.DECIMAL64), invoice);
+                invoiceLine3.setDay(day);
+                invoiceLine3.setDistance(new Random().nextDouble()* 400);
+                invoice.addInvoiceLine(invoiceLine3);
+            }
+
+            this.invoiceDao.create(invoice);
+        }
 
         Cartracker cartracker = new Cartracker(car1, "DE200000000000001");
         cartrackerDao.create(cartracker);
