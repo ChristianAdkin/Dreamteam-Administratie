@@ -53,7 +53,7 @@ public class InvoiceDaoJPA extends BaseDaoJPA<Invoice> implements InvoiceDao {
 
     @Override
     public List<Invoice> query(String query) {
-        Query q = entityManager.createNativeQuery("SELECT * FROM Invoice i WHERE CAST(i.id AS CHAR(50)) LIKE ?1 OR i.invoiceStatus LIKE ?1", Invoice.class);
+        Query q = entityManager.createNativeQuery("SELECT * FROM INVOICE i WHERE CAST(i.id AS CHAR(50)) LIKE ?1 OR i.invoiceStatus LIKE ?1", Invoice.class);
         q.setParameter(1, "%" + query + "%");
         return q.getResultList();
     }
