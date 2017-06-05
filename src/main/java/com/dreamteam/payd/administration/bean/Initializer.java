@@ -107,6 +107,7 @@ public class Initializer implements Serializable {
         carDao.create(car1);
 
         Day day = new Day();
+        day.setDistance(5000L);
         dayDao.create(day);
 
         Invoice invoice = new Invoice(citizen, car1);
@@ -122,7 +123,7 @@ public class Initializer implements Serializable {
 
         this.invoiceDao.create(invoice);
 
-        Cartracker cartracker = new Cartracker(car1, "ICANHAZJOBNOW?");
+        Cartracker cartracker = new Cartracker(car1, "DE200000000000001");
         cartrackerDao.create(cartracker);
 
         Ownership ownership = new Ownership(citizen, car1, DateUtil.from(LocalDateTime.of(2015, Month.NOVEMBER, 12, 0, 0)));
@@ -133,7 +134,7 @@ public class Initializer implements Serializable {
         car2.setFuelType(FuelType.DIESEL);
         carDao.create(car2);
 
-        Cartracker cartracker2 = new Cartracker(car2, "ICANHAZCIJFERNOW?");
+        Cartracker cartracker2 = new Cartracker(car2, "DE200000000000002");
         cartrackerDao.create(cartracker2);
 
         Ownership ownership2 = new Ownership(citizen, car2, DateUtil.from(LocalDateTime.of(2015, Month.NOVEMBER, 12, 0, 0)));
@@ -167,7 +168,11 @@ public class Initializer implements Serializable {
         List<Car> cars = this.createCars();
 
         //For each car create a Cartracker
-        cars.forEach(e -> this.createCartracker(e, "ICAN"));
+        int i = 0;
+        for (Car e : cars) {
+            this.createCartracker(e, "DE20000000000000" + Integer.toString(i));
+            i++;
+        }
 
         List<Citizen> citizens =  this.createCitizens();
         cars.forEach(e -> this.createOwnership(GeneralUtil.getRandomElement(citizens), e, new Date(), null));
