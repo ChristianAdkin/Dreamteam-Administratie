@@ -28,7 +28,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -42,24 +42,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="GlassFish 4.1.1.171_0_1" level="application_server_libraries" />
     <orderEntry type="library" name="PrimeFaces-5.2" level="project" />
-    <orderEntry type="library" name="Maven: com.sun.faces:jsf-api:2.1.11" level="project" />
-    <orderEntry type="library" name="Maven: com.sun.faces:jsf-impl:2.1.11" level="project" />
-    <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
-    <orderEntry type="library" name="Maven: javax.servlet.jsp:jsp-api:2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.activemq:activemq-broker:5.14.5" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.activemq:activemq-client:5.14.5" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.13" level="project" />
-    <orderEntry type="library" name="Maven: org.fusesource.hawtbuf:hawtbuf:1.11" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.activemq:activemq-openwire-legacy:5.14.5" level="project" />
-    <orderEntry type="library" name="Maven: com.sun.faces:jsf-api:2.1.11" level="project" />
-    <orderEntry type="library" name="Maven: com.sun.faces:jsf-impl:2.1.11" level="project" />
-    <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
-    <orderEntry type="library" name="Maven: javax.servlet.jsp:jsp-api:2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.activemq:activemq-broker:5.14.5" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.activemq:activemq-client:5.14.5" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.13" level="project" />
-    <orderEntry type="library" name="Maven: org.fusesource.hawtbuf:hawtbuf:1.11" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.activemq:activemq-openwire-legacy:5.14.5" level="project" />
     <orderEntry type="library" name="Maven: javax:javaee-api:7.0" level="project" />
     <orderEntry type="library" name="Maven: com.sun.mail:javax.mail:1.5.0" level="project" />
     <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
@@ -118,6 +100,11 @@
     <orderEntry type="library" name="Maven: org.fusesource.hawtbuf:hawtbuf:1.11" level="project" />
     <orderEntry type="library" name="Maven: org.apache.geronimo.specs:geronimo-j2ee-management_1.1_spec:1.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.activemq:activemq-openwire-legacy:5.14.5" level="project" />
+    <orderEntry type="library" name="Maven: com.mashape.unirest:unirest-java:1.4.9" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpasyncclient:4.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore-nio:4.4.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpmime:4.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.json:json:20160212" level="project" />
   </component>
   <component name="sonarModuleSettings">
     <option name="alternativeWorkingDirPath" value="" />

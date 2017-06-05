@@ -248,6 +248,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/bean/jms/InvoiceDtoHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/bean/jms/InvoiceLineBean.java">
           <value>
             <set />
