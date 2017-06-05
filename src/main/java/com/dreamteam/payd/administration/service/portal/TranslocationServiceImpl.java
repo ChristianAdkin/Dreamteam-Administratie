@@ -2,12 +2,18 @@ package com.dreamteam.payd.administration.service.portal;
 
 import com.dreamteam.payd.administration.api.portal.DTO.CoordinateDTO;
 import com.dreamteam.payd.administration.dao.CarDao;
+import com.dreamteam.payd.administration.dao.InvoiceDao;
 import com.dreamteam.payd.administration.model.Car;
 import com.dreamteam.payd.administration.model.Day;
+import com.dreamteam.payd.administration.model.Invoice;
+import com.dreamteam.payd.administration.model.InvoiceLine;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -18,6 +24,9 @@ public class TranslocationServiceImpl implements TranslocationService {
 
     @Inject
     private CarDao carDao;
+
+    @Inject
+    private InvoiceDao invoiceDao;
 
     @Override
     public Car getCarById(Long id) {
@@ -40,21 +49,71 @@ public class TranslocationServiceImpl implements TranslocationService {
 
     @Override
     public Double getAmountOfDrivenKmTodayOfUser(Long userId) {
-        throw new NotImplementedException();
+        List<Invoice> invoices = invoiceDao.findByUser(userId);
+        invoices = sortInvoices(invoices);
+
+        List<InvoiceLine> invoiceLines = invoices.get(0).getInvoiceLines();
+        invoiceLines= sortInvoiceLines(invoiceLines);
+
+        return invoiceLines.get(0).getDistance();
     }
 
     @Override
     public Double getAmountOfDrivenKmMonthOfUser(Long userId) {
-        throw new NotImplementedException();
+        List<Invoice> invoices = invoiceDao.findByUser(userId);
+        invoices = sortInvoices(invoices);
+
+        double distance = 0;
+
+        List<InvoiceLine> invoiceLines = invoices.get(0).getInvoiceLines();
+
+        for (InvoiceLine line : invoiceLines) {
+            distance += line.getDistance();
+        }
+
+        return distance;
     }
 
     @Override
     public List<Day> getRecentDrivenDaysOfUser(Long userId) {
-        throw new NotImplementedException();
+        List<Invoice> invoices = invoiceDao.findByUser(userId);
+        invoices = sortInvoices(invoices);
+        Invoice correctInvoice = invoices.get(0);
+
+        List<Day> days = new ArrayList<>();
+
+        correctInvoice.getInvoiceLines().forEach(i -> days.add(i.getDay()));
+
+        return days;
     }
 
     @Override
     public Long getAmountOfVehiclesOfUser(Long userId) {
-        throw new NotImplementedException();
+        return (long) carDao.getCarsByUser(userId).size();
+    }
+
+    private List<Invoice> sortInvoices(List<Invoice> invoices) {
+        invoices.sort((o1, o2) -> {
+            if (o1.getDateOfInvoice().before(o2.getDateOfInvoice())) {
+                return -1;
+            } else if (o1.getDateOfInvoice().after(o2.getDateOfInvoice())) {
+                return 1;
+            }
+            return 0;
+        });
+        return invoices;
+    }
+
+    private List<InvoiceLine> sortInvoiceLines(List<InvoiceLine> invoiceLines) {
+        invoiceLines.sort((o1, o2) -> {
+            if (o1.getDay().getDayDate().before(o2.getDay().getDayDate())) {
+                return -1;
+            } else if (o1.getDay().getDayDate().before(o2.getDay().getDayDate())) {
+                return 1;
+            }
+            return 0;
+        });
+
+        return invoiceLines;
     }
 }
