@@ -77,6 +77,7 @@ public class InvoiceDtoHandler {
         List<Route> routes = new ArrayList<>();
         invoiceLineDto.getRoutes().forEach(routeDto -> {
             Route r = new Route(day);
+            r.setId(routeDto.getRouteId());
             r.setDistance(routeDto.getDistance());
             r.setPrice(routeDto.getPrice());
 

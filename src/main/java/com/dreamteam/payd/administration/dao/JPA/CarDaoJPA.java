@@ -42,11 +42,6 @@ public class CarDaoJPA extends BaseDaoJPA<Car> implements CarDao {
     }
 
     @Override
-    public List<CoordinateDTO> getCoordinatesOfRoute(Long routeId) {
-        throw new NotImplementedException();
-    }
-
-    @Override
     public Long getAmountOfDrivenKmTodayOfUser(Long userId) {
         throw new NotImplementedException();
     }
