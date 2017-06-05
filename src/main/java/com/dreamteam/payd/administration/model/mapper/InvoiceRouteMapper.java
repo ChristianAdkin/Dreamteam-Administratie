@@ -16,11 +16,12 @@ public class InvoiceRouteMapper {
         /*
         Order routes by most recent first, then create invoiceDTOs
          */
-        Collections.sort(routes); //implemented comparable so should be fine.
+        List<Route> newRoutes = new ArrayList<>(routes);
+        Collections.sort(newRoutes); //implemented comparable so should be fine.
 
         List<InvoiceRouteDTO> dtos = new ArrayList<>();
 
-        for (Route r : routes) {
+        for (Route r : newRoutes) {
             InvoiceRouteDTO dto = new InvoiceRouteDTO(r.getId(), r.getPrice().longValue(), r.getDay().getDayDate(), r.getDay().getDayDate(), Double.doubleToLongBits(r.getDistance()));
             /*
             InvoiceRouteDTO has a start and end date, but a route only has a single Day with a single Date object,

@@ -10,9 +10,9 @@ public class InvoiceDayDTO {
     private Long id;
     private Date date;
     private Long totalPrice;
-    private long drivenkm;
+    private Long drivenkm;
 
-    public InvoiceDayDTO(Long id, Date date, Long totalPrice, long drivenkm) {
+    public InvoiceDayDTO(Long id, Date date, Long totalPrice, Long drivenkm) {
         this.id = id;
         this.date = date;
         this.totalPrice = totalPrice;

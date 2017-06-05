@@ -107,7 +107,7 @@ public class UserPortalResource {
     }
 
     @GET
-    @Path("days/{dayId}/routes")
+    @Path("/days/{dayId}/routes")
     public Response getRoutesByDay(@PathParam("dayId") Long dayId) {
         return buildResponse(
                 new InvoiceRouteMapper().to(

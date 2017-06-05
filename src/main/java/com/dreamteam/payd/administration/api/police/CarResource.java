@@ -7,6 +7,7 @@ import com.dreamteam.payd.administration.model.mapper.CitizenMapper;
 import com.dreamteam.payd.administration.model.mapper.OwnershipMapper;
 import com.dreamteam.payd.administration.service.police.CarService;
 import com.dreamteam.payd.administration.util.BaseMapperUtil;
+import com.google.gson.Gson;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -75,8 +76,9 @@ public class CarResource {
     @POST
     @Path("cars/{ican}")
     @Consumes({MediaType.APPLICATION_JSON})
-    public Response postCarAsStolen(@PathParam("ican") String ICAN, StolenDTO stolenDTO) {
+    public Response postCarAsStolen(@PathParam("ican") String ICAN, String stolen) {
         try {
+            StolenDTO stolenDTO = new Gson().fromJson(stolen, StolenDTO.class);
             Car car = this.carService.findByICAN(ICAN).get(0);
 
             if (car == null) {

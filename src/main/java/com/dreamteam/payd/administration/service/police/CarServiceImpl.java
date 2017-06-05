@@ -89,10 +89,10 @@ public class CarServiceImpl implements CarService {
     @Override
     public void updateCarWithStolenDto(Car car, StolenDTO stolenDTO) {
         switch(stolenDTO.getCarStatus()) {
-            case("stolen"):
+            case("Stolen"):
                 car.setCarStatus(CarStatus.STOLEN);
                 break;
-            case("found"):
+            case("Found"):
                 car.setCarStatus(CarStatus.FOUND);
                 break;
             default:
