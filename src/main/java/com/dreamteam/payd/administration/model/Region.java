@@ -1,6 +1,7 @@
 package com.dreamteam.payd.administration.model;
 
 import javax.persistence.*;
+import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,18 +20,25 @@ public class Region {
     private String areaCode;
     private String name;
 
-    private BigDecimal regionPrice;
+    @OneToMany
+    private List<RegionPrice> regionPrices;
+
+    @OneToMany
+    private List<GeoLocation> geoLocations;
 
     private Double distance;
 
     public Region() {
-        regionPrice = new BigDecimal("0.15");
+        regionPrices = new ArrayList<>();
+        geoLocations = new ArrayList<>();
     }
 
     public Region(String areaCode, String name) {
         this();
         this.areaCode = areaCode;
         this.name = name;
+        regionPrices = new ArrayList<>();
+        geoLocations = new ArrayList<>();
     }
 
     public Double getDistance() {
@@ -54,12 +62,20 @@ public class Region {
         this.id = id;
     }
 
-    public BigDecimal getRegionPrice() {
-        return regionPrice;
+    public List<RegionPrice> getRegionPrices() {
+        return regionPrices;
     }
 
-    public void setRegionPrice(BigDecimal regionPrice) {
-        this.regionPrice = regionPrice;
+    public void setRegionPrices(List<RegionPrice> regionPrices) {
+        this.regionPrices = regionPrices;
+    }
+
+    public List<GeoLocation> getGeoLocations() {
+        return geoLocations;
+    }
+
+    public void setGeoLocations(List<GeoLocation> geoLocations) {
+        this.geoLocations = geoLocations;
     }
 
     public String getAreaCode() {
