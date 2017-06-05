@@ -15,14 +15,6 @@ public interface TranslocationService {
     List<Car> getCarsByUser(Long userId);
 
     /**
-     * Retrieve all CoordinateDTO's for a given route id
-     *
-     * @param routeId The Id of the Route.
-     * @return A list of all CoordinatesDTO's from a route.
-     */
-    List<CoordinateDTO> getCoordinateDtosOfRoute(Long routeId);
-
-    /**
      * Get the amount of driven kilometers this day by the given user id
      *
      * @param userId The Id to identify the user.

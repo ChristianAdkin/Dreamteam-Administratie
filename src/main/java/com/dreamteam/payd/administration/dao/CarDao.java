@@ -13,8 +13,6 @@ public interface CarDao extends BaseDao<Car> {
 
     List<Car> getCarsByUser(Long userId);
 
-    List<CoordinateDTO> getCoordinatesOfRoute(Long routeId);
-
     Long getAmountOfDrivenKmTodayOfUser(Long userId);
 
     List<Car> queryByVIN(String query);

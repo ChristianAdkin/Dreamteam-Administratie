@@ -40,6 +40,8 @@ public class Route implements Serializable, Comparable {
         return id;
     }
 
+    public void setId(Long id) { this.id = id; }
+
     public BigDecimal getPrice() {
         return price;
     }

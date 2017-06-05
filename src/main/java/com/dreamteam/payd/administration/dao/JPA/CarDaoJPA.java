@@ -7,10 +7,14 @@ import com.dreamteam.payd.administration.model.Car;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.ejb.Stateless;
+import javax.persistence.NoResultException;
+import javax.persistence.PersistenceException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,14 +30,15 @@ public class CarDaoJPA extends BaseDaoJPA<Car> implements CarDao {
 
     @Override
     public List<Car> getCarsByUser(Long userId) {
-        return entityManager.createQuery("SELECT c FROM Car c WHERE c.id IN (SELECT o.owned.id FROM Ownership o WHERE o.owner.user.id = :userId AND o.endOwnership IS NULL)", Car.class)
-                .setParameter("userId", userId)
-                .getResultList();
-    }
-
-    @Override
-    public List<CoordinateDTO> getCoordinatesOfRoute(Long routeId) {
-        throw new NotImplementedException();
+        List<Car> cars = new ArrayList<>();
+        try {
+            cars = entityManager.createQuery("SELECT c FROM Car c WHERE c.id IN (SELECT o.owned.id FROM Ownership o WHERE o.owner.user.id = :userId AND o.endOwnership IS NULL)", Car.class)
+                    .setParameter("userId", userId)
+                    .getResultList();
+        } catch (PersistenceException ex) {
+            ex.printStackTrace();
+        }
+        return cars;
     }
 
     @Override

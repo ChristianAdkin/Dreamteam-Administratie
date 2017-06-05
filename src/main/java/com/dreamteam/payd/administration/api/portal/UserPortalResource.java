@@ -4,6 +4,7 @@ import com.dreamteam.payd.administration.api.portal.DTO.InvoiceDTO;
 import com.dreamteam.payd.administration.api.shared.CarDTO;
 import com.dreamteam.payd.administration.model.Car;
 import com.dreamteam.payd.administration.model.mapper.*;
+import com.dreamteam.payd.administration.service.UrlHelper;
 import com.dreamteam.payd.administration.service.portal.PaymentService;
 import com.dreamteam.payd.administration.service.portal.TranslocationService;
 import com.dreamteam.payd.administration.service.portal.UserService;
@@ -29,6 +30,8 @@ public class UserPortalResource {
     private TranslocationService translocationService;
     @Inject
     private UserService userService;
+    @Inject
+    private UrlHelper urlHelper;
 
     //Gebruiker
     @GET
@@ -119,7 +122,9 @@ public class UserPortalResource {
     @GET
     @Path("routes/{routeId}/coords")
     public Response getCoordsByRoute(@PathParam("routeId") Long id) {
-        return buildResponse("test");
+        String json = urlHelper.getDataFromUrl("http://192.168.24.31:8080/movement-registration/api/routes/" + id);
+
+        return buildResponse(json);
     }
     //End of rekeningen
 }
