@@ -1,8 +1,10 @@
 package com.dreamteam.payd.administration.converter;
 
+import com.dreamteam.payd.administration.bean.settings.region.RegionBean;
 import com.dreamteam.payd.administration.dao.RegionDao;
 import com.dreamteam.payd.administration.dao.qualifier.CollectionMock;
 import com.dreamteam.payd.administration.dao.qualifier.JPA;
+import com.dreamteam.payd.administration.model.Region;
 import com.dreamteam.payd.administration.util.GeneralUtil;
 
 import javax.faces.component.UIComponent;
@@ -19,16 +21,22 @@ import java.io.Serializable;
 @Named
 public class RegionConverter implements Converter, Serializable {
 
-    @JPA
     @Inject
-    private RegionDao regionDao;
+    private RegionBean regionBean;
 
     @Override
     public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String s) {
         if (GeneralUtil.nullOrEmpty(s)) {
             return null;
         }
-        return regionDao.findById(Long.parseLong(s));
+
+        Long id = Long.parseLong(s);
+        for (Region region : regionBean.getRegions()) {
+            if (region.getId().equals(id)) {
+                return region;
+            }
+        }
+        return null;
     }
 
     @Override
