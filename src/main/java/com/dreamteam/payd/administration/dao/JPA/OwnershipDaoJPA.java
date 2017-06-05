@@ -5,6 +5,9 @@ import com.dreamteam.payd.administration.model.Car;
 import com.dreamteam.payd.administration.model.Citizen;
 import com.dreamteam.payd.administration.model.Ownership;
 
+import javax.persistence.NoResultException;
+import java.sql.SQLException;
+
 import java.util.List;
 
 /**
@@ -30,5 +33,18 @@ public class OwnershipDaoJPA extends BaseDaoJPA<Ownership> implements OwnershipD
         return entityManager.createQuery("SELECT o FROM Ownership o WHERE o.owner = :citizen AND o.endOwnership IS NOT NULL", Ownership.class)
                 .setParameter("citizen", citizen)
                 .getResultList();
+    }
+
+    @Override
+    public Ownership findCurrentCarAndCitizenByIcan(String ICAN) {
+        Ownership foundOwnership = null;
+        try {
+            foundOwnership = entityManager.createQuery("select o from Ownership o where o.endOwnership = null and o.owned.cartracker.ICAN = :ican", Ownership.class)
+                    .setParameter("ican", ICAN)
+                    .getSingleResult();
+        } catch (NoResultException ex) {
+            System.out.println("No result found for ownerships with ICAN: " + ICAN);
+        }
+        return foundOwnership;
     }
 }

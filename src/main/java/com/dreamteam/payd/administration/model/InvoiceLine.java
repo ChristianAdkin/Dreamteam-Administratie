@@ -23,7 +23,11 @@ public class InvoiceLine implements Serializable {
     @OneToOne
     private Day day;
 
-    protected InvoiceLine() {
+    private double distance;
+
+    private String ICAN;
+
+    public InvoiceLine() {
     }
 
     public InvoiceLine(BigDecimal price, Invoice invoice) {
@@ -62,5 +66,21 @@ public class InvoiceLine implements Serializable {
 
     public void setDay(Day day) {
         this.day = day;
+    }
+
+    public double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
+    public String getICAN() {
+        return ICAN;
+    }
+
+    public void setICAN(String ICAN) {
+        this.ICAN = ICAN;
     }
 }

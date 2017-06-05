@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="../../../templates/default.xhtml">
+
+    <ui:param name="menuRendered" value="true"/>
+
+    <ui:define name="title">Administration - Add ownership</ui:define>
+
+    <ui:define name="head">
+
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <f:event type="preRenderView" listener="#{addOwnershipBean.init}"/>
+            <p:messages id="msg"/>
+            <div class="ui-g">
+                <div class="ui-g-6">
+                    <div class="ui-g">
+                        <!--<div class="ui-g-3">-->
+                            <!--<p:outputLabel value="Citizen: " for="selectCitizen"/>-->
+                        <!--</div>-->
+                        <!--<div class="ui-g-9">-->
+                            <!--<p:selectOneMenu id="selectCitizen" value="#{addOwnershipBean.selectedCitizen}">-->
+                                <!--<f:selectItems value="#{addOwnershipBean.citizens}" var="citizen"-->
+                                               <!--itemLabel="#{citizen.name}" itemValue="#{citizen.id}"/>-->
+                                <!--<f:converter binding="#{citizenConverter}"/>-->
+                            <!--</p:selectOneMenu>-->
+                        <!--</div>-->
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-3">
+                            <p:outputLabel value="Car: " for="selectCar"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:selectOneMenu id="selectCar" value="#{addOwnershipBean.selectedCar}">
+                                <f:selectItems value="#{addOwnershipBean.cars}" var="car"
+                                               itemLabel="#{car}" itemValue="#{car.id}"/>
+                                <f:converter binding="#{carConverter}"/>
+                            </p:selectOneMenu>
+                        </div>
+                    </div>
+                    <div class="ui-g ui-fluid">
+                        <p:commandButton value="Add ownership" action="#{addOwnershipBean.save}" process="@form" update="@form"/>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

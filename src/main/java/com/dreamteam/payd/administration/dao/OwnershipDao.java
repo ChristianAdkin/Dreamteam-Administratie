@@ -15,4 +15,6 @@ public interface OwnershipDao extends BaseDao<Ownership> {
     List<Ownership> getCurrentOwnershipsByCitizen(Citizen citizen);
 
     List<Ownership> getPastOwnershipsByCitizen(Citizen citizen);
+
+    Ownership findCurrentCarAndCitizenByIcan(String ICAN);
 }

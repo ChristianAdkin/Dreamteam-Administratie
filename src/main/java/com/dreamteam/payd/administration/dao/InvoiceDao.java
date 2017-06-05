@@ -10,9 +10,15 @@ import java.util.List;
 public interface InvoiceDao extends BaseDao<Invoice> {
     List<Invoice> findByUser(Long userId);
 
+    Invoice findIncompleteInvoiceByIcan(String ICAN);
+
+    void saveInvoice(Invoice invoice);
+
     List<Invoice> getLastFiveInvoicesByUser(Long userId);
 
     Long getAmountOpenInvoicesOfUser(Long userId);
 
     List<Invoice> query(String query);
+
+    void updateInvoiceStatusToOpen();
 }

@@ -22,7 +22,7 @@ public class Route implements Serializable, Comparable {
     @Column(precision = 20, scale = 10)
     private BigDecimal price;
 
-    private Long distance;
+    private double distance;
 
     @OneToMany
     private List<Region> regions;
@@ -57,5 +57,37 @@ public class Route implements Serializable, Comparable {
             return -1;
         }
         return 0;
+    }
+
+    public Day getDay() {
+        return day;
+    }
+
+    public void setDay(Day day) {
+        this.day = day;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
+    public List<Region> getRegions() {
+        return regions;
+    }
+
+    public void setRegions(List<Region> regions) {
+        this.regions = regions;
     }
 }

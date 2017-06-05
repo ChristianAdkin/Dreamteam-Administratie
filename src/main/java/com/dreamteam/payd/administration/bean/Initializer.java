@@ -162,20 +162,20 @@ public class Initializer implements Serializable {
     }
 
     private void createRegions() {
-        Region region = new Region(1, "Venray");
-        RegionPrice regionPrice = new RegionPrice(new BigDecimal(200L), new Date());
-        regionPrice.setEndDate(new Date());
-        regionPriceDao.create(regionPrice);
-        region.addRegionPrice(regionPrice);
+        Region region = new Region("1", "Venray");
+//        RegionPrice regionPrice = new RegionPrice(new BigDecimal(200L), new Date());
+//        regionPrice.setEndDate(new Date());
+//        regionPriceDao.create(regionPrice);
+        region.setRegionPrice(new BigDecimal(200L));
 
-        regionPrice = new RegionPrice(new BigDecimal(100L), new Date());
-        regionPriceDao.create(regionPrice);
-        region.addRegionPrice(regionPrice);
+//        regionPrice = new RegionPrice(new BigDecimal(100L), new Date());
+//        regionPriceDao.create(regionPrice);
+//        region.addRegionPrice(regionPrice);
         regionDao.create(region);
-        regionDao.create(new Region(2, "Eindhoven"));
-        regionDao.create(new Region(3, "Amsterdam"));
-        regionDao.create(new Region(4, "Elst"));
-        regionDao.create(new Region(5, "Arnhem"));
+        regionDao.create(new Region("2", "Eindhoven"));
+        regionDao.create(new Region("3", "Amsterdam"));
+        regionDao.create(new Region("4", "Elst"));
+        regionDao.create(new Region("5", "Arnhem"));
     }
 
     private List<Car> createCars() {

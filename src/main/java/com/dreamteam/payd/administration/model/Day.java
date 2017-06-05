@@ -37,6 +37,8 @@ public class Day implements Serializable {
         return dayDate;
     }
 
+    public void setDayDate(Date day) { this.dayDate = day; }
+
     public List<Route> getRoutes() {
         return Collections.unmodifiableList(this.routes);
     }

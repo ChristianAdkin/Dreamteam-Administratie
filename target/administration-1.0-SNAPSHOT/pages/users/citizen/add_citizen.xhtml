@@ -1,0 +1,59 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="../../../templates/default.xhtml">
+
+    <ui:param name="menuRendered" value="true"/>
+
+    <ui:define name="title">Administration - Add citizen</ui:define>
+
+    <ui:define name="head">
+
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <div class="ui-g">
+                <div class="ui-g-6">
+                    <div class="ui-g">
+                        <div class="ui-g-3">
+                            <p:outputLabel value="Initials: " for="txtInitials"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:inputText id="txtInitials" value="#{addCitizenBean.initials}"/>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-3">
+                            <p:outputLabel value="First name: " for="txtFirstName"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:inputText id="txtFirstName" value="#{addCitizenBean.firstName}"/>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-3">
+                            <p:outputLabel value="Preposition: " for="txtPreposition"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:inputText id="txtPreposition" value="#{addCitizenBean.preposition}"/>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-3">
+                            <p:outputLabel value="Last name:" for="txtLastName"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:inputText id="txtLastName" value="#{addCitizenBean.lastName}"/>
+                        </div>
+                    </div>
+                    <div class="ui-g ui-fluid">
+                        <p:commandButton value="Add citizen" action="#{addCitizenBean.save}" update="@form"/>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
