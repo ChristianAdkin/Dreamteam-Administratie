@@ -14,9 +14,9 @@ public class InvoiceRouteDTO {
     private Date starttime;
     private Date endtime;
 
-    private int drivenkm;
+    private Long drivenkm;
 
-    public InvoiceRouteDTO(Long id, Long totalprice, Date starttime, Date endtime, int drivenkm) {
+    public InvoiceRouteDTO(Long id, Long totalprice, Date starttime, Date endtime, Long drivenkm) {
         this.id = id;
         this.totalprice = totalprice;
         this.starttime = starttime;
@@ -56,11 +56,11 @@ public class InvoiceRouteDTO {
         this.endtime = endtime;
     }
 
-    public int getDrivenkm() {
+    public Long getDrivenkm() {
         return drivenkm;
     }
 
-    public void setDrivenkm(int drivenkm) {
+    public void setDrivenkm(Long drivenkm) {
         this.drivenkm = drivenkm;
     }
 }

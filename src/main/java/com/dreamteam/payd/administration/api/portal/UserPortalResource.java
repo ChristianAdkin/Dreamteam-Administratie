@@ -1,5 +1,6 @@
 package com.dreamteam.payd.administration.api.portal;
 
+import com.dreamteam.payd.administration.api.portal.DTO.InvoiceDTO;
 import com.dreamteam.payd.administration.api.shared.CarDTO;
 import com.dreamteam.payd.administration.model.Car;
 import com.dreamteam.payd.administration.model.mapper.*;
@@ -89,19 +90,30 @@ public class UserPortalResource {
     @GET
     @Path("invoices/{invoiceId}/days")
     public Response getDaysByInvoice(@PathParam("invoiceId") Long invoiceId) {
-        return buildResponse("test");
+        //should return InvoiceDayDto[]
+        return buildResponse(
+                new InvoiceDayMapper().to(
+                        this.paymentService.getInvoiceDaysOfInvoice(invoiceId)
+                )
+        );
     }
 
     @PUT
     @Path("/invoices/{invoiceId}")
-    public Response updateInvoice(@PathParam("invoiceId") Long invoiceId) {
-        return buildResponse("test");
+    public Response updateInvoice(@PathParam("invoiceId") Long invoiceId, InvoiceDTO invoiceDTO) {
+        this.paymentService.updateInvoice(invoiceId, invoiceDTO.getStatus());
+
+        return Response.ok().build();
     }
 
     @GET
     @Path("days/{dayId}/routes")
     public Response getRoutesByDay(@PathParam("dayId") Long dayId) {
-        return buildResponse("test");
+        return buildResponse(
+                new InvoiceRouteMapper().to(
+                        this.paymentService.getInvoiceRoutesOfDay(dayId)
+                )
+        );
     }
 
     @GET
