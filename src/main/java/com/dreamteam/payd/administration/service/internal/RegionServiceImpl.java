@@ -2,6 +2,7 @@ package com.dreamteam.payd.administration.service.internal;
 
 import com.dreamteam.payd.administration.dao.RegionDao;
 import com.dreamteam.payd.administration.dao.qualifier.JPA;
+import com.dreamteam.payd.administration.dao.qualifier.REST;
 import com.dreamteam.payd.administration.model.Region;
 
 import javax.ejb.Stateless;
@@ -15,7 +16,7 @@ import java.util.List;
 public class RegionServiceImpl implements RegionService {
 
     @Inject
-    @JPA
+    @REST
     private RegionDao regionDao;
 
     @Override
