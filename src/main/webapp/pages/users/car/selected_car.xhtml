@@ -16,9 +16,76 @@
     <ui:define name="content">
         <f:event type="preRenderView" listener="#{selectedCarBean.init}"/>
         <f:metadata>
-            <f:viewParam name="carId" value="#{selectedCarBean.carId}" />
+            <f:viewParam name="carId" value="#{selectedCarBean.carId}"/>
         </f:metadata>
         <h:form>
+            <div class="ui-g">
+                <div class="ui-g-6">
+                    <div class="ui-g">
+                        <div class="ui-g-3">
+                            <p:outputLabel value="VIN:"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:inplace id="inplcVIN" editor="true">
+                                <p:inputText value="#{selectedCarBean.car.VIN}" required="true"/>
+                            </p:inplace>
+                        </div>
+                        <div class="ui-g-3">
+                            <p:outputLabel value="Licenceplate:"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:inplace id="inplcLicenceplate" editor="true">
+                                <p:inputText value="#{selectedCarBean.car.licenceplate}" required="true"/>
+                            </p:inplace>
+                        </div>
+                        <div class="ui-g-3">
+                            <p:outputLabel value="Fuel Type:"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:inplace id="inplcFuelType" editor="true">
+                                <p:selectOneMenu value="#{selectedCarBean.car.fuelType}">
+                                    <f:selectItems value="#{selectedCarBean.getFuelTypes()}" var="fuelType"
+                                                   itemValue="#{fuelType}" itemLabel="#{fuelType}"/>
+                                </p:selectOneMenu>
+                            </p:inplace>
+                        </div>
+                        <div class="ui-g-3">
+                            <p:outputLabel value="Colour:"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:inplace id="inplcColour" editor="true">
+                                <p:inputText value="#{selectedCarBean.car.colour}"/>
+                            </p:inplace>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:commandButton value="Save" action="#{selectedCarBean.save()}">
+
+                            </p:commandButton>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-g-6">
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-3">
+                            <p:outputLabel value="Current owner:"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <h:outputLink styleClass="ui-widget" value="#{request.contextPath}/#{lang.nav_prefix}/pages/users/citizen/selected_citizen.xhtml">
+                                #{selectedCarBean.citizen.name}
+                                <f:param name="citizenId" value="#{selectedCarBean.citizen.id}"/>
+                            </h:outputLink>
+                        </div>
+                        <div class="ui-g-3">
+                            <p:outputLabel value="Owner since:"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:outputLabel value="#{selectedCarBean.ownership.startOwnership}">
+                                <f:convertDateTime pattern="dd-MM-yyyy"/>
+                            </p:outputLabel>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </h:form>
     </ui:define>
 </ui:composition>

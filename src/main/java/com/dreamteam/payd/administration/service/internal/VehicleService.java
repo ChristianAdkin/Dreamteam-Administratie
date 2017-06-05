@@ -2,6 +2,8 @@ package com.dreamteam.payd.administration.service.internal;
 
 import com.dreamteam.payd.administration.model.Car;
 import com.dreamteam.payd.administration.model.Cartracker;
+import com.dreamteam.payd.administration.model.Citizen;
+import com.dreamteam.payd.administration.model.Ownership;
 
 import java.util.List;
 

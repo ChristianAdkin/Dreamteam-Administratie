@@ -263,6 +263,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/bean/user/cartracker/AddCartrackerBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/bean/user/cartracker/CartrackerOverviewBean.java">
           <value>
             <set />
@@ -708,6 +713,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/pages/billing/invoice/overview.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/pages/billing/invoice/selected_invoice.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/webapp/pages/users/car/add_car.xhtml">
           <value>
             <set />
@@ -719,6 +734,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/webapp/pages/users/car/selected_car.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/pages/users/cartracker/add_cartracker.xhtml">
           <value>
             <set />
           </value>
@@ -749,6 +769,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/webapp/pages/users/ownership/overview.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/resources/css/main.css">
           <value>
             <set />
           </value>

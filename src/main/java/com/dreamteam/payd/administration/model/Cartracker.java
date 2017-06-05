@@ -25,11 +25,14 @@ public class Cartracker implements Serializable {
 
     }
 
-    public Cartracker(Car car, String ICAN) {
+    public Cartracker(String ICAN) {
         this();
-        this.car = car;
-        this.car.setCartracker(this);
         this.ICAN = ICAN;
+    }
+
+    public Cartracker(Car car, String ICAN) {
+        this(ICAN);
+        this.setCar(car);
     }
 
     public Long getId() {
@@ -38,6 +41,11 @@ public class Cartracker implements Serializable {
 
     public Car getCar() {
         return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+        this.car.setCartracker(this);
     }
 
     public Day getDay() {

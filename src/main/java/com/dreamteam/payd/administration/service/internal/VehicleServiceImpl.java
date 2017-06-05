@@ -6,6 +6,8 @@ import com.dreamteam.payd.administration.dao.CitizenDao;
 import com.dreamteam.payd.administration.dao.OwnershipDao;
 import com.dreamteam.payd.administration.model.Car;
 import com.dreamteam.payd.administration.model.Cartracker;
+import com.dreamteam.payd.administration.model.Citizen;
+import com.dreamteam.payd.administration.model.Ownership;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -58,4 +60,5 @@ public class VehicleServiceImpl implements VehicleService {
     public Car findCarById(Long carId) {
         return this.carDao.findById(carId);
     }
+
 }

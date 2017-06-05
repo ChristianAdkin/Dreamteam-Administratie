@@ -2,6 +2,8 @@ package com.dreamteam.payd.administration.bean.user.citizen;
 
 import com.dreamteam.payd.administration.model.Car;
 import com.dreamteam.payd.administration.model.Citizen;
+import com.dreamteam.payd.administration.service.internal.DriverRegistrationService;
+import com.dreamteam.payd.administration.service.internal.VehicleService;
 import com.dreamteam.payd.administration.service.police.CarService;
 
 import javax.faces.view.ViewScoped;
@@ -17,7 +19,7 @@ import java.io.Serializable;
 public class AddCitizenBean implements Serializable {
 
     @Inject
-    private CarService carService;
+    private DriverRegistrationService driverRegistrationService;
 
     private String initials;
     private String firstName;
@@ -38,7 +40,7 @@ public class AddCitizenBean implements Serializable {
         citizen.setInitials(this.initials);
         citizen.setPreposition(this.preposition);
 
-        carService.create(citizen);
+        driverRegistrationService.createCitizen(citizen);
 
         this.initials = null;
         this.firstName = null;
