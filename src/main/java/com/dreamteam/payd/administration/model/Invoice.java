@@ -44,10 +44,6 @@ public class Invoice implements Serializable {
         this.invoiceStatus = InvoiceStatus.INCOMPLETE;
     }
 
-    public void addInvoiceLine(InvoiceLine invoiceLine) {
-        this.invoiceLines.add(invoiceLine);
-    }
-
     public BigDecimal getFuelTax() {
         BigDecimal totalInvoicePrice = BigDecimal.ZERO;
         totalInvoicePrice = totalInvoicePrice.add(getTotalInvoiceLinePrice());
@@ -63,7 +59,7 @@ public class Invoice implements Serializable {
         BigDecimal totalInvoicePrice = BigDecimal.ZERO;
         totalInvoicePrice = totalInvoicePrice.add(getTotalInvoiceLinePrice());
         BigDecimal priceAfterFuelTax = totalInvoicePrice.add(calculateFuelTypeTax(totalInvoicePrice));
-        return priceAfterFuelTax;
+        return priceAfterFuelTax.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
     private BigDecimal getTotalInvoiceLinePrice() {
@@ -113,5 +109,13 @@ public class Invoice implements Serializable {
     }
     public List<InvoiceLine> getInvoiceLines() {
         return invoiceLines;
+    }
+
+    public Citizen getCitizen() {
+        return citizen;
+    }
+
+    public void setCitizen(Citizen citizen) {
+        this.citizen = citizen;
     }
 }

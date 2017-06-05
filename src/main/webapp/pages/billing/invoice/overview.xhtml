@@ -51,8 +51,8 @@
                                     <h:outputText value="#{invoice.invoiceStatus}"/>
                                 </p:column>
 
-                                <p:column headerText="Total price">
-                                    <h:outputText value="#{invoice.totalPrice}"/>
+                                <p:column headerText="Total price" style="text-align: right">
+                                    <h:outputText value="#{invoice.totalPrice.toPlainString()}"/>
                                 </p:column>
                             </p:dataTable>
                         </div>

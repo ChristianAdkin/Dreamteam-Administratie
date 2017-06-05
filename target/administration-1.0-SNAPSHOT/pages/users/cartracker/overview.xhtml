@@ -17,24 +17,43 @@
         <f:event type="preRenderView" listener="#{cartrackerOverviewBean.init}"/>
         <h:form>
             <div class="ui-g ui-fluid">
+                <div class="ui-g-3">
+                </div>
                 <div class="ui-g-6">
-                    <p:dataTable var="cartracker" value="#{cartrackerOverviewBean.cartrackers}">
-                        <p:column headerText="Cartracker Id">
-                            <h:outputText value="#{cartracker.id}"/>
-                        </p:column>
+                    <div class="ui-g ui-fluid">
 
-                        <p:column headerText="Car's ICAN">
-                            <h:outputText value="#{cartracker.car.ICAN}"/>
-                        </p:column>
+                        <div class="ui-g-6">
+                            <p:outputLabel value="Search cartrackers by International Car Account Number (ICAN)"/>
+                        </div>
+                        <div class="ui-g-6">
+                            <p:inputText id="searchString" title="searchString" value="#{cartrackerOverviewBean.query}">
+                                <p:ajax event="keyup" listener="#{cartrackerOverviewBean.findMatchingCartracker}"
+                                        process="@this"
+                                        update="@form"/>
+                            </p:inputText>
+                        </div>
 
-                        <p:column headerText="Car's licenceplate">
-                            <h:outputText value="#{cartracker.car.licenceplate}"/>
-                        </p:column>
+                        <div class="ui-g-12">
+                            <p:dataTable var="cartracker"
+                                         value="#{cartrackerOverviewBean.queriedCartrackers}">
+                                <p:column headerText="Cartracker Id">
+                                    <h:outputText value="#{cartracker.id}"/>
+                                </p:column>
 
-                        <p:column headerText="Car's VIN">
-                            <h:outputText value="#{cartracker.car.VIN}"/>
-                        </p:column>
-                    </p:dataTable>
+                                <p:column headerText="ICAN">
+                                    <h:outputText value="#{cartracker.ICAN}"/>
+                                </p:column>
+
+                                <p:column headerText="Current car's licenceplate">
+                                    <h:outputText value="#{cartracker.car.licenceplate}"/>
+                                </p:column>
+
+                                <p:column headerText="Current car's VIN">
+                                    <h:outputText value="#{cartracker.car.VIN}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </div>
+                    </div>
                 </div>
             </div>
         </h:form>

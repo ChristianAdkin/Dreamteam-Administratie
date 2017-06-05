@@ -212,7 +212,28 @@
 
                 </p:tab>
                 <p:tab title="Financial">
+                    <p:dataTable var="invoice" value="#{selectedCitizenBean.citizen.invoices}">
+                        <p:column headerText="Invoice Id">
+                            <h:outputLink  value="#{request.contextPath}/#{lang.nav_prefix}/pages/billing/invoice/selected_invoice.xhtml">
+                                #{invoice.id}
+                                <f:param name="invoiceId" value="#{invoice.id}"/>
+                            </h:outputLink>
+                        </p:column>
 
+                        <p:column headerText="Date">
+                            <h:outputText value="#{invoice.dateOfInvoice}">
+                                <f:convertDateTime pattern="dd-MM-yyyy"/>
+                            </h:outputText>
+                        </p:column>
+
+                        <p:column headerText="Status">
+                            <h:outputText value="#{invoice.invoiceStatus}"/>
+                        </p:column>
+
+                        <p:column headerText="Total price" style="text-align: right">
+                            <h:outputText value="#{invoice.totalPrice.toPlainString()}"/>
+                        </p:column>
+                    </p:dataTable>
                 </p:tab>
             </p:tabView>
 

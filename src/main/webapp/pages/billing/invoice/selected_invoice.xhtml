@@ -1,12 +1,94 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-    <title>Title</title>
-</head>
-<body>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="../../../templates/default.xhtml">
 
-</body>
-</html>
+    <ui:param name="menuRendered" value="true"/>
+
+    <ui:define name="title">Billing - Selected invoice #{selectedInvoiceBean.invoice.id}</ui:define>
+
+    <ui:define name="head">
+
+    </ui:define>
+
+    <ui:define name="content">
+        <f:event type="preRenderView" listener="#{selectedInvoiceBean.init}"/>
+        <f:metadata>
+            <f:viewParam name="invoiceId" value="#{selectedInvoiceBean.invoiceId}"/>
+        </f:metadata>
+        <h:form>
+            <div class="ui-g ui-g-nopad">
+                <div class="ui-g-3"></div>
+                <div class="ui-g-6 ui-g-nopad">
+                    <div class="ui-g-6">
+                        <div class="ui-g-12">
+                            <p:outputLabel value="#{selectedInvoiceBean.invoice.citizen.name}"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:outputLabel value="#{selectedInvoiceBean.invoice.citizen.streetName}"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:outputLabel value="#{selectedInvoiceBean.invoice.citizen.city}"/>
+                        </div>
+                    </div>
+                    <div class="ui-g-6" style="text-align: right">
+                        <div class="ui-g-12">
+                            <p:outputLabel value="#{selectedInvoiceBean.invoice.citizen.name}"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:outputLabel value="#{selectedInvoiceBean.invoice.citizen.streetName}"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:outputLabel value="#{selectedInvoiceBean.invoice.citizen.city}"/>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <h3>Invoice</h3>
+                        <hr/>
+                        <div class="ui-g-3">
+                            <p:outputLabel value="Invoice No:"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:outputLabel value="#{selectedInvoiceBean.invoice.id}"/>
+                        </div>
+                        <div class="ui-g-3">
+                            <p:outputLabel value="Date:"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:outputLabel value="#{selectedInvoiceBean.invoice.dateOfInvoice}">
+                                <f:convertDateTime pattern="dd-MM-yyyy"/>
+                            </p:outputLabel>
+                        </div>
+
+                        <div class="ui-g-12">
+                            <p:dataTable var="invoiceLine" value="#{selectedInvoiceBean.invoice.invoiceLines}">
+                                <p:column headerText="Date">
+                                    <p:outputLabel value="#{invoiceLine.day.dayDate}">
+                                        <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                    </p:outputLabel>
+                                </p:column>
+
+                                <p:column style="text-align: right" headerText="Distance">
+                                    <p:outputLabel  value="#{invoiceLine.distance}"/>
+                                </p:column>
+
+                                <p:column style="text-align: right" headerText="Price">
+                                    <p:outputLabel value="#{invoiceLine.price}"/>
+                                    <f:facet name="footer">
+                                        Totalprice:
+                                        <h:outputText value="#{selectedInvoiceBean.invoice.totalPrice}"/>
+                                    </f:facet>
+                                </p:column>
+                            </p:dataTable>
+                        </div>
+                    </div>
+                    <div class="ui-g-6">
+
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface PaymentReviewService {
     List<Invoice> queryInvoices(String query);
+
+    Invoice getInvoiceById(Long invoiceId);
 }

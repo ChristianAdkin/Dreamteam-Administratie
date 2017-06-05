@@ -20,4 +20,9 @@ public class PaymentReviewServiceImpl implements PaymentReviewService {
     public List<Invoice> queryInvoices(String query) {
         return invoiceDao.query(query);
     }
+
+    @Override
+    public Invoice getInvoiceById(Long invoiceId) {
+        return this.invoiceDao.findById(invoiceId);
+    }
 }

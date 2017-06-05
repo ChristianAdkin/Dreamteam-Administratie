@@ -46,7 +46,7 @@ public class Route implements Serializable, Comparable {
 
     public Day getDay() { return day; }
 
-    public Long getDistance() { return this.distance; }
+    public double getDistance() { return this.distance; }
 
     @Override
     public int compareTo(Object o) {
@@ -59,24 +59,12 @@ public class Route implements Serializable, Comparable {
         return 0;
     }
 
-    public Day getDay() {
-        return day;
-    }
-
     public void setDay(Day day) {
         this.day = day;
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
-
     public void setPrice(BigDecimal price) {
         this.price = price;
-    }
-
-    public double getDistance() {
-        return distance;
     }
 
     public void setDistance(double distance) {
