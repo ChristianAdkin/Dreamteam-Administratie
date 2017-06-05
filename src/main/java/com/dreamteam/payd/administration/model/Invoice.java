@@ -28,7 +28,7 @@ public class Invoice implements Serializable {
     @ManyToOne
     private Car car;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<InvoiceLine> invoiceLines;
 
     protected Invoice() {
@@ -40,6 +40,10 @@ public class Invoice implements Serializable {
         this();
         this.citizen = citizen;
         this.car = car;
+    }
+
+    public void addInvoiceLine(InvoiceLine invoiceLine) {
+        this.invoiceLines.add(invoiceLine);
     }
 
     public BigDecimal getFuelTax() {

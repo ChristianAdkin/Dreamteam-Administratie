@@ -46,6 +46,10 @@ public class Initializer implements Serializable {
 
     @Inject
     private CitizenDao citizenDao;
+
+    @Inject
+    private InvoiceDao invoiceDao;
+
     @Inject
     private OwnershipDao ownershipDao;
 
@@ -99,6 +103,9 @@ public class Initializer implements Serializable {
         car1.setFuelType(FuelType.LPG);
         carDao.create(car1);
 
+        Invoice invoice = new Invoice(citizen, car1);
+        invoice.addInvoiceLine(new InvoiceLine(BigDecimal.ZERO, invoice));
+        this.invoiceDao.create(invoice);
 
         Cartracker cartracker = new Cartracker(car1, "ICANHAZJOBNOW?");
         cartrackerDao.create(cartracker);

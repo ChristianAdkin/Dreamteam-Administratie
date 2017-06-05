@@ -26,9 +26,11 @@ public class InvoiceLine implements Serializable {
     protected InvoiceLine() {
     }
 
-//    public InvoiceLine() {
-//        this.id = id;
-//    }
+    public InvoiceLine(BigDecimal price, Invoice invoice) {
+        this.price = price;
+        this.invoice = invoice;
+    }
+
 
     public Long getId() {
         return id;
