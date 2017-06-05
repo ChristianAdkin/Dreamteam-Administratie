@@ -24,11 +24,11 @@ public class Route implements Serializable, Comparable {
 
     private double distance;
 
-    @OneToMany
-    private List<Region> regions;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<InvoiceRegion> invoiceRegions;
 
     protected Route() {
-        this.regions = new ArrayList<>();
+        this.invoiceRegions = new ArrayList<>();
     }
 
     public Route(Day day) {
@@ -73,11 +73,11 @@ public class Route implements Serializable, Comparable {
         this.distance = distance;
     }
 
-    public List<Region> getRegions() {
-        return regions;
+    public List<InvoiceRegion> getInvoiceRegions() {
+        return invoiceRegions;
     }
 
-    public void setRegions(List<Region> regions) {
-        this.regions = regions;
+    public void setInvoiceRegions(List<InvoiceRegion> invoiceRegions) {
+        this.invoiceRegions = invoiceRegions;
     }
 }
