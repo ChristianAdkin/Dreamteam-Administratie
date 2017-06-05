@@ -18,7 +18,7 @@ import javax.jms.TextMessage;
         @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "queue/invoice"),
         @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
         @ActivationConfigProperty(propertyName = "destination", propertyValue = "invoiceQueue"),
-        @ActivationConfigProperty(propertyName = "resourceAdapter", propertyValue = "activemq-rar-5.14.5")
+        @ActivationConfigProperty(propertyName = "resourceAdapter", propertyValue = "activemq-rar")
 })
 public class InvoiceLineBean implements MessageListener {
 
