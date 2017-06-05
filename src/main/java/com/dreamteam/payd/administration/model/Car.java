@@ -22,6 +22,7 @@ public class Car implements Serializable {
 
     private String colour;
 
+    @Enumerated(EnumType.STRING)
     private CarStatus carStatus;
     private String comments;
 
