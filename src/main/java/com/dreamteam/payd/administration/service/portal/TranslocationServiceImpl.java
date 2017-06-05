@@ -49,31 +49,28 @@ public class TranslocationServiceImpl implements TranslocationService {
     @Override
     public Double getAmountOfDrivenKmTodayOfUser(Long userId) {
         List<Invoice> invoices = invoiceDao.findByUser(userId);
-        invoices.sort((o1, o2) -> {
-            if (o1.getDateOfInvoice().before(o2.getDateOfInvoice())) {
-                return -1;
-            } else if (o1.getDateOfInvoice().after(o2.getDateOfInvoice())) {
-                return 1;
-            }
-            return 0;
-        });
+        invoices = sortInvoices(invoices);
 
         List<InvoiceLine> invoiceLines = invoices.get(0).getInvoiceLines();
-        invoiceLines.sort((o1, o2) -> {
-            if (o1.getDay().getDayDate().before(o2.getDay().getDayDate())) {
-                return -1;
-            } else if (o1.getDay().getDayDate().before(o2.getDay().getDayDate())) {
-                return 1;
-            }
-            return 0;
-        });
+        invoiceLines= sortInvoiceLines(invoiceLines);
 
         return invoiceLines.get(0).getDistance();
     }
 
     @Override
     public Double getAmountOfDrivenKmMonthOfUser(Long userId) {
-        throw new NotImplementedException();
+        List<Invoice> invoices = invoiceDao.findByUser(userId);
+        invoices = sortInvoices(invoices);
+
+        double distance = 0;
+
+        List<InvoiceLine> invoiceLines = invoices.get(0).getInvoiceLines();
+
+        for (InvoiceLine line : invoiceLines) {
+            distance += line.getDistance();
+        }
+
+        return distance;
     }
 
     @Override
@@ -84,5 +81,30 @@ public class TranslocationServiceImpl implements TranslocationService {
     @Override
     public Long getAmountOfVehiclesOfUser(Long userId) {
         throw new NotImplementedException();
+    }
+
+    private List<Invoice> sortInvoices(List<Invoice> invoices) {
+        invoices.sort((o1, o2) -> {
+            if (o1.getDateOfInvoice().before(o2.getDateOfInvoice())) {
+                return -1;
+            } else if (o1.getDateOfInvoice().after(o2.getDateOfInvoice())) {
+                return 1;
+            }
+            return 0;
+        });
+        return invoices;
+    }
+
+    private List<InvoiceLine> sortInvoiceLines(List<InvoiceLine> invoiceLines) {
+        invoiceLines.sort((o1, o2) -> {
+            if (o1.getDay().getDayDate().before(o2.getDay().getDayDate())) {
+                return -1;
+            } else if (o1.getDay().getDayDate().before(o2.getDay().getDayDate())) {
+                return 1;
+            }
+            return 0;
+        });
+
+        return invoiceLines;
     }
 }
