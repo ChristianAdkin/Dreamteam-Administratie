@@ -1,6 +1,9 @@
 package com.dreamteam.payd.administration.bean.user.car;
 
 import com.dreamteam.payd.administration.model.Car;
+import com.dreamteam.payd.administration.model.Cartracker;
+import com.dreamteam.payd.administration.model.FuelType;
+import com.dreamteam.payd.administration.service.internal.VehicleService;
 import com.dreamteam.payd.administration.service.police.CarService;
 
 import javax.faces.view.ViewScoped;
@@ -16,14 +19,15 @@ import java.io.Serializable;
 public class AddCarBean implements Serializable {
 
     @Inject
-    private CarService carService;
+    private VehicleService vehicleService;
 
-    private String ICAN;
     private String licenceplate;
     private String VIN;
 
-    public void init() {
+    private FuelType fuelType;
+    private String colour;
 
+    public void init() {
         this.construct();
     }
 
@@ -32,20 +36,22 @@ public class AddCarBean implements Serializable {
     }
 
     public void save() {
-        Car car = new Car(this.licenceplate, this.VIN);
-        this.carService.create(car);
+        //TODO: Validate input
 
-        this.ICAN = null;
+        Car car = new Car(this.licenceplate, this.VIN);
+        this.vehicleService.createCar(car);
+        car.setFuelType(this.fuelType);
+        car.setColour(this.colour);
+
         this.licenceplate = null;
         this.VIN = null;
+
+        this.fuelType = null;
+        this.colour = null;
     }
 
-    public String getICAN() {
-        return ICAN;
-    }
-
-    public void setICAN(String ICAN) {
-        this.ICAN = ICAN;
+    public FuelType[] getFuelTypeValues() {
+        return FuelType.values();
     }
 
     public String getLicenceplate() {
@@ -62,5 +68,21 @@ public class AddCarBean implements Serializable {
 
     public void setVIN(String VIN) {
         this.VIN = VIN;
+    }
+
+    public FuelType getFuelType() {
+        return fuelType;
+    }
+
+    public void setFuelType(FuelType fuelType) {
+        this.fuelType = fuelType;
+    }
+
+    public String getColour() {
+        return colour;
+    }
+
+    public void setColour(String colour) {
+        this.colour = colour;
     }
 }

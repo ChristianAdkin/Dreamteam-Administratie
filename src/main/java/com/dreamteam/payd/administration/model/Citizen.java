@@ -46,7 +46,7 @@ public class Citizen implements Serializable{
     @OneToOne
     private User user;
 
-    @OneToMany
+    @OneToMany(mappedBy = "citizen")
     private List<Invoice> invoices;
 
     protected Citizen() {

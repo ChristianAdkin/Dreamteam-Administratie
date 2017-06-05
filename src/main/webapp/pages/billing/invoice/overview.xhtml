@@ -1,0 +1,64 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="../../../templates/default.xhtml">
+
+    <ui:param name="menuRendered" value="true"/>
+
+    <ui:define name="title">Billing - Invoice overview</ui:define>
+
+    <ui:define name="head">
+
+    </ui:define>
+
+    <ui:define name="content">
+        <f:event type="preRenderView" listener="#{invoiceOverviewBean.init}"/>
+        <h:form>
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-3">
+                </div>
+                <div class="ui-g-6">
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-6">
+                            <p:outputLabel value="Search invoice by ID number or status"/>
+                        </div>
+                        <div class="ui-g-6">
+                            <p:inputText id="searchString" title="searchString" value="#{invoiceOverviewBean.query}">
+                                <p:ajax event="keyup" listener="#{invoiceOverviewBean.findMatchingInvoice}" process="@this"
+                                        update="@form"/>
+                            </p:inputText>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-12">
+                            <p:dataTable var="invoice" value="#{invoiceOverviewBean.queriedInvoices}">
+                                <p:column headerText="Invoice Id">
+                                    <h:outputLink  value="#{request.contextPath}/#{lang.nav_prefix}/pages/billing/invoice/selected_invoice.xhtml">
+                                        #{invoice.id}
+                                        <f:param name="invoiceId" value="#{invoice.id}"/>
+                                    </h:outputLink>
+                                </p:column>
+
+                                <p:column headerText="Date">
+                                    <h:outputText value="#{invoice.dateOfInvoice}">
+                                        <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                    </h:outputText>
+                                </p:column>
+
+                                <p:column headerText="Status">
+                                    <h:outputText value="#{invoice.invoiceStatus}"/>
+                                </p:column>
+
+                                <p:column headerText="Total price" style="text-align: right">
+                                    <h:outputText value="#{invoice.totalPrice.toPlainString()}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

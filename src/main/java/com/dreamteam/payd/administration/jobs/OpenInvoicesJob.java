@@ -13,8 +13,8 @@ import javax.inject.Inject;
 @Singleton
 public class OpenInvoicesJob {
 
-    @Inject @JPA
-    InvoiceDao invoiceDao;
+    @Inject
+    private InvoiceDao invoiceDao;
 
     @Schedule(dayOfMonth = "Last", hour = "23", minute = "59")
     public void makeAllInvoicesPayable() {

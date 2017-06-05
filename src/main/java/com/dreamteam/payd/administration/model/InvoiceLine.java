@@ -30,9 +30,11 @@ public class InvoiceLine implements Serializable {
     public InvoiceLine() {
     }
 
-//    public InvoiceLine() {
-//        this.id = id;
-//    }
+    public InvoiceLine(BigDecimal price, Invoice invoice) {
+        this.price = price;
+        this.invoice = invoice;
+    }
+
 
     public Long getId() {
         return id;
@@ -43,7 +45,7 @@ public class InvoiceLine implements Serializable {
     }
 
     public BigDecimal getPrice() {
-        return price;
+        return price.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
     public void setPrice(BigDecimal price) {

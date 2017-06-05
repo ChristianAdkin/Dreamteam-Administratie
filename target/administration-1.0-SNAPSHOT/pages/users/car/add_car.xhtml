@@ -19,14 +19,6 @@
                 <div class="ui-g-6">
                     <div class="ui-g">
                         <div class="ui-g-3">
-                            <p:outputLabel value="ICAN:" for="txtICAN"/>
-                        </div>
-                        <div class="ui-g-9">
-                            <p:inputText id="txtICAN" value="#{addCarBean.ICAN}"/>
-                        </div>
-                    </div>
-                    <div class="ui-g">
-                        <div class="ui-g-3">
                             <p:outputLabel value="Licenceplate:" for="txtLicenceplate"/>
                         </div>
                         <div class="ui-g-9">
@@ -39,6 +31,25 @@
                         </div>
                         <div class="ui-g-9">
                             <p:inputText id="txtVIN" value="#{addCarBean.VIN}"/>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-3">
+                            <p:outputLabel value="FuelType:" for="selectFuelType"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:selectOneMenu id="selectFuelType" value="#{addCarBean.fuelType}">
+                                <f:selectItems value="#{addCarBean.fuelTypeValues}" var="fuelType"
+                                               itemValue="#{fuelType}" itemLabel="#{fuelType}"/>
+                            </p:selectOneMenu>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-3">
+                            <p:outputLabel value="Colour:" for="txtColour"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:inputText id="txtColour" value="#{addCarBean.colour}"/>
                         </div>
                     </div>
                     <div class="ui-g ui-fluid">

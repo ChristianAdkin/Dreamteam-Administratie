@@ -82,4 +82,5 @@ public interface CarService {
     List<Car> findByICAN(String ICAN);
 
     void updateCarWithStolenDto(Car car, StolenDTO stolenDTO);
+
 }

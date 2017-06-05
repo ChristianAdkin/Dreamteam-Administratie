@@ -66,7 +66,7 @@
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Secure Pages</web-resource-name>
-            <url-pattern>/pages/*</url-pattern>
+            <url-pattern>/faces/pages/*</url-pattern>
             <http-method-omission>OPTIONS</http-method-omission>
         </web-resource-collection>
         <auth-constraint>

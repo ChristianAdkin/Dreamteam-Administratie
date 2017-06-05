@@ -2,6 +2,7 @@ package com.dreamteam.payd.administration.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -53,4 +54,15 @@ public class Day implements Serializable {
     public void setDistance(Long distance) {
         this.distance = distance;
     }
+
+    public BigDecimal getTotalPrice() {
+        BigDecimal d = new BigDecimal(0);
+        for (Route r : routes) {
+            d = d.add(r.getPrice());
+        }
+        return d;
+    }
+
+
+
 }
