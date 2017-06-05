@@ -1,6 +1,7 @@
 package com.dreamteam.payd.administration.bean.jms;
 
 import com.dreamteam.payd.administration.bean.jms.dto.InvoiceLineDto;
+import com.dreamteam.payd.administration.bean.jms.dto.InvoiceRegionDto;
 import com.dreamteam.payd.administration.model.*;
 import com.dreamteam.payd.administration.service.internal.InvoiceService;
 import com.dreamteam.payd.administration.service.internal.OwnershipService;
@@ -81,15 +82,13 @@ public class InvoiceDtoHandler {
             r.setDistance(routeDto.getDistance());
             r.setPrice(routeDto.getPrice());
 
-            List<Region> regions = new ArrayList<>();
+            List<InvoiceRegion> invoiceRegions = new ArrayList<>();
             routeDto.getDrivenInRegions().forEach(regionDto -> {
-                Region region = new Region(regionDto.getAreaCode(), regionDto.getName());
-                region.setRegionPrice(regionDto.getPrice());
-                region.setDistance(regionDto.getDistance());
-                regions.add(region);
+                InvoiceRegion invoiceRegion = new InvoiceRegion(regionDto.getAreaCode(), regionDto.getName(), regionDto.getPrice(), regionDto.getDistance());
+                invoiceRegions.add(invoiceRegion);
             });
 
-            r.setRegions(regions);
+            r.setInvoiceRegions(invoiceRegions);
             routes.add(r);
         });
 
