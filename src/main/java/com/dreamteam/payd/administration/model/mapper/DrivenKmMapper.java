@@ -21,7 +21,7 @@ public class DrivenKmMapper {
         List<DrivenKMDTO> createdDrivenKms = new ArrayList<>();
         for (Invoice invoice : invoices){
             int year = Integer.parseInt(new SimpleDateFormat("yyyy").format(invoice.getDateOfInvoice()));
-            int month = Integer.parseInt(new SimpleDateFormat("dd").format(invoice.getDateOfInvoice()));
+            int month = Integer.parseInt(new SimpleDateFormat("mm").format(invoice.getDateOfInvoice()));
             int drivenkm = 0;
 
             //calculate kilometers driven for this invoice

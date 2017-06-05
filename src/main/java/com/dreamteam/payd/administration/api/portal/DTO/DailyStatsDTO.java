@@ -10,6 +10,10 @@ public class DailyStatsDTO {
     private int ownedvehicles;
     private int openinvoices;
 
+    protected DailyStatsDTO() {
+
+    }
+
     public DailyStatsDTO(int driventoday, int drivenmonth, int ownedvehicles, int openinvoices) {
         this.driventoday = driventoday;
         this.drivenmonth = drivenmonth;

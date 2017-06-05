@@ -50,7 +50,7 @@ public class InvoiceDaoJPA extends BaseDaoJPA<Invoice> implements InvoiceDao {
 
     @Override
     public Long getAmountOpenInvoicesOfUser(Long userId) {
-        return entityManager.createQuery("SELECT COUNT(i) FROM Invoice i WHERE i.citizen.user.id = :userId AND i.invoiceStatus = :status", Long.class)
+         return entityManager.createQuery("SELECT COUNT(i) FROM Invoice i WHERE i.citizen.user.id = :userId AND i.invoiceStatus = :status", Long.class)
                 .setParameter("userId", userId)
                 .setParameter("status", InvoiceStatus.OPEN)
                 .getSingleResult();

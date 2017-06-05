@@ -101,6 +101,16 @@ public class UserPortalResource {
         );
     }
 
+    @GET
+    @Path("/invoices/{invoiceId}")
+    public Response getInvoice(@PathParam("invoiceId") Long invoiceId) {
+        return buildResponse(
+                new InvoiceMapper().to(
+                        this.paymentService.getInvoiceById(invoiceId)
+                )
+        );
+    }
+
     @PUT
     @Path("/invoices/{invoiceId}")
     public Response updateInvoice(@PathParam("invoiceId") Long invoiceId, InvoiceDTO invoiceDTO) {

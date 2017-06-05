@@ -46,4 +46,6 @@ public interface PaymentService {
     Long getAmountOfOpenInvoicesOfUser(Long userId);
 
     void updateInvoice(Long invoiceId, InvoiceStatus status);
+
+    Invoice getInvoiceById(Long invoiceId);
 }
