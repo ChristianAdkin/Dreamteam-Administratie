@@ -121,6 +121,7 @@ public class UserPortalResource {
 
     @GET
     @Path("routes/{routeId}/coords")
+    @Produces({MediaType.APPLICATION_JSON})
     public Response getCoordsByRoute(@PathParam("routeId") Long id) {
         String json = urlHelper.getDataFromUrl("http://192.168.24.31:8080/movement-registration/api/routes/" + id);
 
