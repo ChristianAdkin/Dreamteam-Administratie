@@ -44,10 +44,6 @@ public class TranslocationServiceImpl implements TranslocationService {
     }
 
     @Override
-    public List<CoordinateDTO> getCoordinateDtosOfRoute(Long routeId) {return this.carDao.getCoordinatesOfRoute(routeId);
-    }
-
-    @Override
     public Double getAmountOfDrivenKmTodayOfUser(Long userId) {
         List<Invoice> invoices = invoiceDao.findByUser(userId);
         invoices = sortInvoices(invoices);

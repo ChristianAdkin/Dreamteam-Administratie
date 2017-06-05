@@ -13,7 +13,7 @@ import java.util.List;
 public class Route implements Serializable, Comparable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
@@ -39,6 +39,8 @@ public class Route implements Serializable, Comparable {
     public Long getId() {
         return id;
     }
+
+    public void setId(Long id) { this.id = id; }
 
     public BigDecimal getPrice() {
         return price;
