@@ -9,18 +9,18 @@ import org.primefaces.model.map.MapModel;
 import org.primefaces.model.map.Polygon;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  * Created by hein on 6/6/17.
  */
-@ManagedBean
+@Named
 @RequestScoped
 public class RegionMapBean {
 
-    @ManagedProperty("#{regionBean")
+    @Inject
     private RegionBean regionBean;
 
     private MapModel polygonModel;

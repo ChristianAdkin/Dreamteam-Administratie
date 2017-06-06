@@ -1,19 +1,8 @@
 package com.dreamteam.payd.administration.bean.settings.region;
 
-import com.dreamteam.payd.administration.dao.RegionDao;
-import com.dreamteam.payd.administration.dao.qualifier.CollectionMock;
-import com.dreamteam.payd.administration.dao.qualifier.JPA;
-import com.dreamteam.payd.administration.model.GeoLocation;
 import com.dreamteam.payd.administration.model.Region;
 import com.dreamteam.payd.administration.service.internal.RegionService;
 import com.dreamteam.payd.administration.util.ContextUtil;
-import org.primefaces.event.SelectEvent;
-import org.primefaces.model.map.DefaultMapModel;
-import org.primefaces.model.map.LatLng;
-import org.primefaces.model.map.MapModel;
-import org.primefaces.model.map.Polygon;
-
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -25,7 +14,7 @@ import java.util.List;
 /**
  * Created by Christian Adkin on 11/04/2017.
  */
-@ManagedBean
+@Named
 @ViewScoped
 public class RegionBean implements Serializable {
 
