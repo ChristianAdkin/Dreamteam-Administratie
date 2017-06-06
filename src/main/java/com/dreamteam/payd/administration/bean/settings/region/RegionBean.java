@@ -13,6 +13,7 @@ import org.primefaces.model.map.LatLng;
 import org.primefaces.model.map.MapModel;
 import org.primefaces.model.map.Polygon;
 
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -24,7 +25,7 @@ import java.util.List;
 /**
  * Created by Christian Adkin on 11/04/2017.
  */
-@Named
+@ManagedBean
 @ViewScoped
 public class RegionBean implements Serializable {
 
@@ -34,12 +35,9 @@ public class RegionBean implements Serializable {
     private List<Region> regions;
     private Region selectedRegion;
 
-    private MapModel polygonModel;
-
     public void init() {
         if (!ContextUtil.isAjaxRequest(FacesContext.getCurrentInstance())) {
             regions = new ArrayList<>();
-            polygonModel = new DefaultMapModel();
             construct();
         }
     }
@@ -58,19 +56,6 @@ public class RegionBean implements Serializable {
         return foundRegions;
     }
 
-    public void onMapPolygon(SelectEvent event) {
-        polygonModel.getPolygons().clear();
-        Polygon polygon = new Polygon();
-        for (GeoLocation geo :selectedRegion.getGeoLocations()) {
-            polygon.getPaths().add(new LatLng(geo.getLatitude(), geo.getLongitude()));
-        }
-        polygon.setStrokeColor("#adadad");
-        polygon.setFillColor("#c6c6c6");
-        polygon.setStrokeOpacity(0.7);
-        polygon.setFillOpacity(0.7);
-        polygonModel.addOverlay(polygon);
-    }
-
     //<editor-fold desc="Getters/setters">
     public List<Region> getRegions() {
         return regions;
@@ -87,14 +72,5 @@ public class RegionBean implements Serializable {
     public void setSelectedRegion(Region selectedRegion) {
         this.selectedRegion = selectedRegion;
     }
-
-    public MapModel getPolygonModel() {
-        return polygonModel;
-    }
-
-    public void setPolygonModel(MapModel polygonModel) {
-        this.polygonModel = polygonModel;
-    }
-
     //</editor-fold>
 }
