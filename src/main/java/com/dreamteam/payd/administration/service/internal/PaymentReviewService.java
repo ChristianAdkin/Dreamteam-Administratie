@@ -11,4 +11,6 @@ public interface PaymentReviewService {
     List<Invoice> queryInvoices(String query);
 
     Invoice getInvoiceById(Long invoiceId);
+
+    Invoice updateInvoice(Invoice invoice);
 }

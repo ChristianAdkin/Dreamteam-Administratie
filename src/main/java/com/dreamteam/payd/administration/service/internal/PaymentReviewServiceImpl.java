@@ -25,4 +25,9 @@ public class PaymentReviewServiceImpl implements PaymentReviewService {
     public Invoice getInvoiceById(Long invoiceId) {
         return this.invoiceDao.findById(invoiceId);
     }
+
+    @Override
+    public Invoice updateInvoice(Invoice invoice) {
+        return this.invoiceDao.update(invoice);
+    }
 }
