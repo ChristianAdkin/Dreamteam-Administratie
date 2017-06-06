@@ -62,6 +62,9 @@ public class Initializer implements Serializable {
     private RoleDao roleDao;
 
     @Inject
+    private RouteDao routeDao;
+
+    @Inject
     private UserDao userDao;
 
     @PostConstruct
@@ -109,6 +112,12 @@ public class Initializer implements Serializable {
         carDao.create(car1);
 
         Day day = new Day();
+        List<Route> routes = new ArrayList<>();
+        Route route = new Route(day);
+        route.setId(1L);
+        routeDao.create(route);
+        routes.add(route);
+        day.setRoutes(routes);
         day.setDistance(5000L);
         dayDao.create(day);
 
