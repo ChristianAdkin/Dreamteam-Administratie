@@ -22,6 +22,12 @@
             <div class="ui-g ui-g-nopad">
                 <div class="ui-g-3"></div>
                 <div class="ui-g-6 ui-g-nopad">
+                    <div class="ui-g-9">
+
+                    </div>
+                    <div class="ui-g-3 ui-fluid">
+                        <p:commandButton value="Close invoice" action="#{selectedInvoiceBean.closeInvoice()}"/>
+                    </div>
                     <div class="ui-g-6">
                         <div class="ui-g-12">
                             <p:outputLabel value="#{selectedInvoiceBean.invoice.citizen.name}"/>

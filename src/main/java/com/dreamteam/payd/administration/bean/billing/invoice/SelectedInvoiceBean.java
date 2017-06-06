@@ -1,6 +1,7 @@
 package com.dreamteam.payd.administration.bean.billing.invoice;
 
 import com.dreamteam.payd.administration.model.Invoice;
+import com.dreamteam.payd.administration.model.InvoiceStatus;
 import com.dreamteam.payd.administration.service.internal.PaymentReviewService;
 import com.dreamteam.payd.administration.util.ContextUtil;
 
@@ -32,6 +33,11 @@ public class SelectedInvoiceBean implements Serializable {
 
     private void construct() {
 
+    }
+
+    public void closeInvoice() {
+        this.invoice.setInvoiceStatus(InvoiceStatus.CLOSED);
+        this.invoice = this.paymentReviewService.updateInvoice(this.invoice);
     }
 
     public Long getInvoiceId() {
