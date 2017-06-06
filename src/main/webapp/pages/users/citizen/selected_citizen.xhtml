@@ -65,9 +65,9 @@
                                     <p:outputLabel value="Date of birth:"/>
                                 </div>
                                 <div class="ui-g-9">
-                                    <p:outputLabel value="#{selectedCitizenBean.citizen.dateOfBirth}">
+                                    <h:outputText value="#{selectedCitizenBean.citizen.dateOfBirth}">
                                         <f:convertDateTime pattern="dd-MM-yyyy"/>
-                                    </p:outputLabel>
+                                    </h:outputText>
                                     <p:calendar id="inline" value="#{selectedCitizenBean.citizen.dateOfBirth}"
                                                 mode="inline"/>
                                 </div>
