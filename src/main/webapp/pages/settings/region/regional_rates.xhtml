@@ -35,7 +35,7 @@
                             <p:outputLabel value="Region:" for="labelRegionName"/>
                         </div>
                         <div class="ui-g-12">
-                            <p:gmap id="gmap" center="36.890257,30.707417" zoom="13" type="HYBRID" style="width:100%;height:400px" model="#{regionBean.polygonModel}"/>
+                            <p:gmap id="gmap" center="51.065819,10.373295" zoom="6" type="HYBRID" style="width:100%;height:400px" model="#{regionBean.polygonModel}"/>
                         </div>
                         <div class="ui-g-6">
                             <p:outputLabel id="labelRegionName" value="#{regionBean.selectedRegion.name}"/>
@@ -81,5 +81,5 @@
             </div>
         </h:form>
     </ui:define>
-
+    <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 </ui:composition>
