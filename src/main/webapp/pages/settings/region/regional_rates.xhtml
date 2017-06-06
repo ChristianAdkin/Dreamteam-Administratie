@@ -25,10 +25,10 @@
                         <div class="ui-g-6">
                             <p:autoComplete id="acRegion" value="#{regionBean.selectedRegion}" var="region"
                                             itemValue="#{region.id}" itemLabel="#{region.name}"
-                                            completeMethod="#{regionBean.findMatchingRegions}"
-                                            selectListener="#{regionBean.setMapPolygon}">
+                                            completeMethod="#{regionBean.findMatchingRegions}">
                                 <f:converter binding="#{regionConverter}"/>
                                 <p:ajax event="itemSelect" process="@this" update="@form"/>
+                                <p:ajax event="itemSelect" listener="#{regionBean.onMapPolygon}" update="gmap"/>
                             </p:autoComplete>
                         </div>
                         <div class="ui-g-6">

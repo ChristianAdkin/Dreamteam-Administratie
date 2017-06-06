@@ -58,7 +58,7 @@ public class RegionBean implements Serializable {
         return foundRegions;
     }
 
-    public void setMapPolygon(SelectEvent event) {
+    public void onMapPolygon(SelectEvent event) {
         polygonModel.getPolygons().clear();
         Polygon polygon = new Polygon();
         for (GeoLocation geo :selectedRegion.getGeoLocations()) {
