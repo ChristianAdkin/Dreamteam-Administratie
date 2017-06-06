@@ -41,6 +41,7 @@ public class RegionMapBean {
     }
 
     public void onMapPolygon(SelectEvent event) {
+        selectedRegion = regionBean.getSelectedRegion();
         polygonModel.getPolygons().clear();
         Polygon polygon = new Polygon();
         for (GeoLocation geo : selectedRegion.getGeoLocations()) {
