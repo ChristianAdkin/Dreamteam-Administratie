@@ -53,6 +53,7 @@ public class RegionBean implements Serializable {
     }
 
     public void onItemSelect(SelectEvent event) {
+        selectedRegion = (Region) event.getObject();
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Item Selected", event.getObject().toString()));
     }
 
