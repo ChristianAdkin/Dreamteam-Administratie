@@ -19,6 +19,7 @@ import java.util.List;
  * Created by Christian Adkin on 11/04/2017.
  */
 @ManagedBean
+@ViewScoped
 public class RegionBean implements Serializable {
 
     @Inject
@@ -30,6 +31,7 @@ public class RegionBean implements Serializable {
     public void init() {
         if (!ContextUtil.isAjaxRequest(FacesContext.getCurrentInstance())) {
             regions = new ArrayList<>();
+            selectedRegion = new Region();
             construct();
         }
     }
