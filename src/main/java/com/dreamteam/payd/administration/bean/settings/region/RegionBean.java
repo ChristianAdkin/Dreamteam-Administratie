@@ -7,6 +7,7 @@ import org.primefaces.event.SelectEvent;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.bean.ManagedBean;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -17,8 +18,7 @@ import java.util.List;
 /**
  * Created by Christian Adkin on 11/04/2017.
  */
-@Named
-@ViewScoped
+@ManagedBean
 public class RegionBean implements Serializable {
 
     @Inject
