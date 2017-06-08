@@ -26,7 +26,6 @@ public class RegionConverter implements Converter, Serializable {
     @Inject
     private RegionBean regionBean;
 
-    @Override
     public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String value) {
         if (value != null && value.trim().length() > 0) {
             try {
@@ -39,7 +38,6 @@ public class RegionConverter implements Converter, Serializable {
         }
     }
 
-    @Override
     public String getAsString(FacesContext facesContext, UIComponent uiComponent, Object region) {
         if (region != null) {
             return String.valueOf(((Region) region).getId());
