@@ -29,6 +29,7 @@
                                             converter="regionConverter" forceSelection="true"
                                             completeMethod="#{regionBean.findMatchingRegions}">
                                 <p:ajax event="itemSelect" process="@this" update="@form"/>
+                                <p:ajax event="itemSelect" listener="#{regionBean.onItemSelect}" update="msgs"/>
                                 <p:ajax event="itemSelect" listener="#{regionMapBean.onMapPolygon}" update="gmap"/>
                             </p:autoComplete>
                         </div>
