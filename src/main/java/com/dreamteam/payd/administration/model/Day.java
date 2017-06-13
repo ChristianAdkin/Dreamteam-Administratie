@@ -22,6 +22,9 @@ public class Day implements Serializable {
 
     private Long distance;
 
+    @OneToOne
+    private InvoiceLine invoiceLine;
+
     @OneToMany
     private List<Route> routes;
 
@@ -56,13 +59,11 @@ public class Day implements Serializable {
     }
 
     public BigDecimal getTotalPrice() {
-        BigDecimal d = new BigDecimal(0);
-        for (Route r : routes) {
-            d = d.add(r.getPrice());
-        }
-        return d;
+        return invoiceLine.getPrice();
     }
 
 
-
+    public void setInvoiceLine(InvoiceLine invoiceLine) {
+        this.invoiceLine = invoiceLine;
+    }
 }

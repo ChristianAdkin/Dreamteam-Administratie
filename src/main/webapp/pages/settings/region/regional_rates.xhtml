@@ -26,18 +26,17 @@
                         <div class="ui-g-6">
                             <p:autoComplete id="acRegion" value="#{regionBean.selectedRegion}" var="region"
                                             itemValue="#{region}" itemLabel="#{region.name}"
-                                            converter="regionConverter" forceSelection="true"
+                                            forceSelection="true"
                                             completeMethod="#{regionBean.findMatchingRegions}">
-                                <p:ajax event="itemSelect" process="@this" update="@form"/>
-                                <p:ajax event="itemSelect" listener="#{regionBean.onItemSelect}" update="msgs"/>
-                                <p:ajax event="itemSelect" listener="#{regionMapBean.onMapPolygon}" update="gmap"/>
+                                <f:converter binding="#{regionConverter}"/>
+                                <p:ajax event="itemSelect" listener="#{regionBean.onItemSelect}" process="@this" update="@form"/>
                             </p:autoComplete>
                         </div>
                         <div class="ui-g-6">
                             <p:outputLabel value="Region:" for="labelRegionName"/>
                         </div>
                         <div class="ui-g-12">
-                            <p:gmap id="gmap" center="51.065819,10.373295" zoom="6" type="HYBRID" style="width:100%;height:400px" model="#{regionMapBean.polygonModel}"/>
+                            <p:gmap id="gmap" center="51.065819,10.373295" zoom="6" type="HYBRID" style="width:100%;height:400px" model="#{regionBean.polygonModel}"/>
                         </div>
                         <div class="ui-g-6">
                             <p:outputLabel id="labelRegionName" value="#{regionBean.selectedRegion.name}"/>
