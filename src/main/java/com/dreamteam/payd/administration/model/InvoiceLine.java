@@ -66,6 +66,7 @@ public class InvoiceLine implements Serializable {
 
     public void setDay(Day day) {
         this.day = day;
+        day.setInvoiceLine(this);
     }
 
     public double getDistance() {

@@ -263,6 +263,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/bean/settings/region/RegionMapBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/bean/user/car/AddCarBean.java">
           <value>
             <set />
@@ -593,6 +598,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/mapper/InvoiceDayMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dreamteam/payd/administration/model/mapper/InvoiceMapper.java">
           <value>
             <set />
@@ -754,6 +764,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/webapp/pages/billing/invoice/selected_invoice.xhtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/pages/settings/region/regional_rates.xhtml">
           <value>
             <set />
           </value>
