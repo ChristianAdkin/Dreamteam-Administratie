@@ -149,7 +149,7 @@ public class Initializer implements Serializable {
             this.invoiceDao.create(invoice);
         }
 
-        Cartracker cartracker = new Cartracker(car1, "DE200000000000001");
+        Cartracker cartracker = new Cartracker(car1, "DE 200 000 000 000 001");
         cartrackerDao.create(cartracker);
 
         Ownership ownership = new Ownership(citizen, car1, DateUtil.from(LocalDateTime.of(2015, Month.NOVEMBER, 12, 0, 0)));
@@ -160,7 +160,7 @@ public class Initializer implements Serializable {
         car2.setFuelType(FuelType.DIESEL);
         carDao.create(car2);
 
-        Cartracker cartracker2 = new Cartracker(car2, "DE200000000000002");
+        Cartracker cartracker2 = new Cartracker(car2, "DE 200 000 000 000 002");
         cartrackerDao.create(cartracker2);
 
         Ownership ownership2 = new Ownership(citizen, car2, DateUtil.from(LocalDateTime.of(2015, Month.NOVEMBER, 12, 0, 0)));
@@ -196,7 +196,7 @@ public class Initializer implements Serializable {
         //For each car create a Cartracker
         int i = 0;
         for (Car e : cars) {
-            this.createCartracker(e, "DE20000000000000" + Integer.toString(i));
+            this.createCartracker(e, "DE 200 000 000 000 00" + Integer.toString(i));
             i++;
         }
 
