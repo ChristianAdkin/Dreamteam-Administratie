@@ -9,14 +9,14 @@ import java.util.Date;
 public class InvoiceRouteDTO {
 
     private Long id;
-    private Long totalprice;
+    private double totalprice;
 
     private Date starttime;
     private Date endtime;
 
-    private Long drivenkm;
+    private double drivenkm;
 
-    public InvoiceRouteDTO(Long id, Long totalprice, Date starttime, Date endtime, Long drivenkm) {
+    public InvoiceRouteDTO(Long id, double totalprice, Date starttime, Date endtime, double drivenkm) {
         this.id = id;
         this.totalprice = totalprice;
         this.starttime = starttime;
@@ -32,16 +32,16 @@ public class InvoiceRouteDTO {
         this.id = id;
     }
 
-    public Long getTotalprice() {
+    public Date getStarttime() {
+        return starttime;
+    }
+
+    public double getTotalprice() {
         return totalprice;
     }
 
-    public void setTotalprice(Long totalprice) {
+    public void setTotalprice(double totalprice) {
         this.totalprice = totalprice;
-    }
-
-    public Date getStarttime() {
-        return starttime;
     }
 
     public void setStarttime(Date starttime) {
@@ -56,11 +56,11 @@ public class InvoiceRouteDTO {
         this.endtime = endtime;
     }
 
-    public Long getDrivenkm() {
+    public double getDrivenkm() {
         return drivenkm;
     }
 
-    public void setDrivenkm(Long drivenkm) {
+    public void setDrivenkm(double drivenkm) {
         this.drivenkm = drivenkm;
     }
 }
