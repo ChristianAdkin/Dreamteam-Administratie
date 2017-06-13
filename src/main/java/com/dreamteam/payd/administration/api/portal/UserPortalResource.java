@@ -122,9 +122,11 @@ public class UserPortalResource {
     @GET
     @Path("/days/{dayId}/routes")
     public Response getRoutesByDay(@PathParam("dayId") Long dayId) {
-        String json = urlHelper.getDataFromUrl("http://192.168.24.31:8080/movement-registration/api/day/" + dayId + "/routes");
-
-        return buildResponse(json);
+        return buildResponse(
+                new InvoiceRouteDtoMapper().to(
+                        this.paymentService.getInvoiceRoutesOfDay(dayId)
+                )
+        );
     }
 
     @GET
