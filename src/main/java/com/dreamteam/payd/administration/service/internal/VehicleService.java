@@ -29,4 +29,6 @@ public interface VehicleService {
     List<Cartracker> queryCartrackersByICAN(String query);
 
     Car findCarById(Long carId);
+
+    List<Car> findCarByICAN(String ICAN);
 }

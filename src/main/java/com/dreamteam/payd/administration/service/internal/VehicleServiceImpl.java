@@ -61,4 +61,9 @@ public class VehicleServiceImpl implements VehicleService {
         return this.carDao.findById(carId);
     }
 
+    @Override
+    public List<Car> findCarByICAN(String ICAN) {
+        return this.carDao.findByICAN(ICAN);
+    }
+
 }
