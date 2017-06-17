@@ -13,4 +13,9 @@ public interface PaymentReviewService {
     Invoice getInvoiceById(Long invoiceId);
 
     Invoice updateInvoice(Invoice invoice);
+
+    List<Invoice> getOverdueInvoices();
+
+    void sendPaymentReminders();
+
 }

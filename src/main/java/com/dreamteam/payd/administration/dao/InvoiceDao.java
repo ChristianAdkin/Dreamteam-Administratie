@@ -21,4 +21,7 @@ public interface InvoiceDao extends BaseDao<Invoice> {
     List<Invoice> query(String query);
 
     void updateInvoiceStatusToOpen();
+
+    List<Invoice> getOverdueInvoices();
+
 }
