@@ -5,6 +5,7 @@ package com.dreamteam.payd.administration.bean.jms.dto;
  */
 public class CarRegistrationDto {
 
+    private String ICAN;
     private String VIN;
     private String licenceplate;
     private String fuelType;
@@ -14,6 +15,14 @@ public class CarRegistrationDto {
     private String lastName;
 
     public CarRegistrationDto() {
+    }
+
+    public String getICAN() {
+        return ICAN;
+    }
+
+    public void setICAN(String ICAN) {
+        this.ICAN = ICAN;
     }
 
     public String getVIN() {
