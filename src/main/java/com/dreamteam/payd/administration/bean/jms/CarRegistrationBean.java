@@ -50,9 +50,9 @@ public class CarRegistrationBean implements MessageListener {
 
     private void processCar(String carRegistrationDetailsJson) {
         CarRegistrationDto carRegistrationDetails = new Gson().fromJson(carRegistrationDetailsJson, CarRegistrationDto.class);
-        Citizen citizen = driverRegistrationService.findCitizenByCSN(carRegistrationDetails.getIdNumber());
+        Citizen citizen = driverRegistrationService.findCitizenByCSN(carRegistrationDetails.getCSN());
         if (citizen == null) {
-            citizen = new Citizen(carRegistrationDetails.getIdNumber(),
+            citizen = new Citizen(carRegistrationDetails.getCSN(),
                     carRegistrationDetails.getFirstName(),
                     carRegistrationDetails.getLastName());
         }

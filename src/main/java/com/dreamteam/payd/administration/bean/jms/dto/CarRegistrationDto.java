@@ -10,7 +10,7 @@ public class CarRegistrationDto {
     private String licenceplate;
     private String fuelType;
     private String colour;
-    private String idNumber;
+    private String CSN;
     private String firstName;
     private String lastName;
 
@@ -57,12 +57,12 @@ public class CarRegistrationDto {
         this.colour = colour;
     }
 
-    public String getIdNumber() {
-        return idNumber;
+    public String getCSN() {
+        return CSN;
     }
 
-    public void setIdNumber(String idNumber) {
-        this.idNumber = idNumber;
+    public void setCSN(String CSN) {
+        this.CSN = CSN;
     }
 
     public String getFirstName() {
