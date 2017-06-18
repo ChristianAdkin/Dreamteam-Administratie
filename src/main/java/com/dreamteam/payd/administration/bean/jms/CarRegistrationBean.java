@@ -22,7 +22,7 @@ import java.util.Date;
 @MessageDriven(name = "carreceivebean", activationConfig = {
         @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "queue/carReceiveQueue"),
         @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
-        @ActivationConfigProperty(propertyName = "destination", propertyValue = "carReceiveQueue"),
+        @ActivationConfigProperty(propertyName = "destination", propertyValue = "queue/carReceiveQueue"),
         @ActivationConfigProperty(propertyName = "resourceAdapter", propertyValue = "activemq-rar")
 })
 public class CarRegistrationBean implements MessageListener {
