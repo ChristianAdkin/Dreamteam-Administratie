@@ -14,6 +14,8 @@ public interface DriverRegistrationService {
 
     Citizen findCitizenById(Long citizenId);
 
+    Citizen findCitizenByCSN(String csn);
+
     Ownership getOwnershipByCar(Car car);
 
     Citizen getCitizenByCar(Car car);

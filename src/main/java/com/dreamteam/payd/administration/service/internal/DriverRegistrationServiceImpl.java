@@ -36,6 +36,8 @@ public class DriverRegistrationServiceImpl implements DriverRegistrationService 
         return citizenDao.findById(citizenId);
     }
 
+    @Override
+    public Citizen findCitizenByCSN(String csn) { return citizenDao.findByCSN(csn); }
 
     @Override
     public Ownership getOwnershipByCar(Car car) {
