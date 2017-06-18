@@ -3,14 +3,17 @@ package com.dreamteam.payd.administration.bean.jms.dto;
 /**
  * Created by hein on 6/13/17.
  */
-public class CarReceivedDto {
+public class CarRegistrationDto {
 
     private String VIN;
     private String licenceplate;
     private String fuelType;
     private String colour;
+    private String idNumber;
+    private String firstName;
+    private String lastName;
 
-    public CarReceivedDto() {
+    public CarRegistrationDto() {
     }
 
     public String getVIN() {
@@ -43,5 +46,29 @@ public class CarReceivedDto {
 
     public void setColour(String colour) {
         this.colour = colour;
+    }
+
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
