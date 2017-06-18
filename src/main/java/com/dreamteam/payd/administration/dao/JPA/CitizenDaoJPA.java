@@ -28,4 +28,12 @@ public class CitizenDaoJPA extends BaseDaoJPA<Citizen> implements CitizenDao {
                 .setParameter("query", "%" + query + "%")
                 .getResultList();
     }
+
+    @Override
+    public Citizen findByCSN(String csn) {
+        return getSingleResult(entityManager.createQuery("SELECT c FROM Citizen c " +
+                "WHERE c.idNumber = :csn", Citizen.class)
+                .setParameter("csn", csn)
+                .getResultList());
+    }
 }

@@ -10,7 +10,10 @@ import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
 import javax.inject.Inject;
 import javax.jms.*;
+import javax.json.Json;
 import javax.json.JsonObject;
+import javax.json.JsonReader;
+import java.io.StringReader;
 import java.util.List;
 
 /**
@@ -47,7 +50,8 @@ public class CarDetailsRequestBean implements MessageListener {
     }
 
     private Car retrieveCar(String carDetailJson) {
-        JsonObject carObject = new Gson().fromJson(carDetailJson, JsonObject.class);
+        JsonReader jsonReader = Json.createReader(new StringReader(carDetailJson));
+        JsonObject carObject = jsonReader.readObject();
         String ican = carObject.getString("ICAN");
         List<Car> cars = vehicleService.findCarByICAN(ican);
         return cars.get(0);
