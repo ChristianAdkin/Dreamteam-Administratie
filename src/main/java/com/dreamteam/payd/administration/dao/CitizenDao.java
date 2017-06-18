@@ -11,4 +11,6 @@ public interface CitizenDao extends BaseDao<Citizen> {
     Citizen findByEmail(String email);
 
     List<Citizen> queryByDetails(String query);
+
+    Citizen findByCSN(String csn);
 }
