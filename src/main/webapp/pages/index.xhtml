@@ -14,13 +14,35 @@
     </ui:define>
 
     <ui:define name="content">
+        <f:event type="preRenderView" listener="#{dashboardBean.init}"/>
             <div class="ui-g">
+                <div class="ui-g-3"></div>
                 <div class="ui-g-6">
+                    <h2>Overdue invoices:</h2>
+                    <p:dataTable var="invoice" value="#{dashboardBean.overdueInvoices}">
+                        <p:column headerText="Invoice Id">
+                            <h:outputLink  value="#{request.contextPath}/#{lang.nav_prefix}/pages/billing/invoice/selected_invoice.xhtml">
+                                #{invoice.id}
+                                <f:param name="invoiceId" value="#{invoice.id}"/>
+                            </h:outputLink>
+                        </p:column>
 
-                </div>
-                <div class="ui-g-6">
+                        <p:column headerText="Date">
+                            <h:outputText value="#{invoice.dateOfInvoice}">
+                                <f:convertDateTime pattern="dd-MM-yyyy"/>
+                            </h:outputText>
+                        </p:column>
 
+                        <p:column headerText="Status">
+                            <h:outputText value="#{invoice.invoiceStatus}"/>
+                        </p:column>
+
+                        <p:column headerText="Total price" style="text-align: right">
+                            <h:outputText value="#{invoice.totalPrice.toPlainString()}"/>
+                        </p:column>
+                    </p:dataTable>
                 </div>
+                <div class="ui-g-3"></div>
             </div>
     </ui:define>
 
