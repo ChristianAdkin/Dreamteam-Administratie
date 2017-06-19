@@ -33,13 +33,12 @@ public class RegionBean implements Serializable {
     private Region selectedRegion;
 
     private MapModel polygonModel;
+    private String coordinates = "[]";
 
     public void init() {
         if (!ContextUtil.isAjaxRequest(FacesContext.getCurrentInstance())) {
             regions = new ArrayList<>();
             selectedRegion = new Region();
-
-
             construct();
             selectedRegion = regions.get(0);
             polygonModel = new DefaultMapModel();
@@ -68,7 +67,11 @@ public class RegionBean implements Serializable {
         selectedRegion = (Region) event.getObject();
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Item Selected", event.getObject().toString()));
         this.polygonModel = new DefaultMapModel();
-        onMapPolygon();
+        coordinates = "[\n";
+        for (GeoLocation geo : selectedRegion.getGeoLocations()) {
+            coordinates += " { \"lat\": " + geo.getLatitude() + ", \"lng\": " + geo.getLongitude() + "\n}, ";
+        }
+        coordinates += "]";
     }
 
     public MapModel getPolygonModel() {
@@ -108,5 +111,14 @@ public class RegionBean implements Serializable {
     public void setSelectedRegion(Region selectedRegion) {
         this.selectedRegion = selectedRegion;
     }
+
+    public String getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(String coordinates) {
+        this.coordinates = coordinates;
+    }
+
     //</editor-fold>
 }
