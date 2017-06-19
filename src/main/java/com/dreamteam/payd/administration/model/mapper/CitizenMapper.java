@@ -15,13 +15,15 @@ public class CitizenMapper extends BaseMapperUtil<Citizen, UserDTO> {
     @Override
     public UserDTO to(Citizen citizen) {
         UserDTO userDTO = new UserDTO();
-        userDTO.setId(citizen.getUser().getId());
         userDTO.setIdNumber(citizen.getIdNumber());
         userDTO.setInitials(citizen.getInitials());
         userDTO.setFirstname(citizen.getFirstName());
         userDTO.setPreposition(citizen.getPreposition());
         userDTO.setLastname(citizen.getLastName());
-        userDTO.setEmail(citizen.getUser().getEmailAddress());
+        if (citizen.getUser() != null) {
+            userDTO.setEmail(citizen.getUser().getEmailAddress());
+            userDTO.setId(citizen.getUser().getId());
+        }
         userDTO.setDateofbirth(citizen.getDateOfBirth());
         return userDTO;
     }
