@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    background-color: #ededed
+}
+
 .login-box {
     background-color: white;
 
@@ -38,4 +43,18 @@
 
 .ui-tabs .ui-tabs-panel {
     padding: 0 0; !important;
+}
+
+.ui-menu.ui-widget .ui-menuitem-link .ui-menuitem-icon {
+    padding: 2px 7px 0 0;
+}
+
+.global-container {
+    margin: 2% 10% 2% 10%;
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+.global-inner-container {
+    background: #FFF;
+    border: 1px solid #e6ecf0;
 }
