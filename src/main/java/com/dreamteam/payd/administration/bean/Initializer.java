@@ -121,29 +121,29 @@ public class Initializer implements Serializable {
         day.setDistance(5000L);
         dayDao.create(day);
 
-        for (int i=0; i < 10; i++){
+        for (int i = 0; i < 10; i++) {
             Invoice invoice = new Invoice(citizen, car1);
             InvoiceLine invoiceLine = new InvoiceLine(new BigDecimal(new Random().nextDouble() * 1200, MathContext.DECIMAL64), invoice);
             invoiceLine.setDay(day);
-            invoiceLine.setDistance(new Random().nextDouble()* 400);
+            invoiceLine.setDistance(new Random().nextDouble() * 400);
             invoice.addInvoiceLine(invoiceLine);
 
             InvoiceLine invoiceLine2 = new InvoiceLine(new BigDecimal(new Random().nextDouble() * 800, MathContext.DECIMAL64), invoice);
             invoiceLine2.setDay(day);
-            invoiceLine2.setDistance(new Random().nextDouble()* 400);
+            invoiceLine2.setDistance(new Random().nextDouble() * 400);
             invoice.addInvoiceLine(invoiceLine2);
 
             int rndLine = new Random().nextInt(3);
-            for (int j=0; j < rndLine; j++){
+            for (int j = 0; j < rndLine; j++) {
                 InvoiceLine invoiceLine3 = new InvoiceLine(new BigDecimal(new Random().nextDouble() * 800, MathContext.DECIMAL64), invoice);
                 invoiceLine3.setDay(day);
-                invoiceLine3.setDistance(new Random().nextDouble()* 400);
+                invoiceLine3.setDistance(new Random().nextDouble() * 400);
                 invoice.addInvoiceLine(invoiceLine3);
             }
 
             LocalDateTime localDateTimeInvoice = LocalDateTime.now();
             localDateTimeInvoice = localDateTimeInvoice.withYear(2017);
-            localDateTimeInvoice = localDateTimeInvoice.withMonth(i+1);
+            localDateTimeInvoice = localDateTimeInvoice.withMonth(i + 1);
             localDateTimeInvoice = localDateTimeInvoice.withDayOfMonth(1);
             invoice.setDateOfInvoice(DateUtil.from(localDateTimeInvoice));
             this.invoiceDao.create(invoice);
@@ -188,20 +188,20 @@ public class Initializer implements Serializable {
 
     public void construct() {
         //Create some default Regions
-        this.createRegions();
+//        this.createRegions();
 
         //Create some cars
-        List<Car> cars = this.createCars();
+//        List<Car> cars = this.createCars();
 
         //For each car create a Cartracker
-        int i = 0;
-        for (Car e : cars) {
-            this.createCartracker(e, "DE 200 000 000 000 00" + Integer.toString(i));
-            i++;
-        }
-
-        List<Citizen> citizens =  this.createCitizens();
-        cars.forEach(e -> this.createOwnership(GeneralUtil.getRandomElement(citizens), e, new Date(), null));
+//        int i = 0;
+//        for (Car e : cars) {
+//            this.createCartracker(e, "DE 200 000 000 000 00" + Integer.toString(i));
+//            i++;
+//        }
+//
+//        List<Citizen> citizens =  this.createCitizens();
+//        cars.forEach(e -> this.createOwnership(GeneralUtil.getRandomElement(citizens), e, new Date(), null));
 
         //Create some citizens and link them to random cars
         //.forEach(e -> createOwnership(e, GeneralUtil.removeRandomElement(cars), new Date(), null));
@@ -230,8 +230,8 @@ public class Initializer implements Serializable {
         createdCars.add(createCar("VIN1", "LicencePlate1", FuelType.BIOFUEL, "Red"));
         createdCars.add(createCar("VIN2", "LicencePlate2", FuelType.DIESEL, "Blue"));
         createdCars.add(createCar("VIN3", "LicencePlate3", FuelType.ELECTRIC, "Green"));
-        createdCars.add(createCar("VIN4", "LicencePlate4", FuelType.HYBRID,"Gold"));
-        createdCars.add(createCar("VIN5", "LicencePlate5", FuelType.BIOFUEL,"Silver"));
+        createdCars.add(createCar("VIN4", "LicencePlate4", FuelType.HYBRID, "Gold"));
+        createdCars.add(createCar("VIN5", "LicencePlate5", FuelType.BIOFUEL, "Silver"));
         createdCars.add(createCar("VIN6", "LicencePlate6", FuelType.GASOLINE, "Black"));
         createdCars.add(createCar("VIN7", "LicencePlate7", FuelType.BIOFUEL, "Yellow"));
         createdCars.add(createCar("VIN8", "LicencePlate8", FuelType.ELECTRIC, "Cyan"));
