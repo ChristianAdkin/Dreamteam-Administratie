@@ -72,7 +72,7 @@ public class CarRegistrationBean implements MessageListener {
         carTracker.setCar(car);
         Ownership ownership = new Ownership(citizen, car, new Date());
         User user = new User(carRegistrationDetails.getEmailAddress(), "test");
-        Role role = roleDao.findByString("citizen");
+        Role role = roleDao.findByString("citizens");
         user.addRole(role);
         citizen.setUser(user);
         persistCar(car, carTracker, citizen, ownership, user);
