@@ -13,6 +13,7 @@ public class CarRegistrationDto {
     private String CSN;
     private String firstName;
     private String lastName;
+    private String emailAddress;
 
     public CarRegistrationDto() {
     }
@@ -79,5 +80,13 @@ public class CarRegistrationDto {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 }

@@ -2,7 +2,11 @@ package com.dreamteam.payd.administration.bean.jms;
 
 import com.dreamteam.payd.administration.bean.jms.dto.CarRegistrationDto;
 import com.dreamteam.payd.administration.dao.OwnershipDao;
+import com.dreamteam.payd.administration.dao.auth.RoleDao;
+import com.dreamteam.payd.administration.dao.auth.UserDao;
 import com.dreamteam.payd.administration.model.*;
+import com.dreamteam.payd.administration.model.auth.Role;
+import com.dreamteam.payd.administration.model.auth.User;
 import com.dreamteam.payd.administration.service.internal.DriverRegistrationService;
 import com.dreamteam.payd.administration.service.internal.VehicleService;
 import com.google.gson.Gson;
@@ -33,6 +37,10 @@ public class CarRegistrationBean implements MessageListener {
     private DriverRegistrationService driverRegistrationService;
     @Inject
     private OwnershipDao ownershipDao;
+    @Inject
+    private UserDao userDao;
+    @Inject
+    private RoleDao roleDao;
 
     @Override
     public void onMessage(Message message) {
@@ -63,14 +71,18 @@ public class CarRegistrationBean implements MessageListener {
         Cartracker carTracker = new Cartracker(carRegistrationDetails.getICAN());
         carTracker.setCar(car);
         Ownership ownership = new Ownership(citizen, car, new Date());
-
-        persistCar(car, carTracker, citizen, ownership);
+        User user = new User(carRegistrationDetails.getEmailAddress(), "test");
+        Role role = roleDao.findByString("citizen");
+        user.addRole(role);
+        citizen.setUser(user);
+        persistCar(car, carTracker, citizen, ownership, user);
     }
 
-    private void persistCar(Car car, Cartracker cartracker, Citizen citizen, Ownership ownership) {
+    private void persistCar(Car car, Cartracker cartracker, Citizen citizen, Ownership ownership, User user) {
         vehicleService.createCar(car);
         vehicleService.createCartracker(cartracker);
         driverRegistrationService.createCitizen(citizen);
         ownershipDao.create(ownership);
+        userDao.create(user);
     }
 }

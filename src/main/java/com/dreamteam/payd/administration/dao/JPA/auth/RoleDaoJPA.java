@@ -11,4 +11,11 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class RoleDaoJPA extends BaseDaoJPA<Role> implements RoleDao {
+    @Override
+    public Role findByString(String roleName) {
+        return getSingleResult(entityManager.createQuery("SELECT r FROM Role r " +
+                "WHERE r.name LIKE :role", Role.class)
+                .setParameter("role", roleName)
+                .getResultList());
+    }
 }
