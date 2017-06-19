@@ -12,6 +12,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -74,5 +75,15 @@ public class InvoiceDaoJPA extends BaseDaoJPA<Invoice> implements InvoiceDao {
         updateCriteria.where(criteriaBuilder.equal(invoice.get("status"), InvoiceStatus.INCOMPLETE));
         int updatedInvoices = entityManager.createQuery(updateCriteria).executeUpdate();
         System.out.println("Number of updated invoices: " + updatedInvoices);
+    }
+
+    @Override
+    public List<Invoice> getOverdueInvoices() {
+        Date today = new Date();
+        InvoiceStatus status = InvoiceStatus.OPEN;
+        return entityManager.createQuery("SELECT i FROM Invoice i WHERE i.overdueDate < :today AND i.invoiceStatus = :status", Invoice.class)
+                .setParameter("today", today)
+                .setParameter("status", status)
+                .getResultList();
     }
 }

@@ -7,5 +7,6 @@ public enum InvoiceStatus {
     PAID,
     OPEN,
     CLOSED,
-    INCOMPLETE
+    INCOMPLETE,
+    REMINDER
 }

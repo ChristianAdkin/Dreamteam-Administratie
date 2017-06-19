@@ -10,6 +10,10 @@ import java.util.Date;
  */
 public class DateUtil {
 
+    public static LocalDateTime to (Date date) {
+        return LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
+    }
+
     public static Date from (LocalDateTime localDateTime) {
         return Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
     }

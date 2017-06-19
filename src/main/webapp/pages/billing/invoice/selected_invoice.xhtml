@@ -41,13 +41,28 @@
                     </div>
                     <div class="ui-g-6" style="text-align: right">
                         <div class="ui-g-12">
-                            <p:outputLabel value="#{selectedInvoiceBean.invoice.citizen.name}"/>
+                            <p:outputLabel value="Deutscher Bundestag"/>
                         </div>
                         <div class="ui-g-12">
-                            <p:outputLabel value="#{selectedInvoiceBean.invoice.citizen.streetName}"/>
+                            <p:outputLabel value="Platz der Republik 1"/>
                         </div>
                         <div class="ui-g-12">
-                            <p:outputLabel value="#{selectedInvoiceBean.invoice.citizen.city}"/>
+                            <p:outputLabel value="Berlin"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:outputLabel value="VAT: 63456576876564"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:outputLabel value="Landesbank Berlin Holding"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:outputLabel value="DE04RABO0337116111"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:outputLabel value="030 98 29 05"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:outputLabel value="https://www.bundestag.de/en/"/>
                         </div>
                     </div>
                     <div class="ui-g-12">
@@ -64,6 +79,14 @@
                         </div>
                         <div class="ui-g-9">
                             <p:outputLabel value="#{selectedInvoiceBean.invoice.dateOfInvoice}">
+                                <f:convertDateTime pattern="dd-MM-yyyy"/>
+                            </p:outputLabel>
+                        </div>
+                        <div class="ui-g-3">
+                            <p:outputLabel value="Payment due by:"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:outputLabel value="#{selectedInvoiceBean.invoice.overdueDate}">
                                 <f:convertDateTime pattern="dd-MM-yyyy"/>
                             </p:outputLabel>
                         </div>
@@ -88,6 +111,14 @@
                                     </f:facet>
                                 </p:column>
                             </p:dataTable>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-3">
+                                <p:outputLabel value="Payment terms:"/>
+                            </div>
+                            <div class="ui-g-9">
+                                <p:outputLabel value="Payment within 30 days."/>
+                            </div>
                         </div>
                     </div>
                     <div class="ui-g-6">

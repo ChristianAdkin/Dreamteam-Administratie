@@ -26,7 +26,7 @@ import java.util.Date;
 @MessageDriven(name = "carreceivebean", activationConfig = {
         @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "queue/carReceiveQueue"),
         @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
-        @ActivationConfigProperty(propertyName = "destination", propertyValue = "carReceiveQueue"),
+        @ActivationConfigProperty(propertyName = "destination", propertyValue = "queue/carReceiveQueue"),
         @ActivationConfigProperty(propertyName = "resourceAdapter", propertyValue = "activemq-rar")
 })
 public class CarRegistrationBean implements MessageListener {
@@ -72,7 +72,7 @@ public class CarRegistrationBean implements MessageListener {
         carTracker.setCar(car);
         Ownership ownership = new Ownership(citizen, car, new Date());
         User user = new User(carRegistrationDetails.getEmailAddress(), "test");
-        Role role = roleDao.findByString("citizen");
+        Role role = roleDao.findByString("citizens");
         user.addRole(role);
         citizen.setUser(user);
         persistCar(car, carTracker, citizen, ownership, user);

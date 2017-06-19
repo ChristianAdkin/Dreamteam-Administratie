@@ -1,5 +1,7 @@
 package com.dreamteam.payd.administration.model;
 
+import com.dreamteam.payd.administration.util.DateUtil;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -23,6 +25,9 @@ public class Invoice implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dateOfInvoice;
 
+    @Temporal(TemporalType.DATE)
+    private Date overdueDate;
+
     @ManyToOne
     private Citizen citizen;
     @ManyToOne
@@ -34,6 +39,7 @@ public class Invoice implements Serializable {
     protected Invoice() {
         this.invoiceLines = new ArrayList<>();
         this.dateOfInvoice = new Date();
+        this.overdueDate = DateUtil.from(DateUtil.to(this.dateOfInvoice).plusDays(30));
         this.invoiceStatus = InvoiceStatus.INCOMPLETE;
     }
 
@@ -42,6 +48,10 @@ public class Invoice implements Serializable {
         this.citizen = citizen;
         this.car = car;
         this.invoiceStatus = InvoiceStatus.INCOMPLETE;
+    }
+
+    public boolean isOverdue() {
+        return this.overdueDate.before(new Date()) && this.invoiceStatus.equals(InvoiceStatus.OPEN);
     }
 
     public BigDecimal getFuelTax() {
@@ -102,6 +112,7 @@ public class Invoice implements Serializable {
 
     public void setDateOfInvoice(Date dateOfInvoice) {
         this.dateOfInvoice = dateOfInvoice;
+        this.overdueDate = DateUtil.from(DateUtil.to(this.dateOfInvoice).plusDays(30));
     }
     
     public void addInvoiceLine(InvoiceLine invoiceLine) {
@@ -117,5 +128,13 @@ public class Invoice implements Serializable {
 
     public void setCitizen(Citizen citizen) {
         this.citizen = citizen;
+    }
+
+    public Date getOverdueDate() {
+        return overdueDate;
+    }
+
+    public void setOverdueDate(Date overdueDate) {
+        this.overdueDate = overdueDate;
     }
 }
