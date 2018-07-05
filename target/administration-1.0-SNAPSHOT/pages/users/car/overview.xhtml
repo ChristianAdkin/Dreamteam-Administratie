@@ -1,0 +1,62 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="../../../templates/default.xhtml">
+
+    <ui:param name="menuRendered" value="true"/>
+
+    <ui:define name="title">Administration - Car overview</ui:define>
+
+    <ui:define name="head">
+
+    </ui:define>
+
+    <ui:define name="content">
+        <f:event type="preRenderView" listener="#{carOverviewBean.init}"/>
+        <h:form>
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-3">
+                </div>
+                <div class="ui-g-6">
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-6">
+                            <p:outputLabel value="Search Cars by Vehicle Identification Number (VIN)"/>
+                        </div>
+                        <div class="ui-g-6">
+                            <p:inputText id="searchString" title="searchString" value="#{carOverviewBean.query}">
+                                <p:ajax event="keyup" listener="#{carOverviewBean.findMatchingCar}" process="@this"
+                                        update="@form"/>
+                            </p:inputText>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-12">
+                            <p:dataTable var="car" value="#{carOverviewBean.queriedCars}">
+                                <p:column headerText="Car's Id">
+                                    <h:outputLink  value="#{request.contextPath}/#{lang.nav_prefix}/pages/users/car/selected_car.xhtml">
+                                        #{car.id}
+                                        <f:param name="carId" value="#{car.id}"/>
+                                    </h:outputLink>
+                                </p:column>
+
+                                <p:column headerText="Car's ICAN">
+                                    <h:outputText value="#{car.cartracker.ICAN}"/>
+                                </p:column>
+
+                                <p:column headerText="Car's licenceplate">
+                                    <h:outputText value="#{car.licenceplate}"/>
+                                </p:column>
+
+                                <p:column headerText="Car's VIN">
+                                    <h:outputText value="#{car.VIN}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

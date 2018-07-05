@@ -1,0 +1,61 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="../../../templates/default.xhtml">
+
+    <ui:param name="menuRendered" value="true"/>
+
+    <ui:define name="title">Administration - Cartracker overview</ui:define>
+
+    <ui:define name="head">
+
+    </ui:define>
+
+    <ui:define name="content">
+        <f:event type="preRenderView" listener="#{cartrackerOverviewBean.init}"/>
+        <h:form>
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-1"></div>
+                <div class="ui-g-10 global-inner-container">
+                    <div class="ui-g ui-fluid">
+
+                        <div class="ui-g-6">
+                            <p:outputLabel value="Search cartrackers by International Car Account Number (ICAN)"/>
+                        </div>
+                        <div class="ui-g-6">
+                            <p:inputText id="searchString" title="searchString" value="#{cartrackerOverviewBean.query}">
+                                <p:ajax event="keyup" listener="#{cartrackerOverviewBean.findMatchingCartracker}"
+                                        process="@this"
+                                        update="@form"/>
+                            </p:inputText>
+                        </div>
+
+                        <div class="ui-g-12">
+                            <p:dataTable var="cartracker"
+                                         value="#{cartrackerOverviewBean.queriedCartrackers}">
+                                <p:column headerText="Cartracker Id">
+                                    <h:outputText value="#{cartracker.id}"/>
+                                </p:column>
+
+                                <p:column headerText="ICAN">
+                                    <h:outputText value="#{cartracker.ICAN}"/>
+                                </p:column>
+
+                                <p:column headerText="Current car's licenceplate">
+                                    <h:outputText value="#{cartracker.car.licenceplate}"/>
+                                </p:column>
+
+                                <p:column headerText="Current car's VIN">
+                                    <h:outputText value="#{cartracker.car.VIN}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-g-1"></div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

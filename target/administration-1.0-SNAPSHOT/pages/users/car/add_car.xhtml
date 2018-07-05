@@ -1,0 +1,62 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="../../../templates/default.xhtml">
+
+    <ui:param name="menuRendered" value="true"/>
+
+    <ui:define name="title">Administration - Add car</ui:define>
+
+    <ui:define name="head">
+
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <div class="ui-g">
+                <div class="ui-g-6">
+                    <div class="ui-g">
+                        <div class="ui-g-3">
+                            <p:outputLabel value="Licenceplate:" for="txtLicenceplate"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:inputText id="txtLicenceplate" value="#{addCarBean.licenceplate}"/>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-3">
+                            <p:outputLabel value="VIN:" for="txtVIN"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:inputText id="txtVIN" value="#{addCarBean.VIN}"/>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-3">
+                            <p:outputLabel value="FuelType:" for="selectFuelType"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:selectOneMenu id="selectFuelType" value="#{addCarBean.fuelType}">
+                                <f:selectItems value="#{addCarBean.fuelTypeValues}" var="fuelType"
+                                               itemValue="#{fuelType}" itemLabel="#{fuelType}"/>
+                            </p:selectOneMenu>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-3">
+                            <p:outputLabel value="Colour:" for="txtColour"/>
+                        </div>
+                        <div class="ui-g-9">
+                            <p:inputText id="txtColour" value="#{addCarBean.colour}"/>
+                        </div>
+                    </div>
+                    <div class="ui-g ui-fluid">
+                        <p:commandButton value="Add car" action="#{addCarBean.save}" update="@form"/>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

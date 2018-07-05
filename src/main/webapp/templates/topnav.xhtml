@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pu="http://primefaces.org/ultima"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <p:megaMenu rendered="#{menuRendered}" orientation="horizontal">
+        <p:submenu label="Home" icon="fa fa-home">
+            <p:column>
+                <p:submenu label="Home">
+                    <p:menuitem value="Dashboard" url="#{lang.nav_prefix}pages/index.xhtml"/>
+                </p:submenu>
+            </p:column>
+
+        </p:submenu>
+
+        <p:submenu label="Settings" icon="fa fa-gears">
+            <p:column>
+                <p:submenu label="#{lang.menu_header_region}">
+                    <p:menuitem value="Regional rates" url="#{lang.nav_prefix}/pages/settings/region/regional_rates.xhtml"/>
+                </p:submenu>
+            </p:column>
+        </p:submenu>
+        <p:submenu label="Billing" icon="fa fa-money">
+            <p:column>
+                <p:submenu label="Invoices">
+                    <p:menuitem value="Overview" url="#{lang.nav_prefix}/pages/billing/invoice/overview.xhtml"/>
+                </p:submenu>
+            </p:column>
+        </p:submenu>
+        <p:submenu label="Users" icon="fa fa-users">
+            <p:column>
+                <p:submenu label="Cars">
+                    <p:menuitem value="Overview" url="#{lang.nav_prefix}/pages/users/car/overview.xhtml"/>
+                    <p:menuitem value="Add car" url="#{lang.nav_prefix}/pages/users/car/add_car.xhtml"/>
+                </p:submenu>
+            </p:column>
+            <p:column>
+                <p:submenu label="Citizens">
+                    <p:menuitem value="Overview" url="#{lang.nav_prefix}/pages/users/citizen/overview.xhtml"/>
+                    <p:menuitem value="Add citizen" url="#{lang.nav_prefix}/pages/users/citizen/add_citizen.xhtml"/>
+                </p:submenu>
+            </p:column>
+            <p:column>
+                <p:submenu label="Cartrackers">
+                    <p:menuitem value="Overview" url="#{lang.nav_prefix}/pages/users/cartracker/overview.xhtml"/>
+                    <p:menuitem value="Add cartracker" url="#{lang.nav_prefix}/pages/users/cartracker/add_cartracker.xhtml"/>
+                </p:submenu>
+            </p:column>
+        </p:submenu>
+    </p:megaMenu>
+</ui:composition>

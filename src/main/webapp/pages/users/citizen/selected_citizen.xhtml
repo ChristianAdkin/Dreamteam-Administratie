@@ -1,0 +1,245 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="../../../templates/default.xhtml">
+
+    <ui:param name="menuRendered" value="true"/>
+
+    <ui:define name="title">Administration - Selected citizen #{selectedCitizenBean.citizen.id}</ui:define>
+
+    <ui:define name="head">
+
+    </ui:define>
+
+    <ui:define name="content">
+        <f:event type="preRenderView" listener="#{selectedCitizenBean.init}"/>
+        <f:metadata>
+            <f:viewParam name="citizenId" value="#{selectedCitizenBean.citizenId}"/>
+        </f:metadata>
+        <h:form>
+            <div class="ui-g-1"></div>
+            <div class="ui-g-10 global-inner-container">
+                <p:tabView>
+                    <p:tab title="Basic information">
+                        <div class="ui-g">
+                            <div class="ui-g-6">
+                                <div class="ui-g">
+                                    <div class="ui-g-3">
+                                        <p:outputLabel value="Initials:"/>
+                                    </div>
+                                    <div class="ui-g-9">
+                                        <p:inplace id="inplcInitials" editor="true">
+                                            <p:inputText value="#{selectedCitizenBean.citizen.initials}" required="true"/>
+                                        </p:inplace>
+                                    </div>
+
+                                    <div class="ui-g-3">
+                                        <p:outputLabel value="First name:"/>
+                                    </div>
+                                    <div class="ui-g-9">
+                                        <p:inplace id="inplcFirstName" editor="true">
+                                            <p:inputText value="#{selectedCitizenBean.citizen.firstName}" required="true"/>
+                                        </p:inplace>
+                                    </div>
+
+                                    <div class="ui-g-3">
+                                        <p:outputLabel value="Preposition:"/>
+                                    </div>
+                                    <div class="ui-g-9">
+                                        <p:inplace id="inplcPrePos" editor="true">
+                                            <p:inputText value="#{selectedCitizenBean.citizen.preposition}"
+                                                         required="true"/>
+                                        </p:inplace>
+                                    </div>
+
+                                    <div class="ui-g-3">
+                                        <p:outputLabel value="Last name:"/>
+                                    </div>
+                                    <div class="ui-g-9">
+                                        <p:inplace id="inplcLastName" editor="true">
+                                            <p:inputText value="#{selectedCitizenBean.citizen.lastName}" required="true"/>
+                                        </p:inplace>
+                                    </div>
+
+                                    <div class="ui-g-3">
+                                        <p:outputLabel value="Date of birth:"/>
+                                    </div>
+                                    <div class="ui-g-9">
+                                        <h:outputText value="#{selectedCitizenBean.citizen.dateOfBirth}">
+                                            <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                        </h:outputText>
+                                        <p:calendar id="inline" value="#{selectedCitizenBean.citizen.dateOfBirth}"
+                                                    mode="inline"/>
+                                    </div>
+
+                                    <div class="ui-g-3">
+                                        <p:outputLabel value="Nationality:"/>
+                                    </div>
+                                    <div class="ui-g-9">
+                                        <p:inplace id="inplcNationality" editor="true">
+                                            <p:inputText value="#{selectedCitizenBean.citizen.nationality}"/>
+                                        </p:inplace>
+                                    </div>
+
+                                    <div class="ui-g-3">
+                                        <p:outputLabel value="Driverslicencetype:"/>
+                                    </div>
+                                    <div class="ui-g-9">
+                                        <p:inplace id="inplcDLT" editor="true">
+                                            <p:inputText value="#{selectedCitizenBean.citizen.driversLicenceType}"/>
+                                        </p:inplace>
+                                    </div>
+
+                                    <div class="ui-g-3">
+                                        <p:outputLabel value="Policynumber:"/>
+                                    </div>
+                                    <div class="ui-g-9">
+                                        <p:inplace id="inplcPolicy" editor="true">
+                                            <p:inputText value="#{selectedCitizenBean.citizen.policyNumber}"/>
+                                        </p:inplace>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-g-6">
+                                <div class="ui-g">
+                                    <div class="ui-g-3">
+                                        <p:outputLabel value="Streetname:"/>
+                                    </div>
+                                    <div class="ui-g-9">
+                                        <p:inplace id="inplcStreet" editor="true">
+                                            <p:inputText value="#{selectedCitizenBean.citizen.streetName}"/>
+                                        </p:inplace>
+                                    </div>
+
+                                    <div class="ui-g-3">
+                                        <p:outputLabel value="Number:"/>
+                                    </div>
+                                    <div class="ui-g-9">
+                                        <p:inplace id="inplcNumber" editor="true">
+                                            <p:inputText value="#{selectedCitizenBean.citizen.houseNr}"/>
+                                        </p:inplace>
+                                    </div>
+
+                                    <div class="ui-g-3">
+                                        <p:outputLabel value="Postcode:"/>
+                                    </div>
+                                    <div class="ui-g-9">
+                                        <p:inplace id="inplcPC" editor="true">
+                                            <p:inputText value="#{selectedCitizenBean.citizen.postCode}"/>
+                                        </p:inplace>
+                                    </div>
+
+                                    <div class="ui-g-3">
+                                        <p:outputLabel value="City:"/>
+                                    </div>
+                                    <div class="ui-g-9">
+                                        <p:inplace id="inplcCity" editor="true">
+                                            <p:inputText value="#{selectedCitizenBean.citizen.city}"/>
+                                        </p:inplace>
+                                    </div>
+
+                                    <div class="ui-g-3">
+                                        <p:outputLabel value="Country:"/>
+                                    </div>
+                                    <div class="ui-g-9">
+                                        <p:inplace id="inplcCntry" editor="true">
+                                            <p:inputText value="#{selectedCitizenBean.citizen.country}"/>
+                                        </p:inplace>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-g-12 ui-fluid">
+                                <p:commandButton value="Save" action="#{selectedCitizenBean.save()}">
+
+                                </p:commandButton>
+                            </div>
+                            <div class="ui-g-4">
+                                <div class="ui-g ui-fluid">
+
+                                </div>
+                            </div>
+                        </div>
+                    </p:tab>
+                    <p:tab title="Cars">
+                        <div class="ui-g">
+                            <div class="ui-g-6">
+                                <h3>Current ownerships</h3>
+                                <p:dataTable var="car" value="#{selectedCitizenBean.cars}">
+                                    <p:column headerText="Car's Id">
+                                        <h:outputLink
+                                                value="#{request.contextPath}/#{lang.nav_prefix}/pages/users/car/selected_car.xhtml">
+                                            #{car.id}
+                                            <f:param name="carId" value="#{car.id}"/>
+                                        </h:outputLink>
+                                    </p:column>
+
+                                    <p:column headerText="Car's ICAN">
+                                        <h:outputText value="#{car.cartracker.ICAN}"/>
+                                    </p:column>
+
+                                    <p:column headerText="Car's licenceplate">
+                                        <h:outputText value="#{car.licenceplate}"/>
+                                    </p:column>
+
+                                    <p:column headerText="Car's VIN">
+                                        <h:outputText value="#{car.VIN}"/>
+                                    </p:column>
+                                </p:dataTable>
+                            </div>
+                            <div class="ui-g-6">
+                                <h3>Past ownerships</h3>
+                                <p:dataTable var="pastOwnership" value="#{selectedCitizenBean.pastOwnerships}">
+                                    <p:column headerText="Car ID">
+                                        <h:outputLink
+                                                value="#{request.contextPath}/#{lang.nav_prefix}/pages/users/car/selected_car.xhtml">
+                                            #{pastOwnership.owned.id}
+                                            <f:param name="carId" value="#{pastOwnership.owned.id}"/>
+                                        </h:outputLink>
+                                    </p:column>
+                                    <p:column headerText="Start date">
+                                        <p:outputLabel value="#{pastOwnership.startOwnership}">
+                                            <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                        </p:outputLabel>
+                                    </p:column>
+                                    <p:column headerText="End date">
+                                        <p:outputLabel value="#{pastOwnership.endOwnership}">
+                                            <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                        </p:outputLabel>
+                                    </p:column>
+                                </p:dataTable>
+                            </div>
+                        </div>
+
+                    </p:tab>
+                    <p:tab title="Financial">
+                        <p:dataTable var="invoice" value="#{selectedCitizenBean.citizen.invoices}">
+                            <p:column headerText="Invoice Id">
+                                <h:outputLink  value="#{request.contextPath}/#{lang.nav_prefix}/pages/billing/invoice/selected_invoice.xhtml">
+                                    #{invoice.id}
+                                    <f:param name="invoiceId" value="#{invoice.id}"/>
+                                </h:outputLink>
+                            </p:column>
+
+                            <p:column headerText="Date">
+                                <h:outputText value="#{invoice.dateOfInvoice}">
+                                    <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                </h:outputText>
+                            </p:column>
+
+                            <p:column headerText="Status">
+                                <h:outputText value="#{invoice.invoiceStatus}"/>
+                            </p:column>
+
+                            <p:column headerText="Total price" style="text-align: right">
+                                <h:outputText value="#{invoice.totalPrice.toPlainString()}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </p:tab>
+                </p:tabView>
+            </div>
+            <div class="ui-g-1"></div>
+        </h:form>
+    </ui:define>
+</ui:composition>
